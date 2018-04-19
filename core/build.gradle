@@ -1,0 +1,9 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    implementation libraries.kotlin
+    api libraries.retrofitConverter
+    api libraries.retrofit
+    api libraries.gson
+}
