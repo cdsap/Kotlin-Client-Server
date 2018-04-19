@@ -37,4 +37,4 @@ For the Android App there are two flavours:
 
 - `local`: it uses the local instance of App Engine: http://10.0.2.2:8080
 
-- `gae`: it uses the remote instance of App Engine: https://PROJECT_ID/appspot.com
+- `gae`: it uses the remote instance of App Engine: https://PROJECT_ID.appspot.com
