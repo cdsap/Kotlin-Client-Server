@@ -20,7 +20,7 @@ android {
             }
         }
         multiDexEnabled true
-        buildConfigField("String", "URL", "\"https://kotlin-client-server.appspot.com/\"")
+        buildConfigField("String", "URL", "\"PROJECT_ID/\"")
     }
     buildTypes {
         release {

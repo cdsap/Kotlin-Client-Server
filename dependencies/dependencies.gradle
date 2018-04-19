@@ -11,7 +11,9 @@ ext.versions = [
         objectify     : '5.1.17',
         supportLibrary: '27.1.0',
         coroutines    : '0.21.2',
-        archComponents: '1.0.0'
+        archComponents: '1.0.0',
+        junit         : '4.12',
+        mockito       : '1.5.0'
 ]
 
 ext.libraries = [
@@ -20,9 +22,9 @@ ext.libraries = [
         kotlinGradle     : "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin",
         appengine        : "com.google.appengine:appengine-java-sdk:$versions.appengine",
         endpoints        : "com.google.endpoints:endpoints-framework:$versions.endpoints",
-        javaxServlet    : "javax.servlet:servlet-api:$versions.javax_servlet",
+        javaxServlet     : "javax.servlet:servlet-api:$versions.javax_servlet",
         kotlin           : "org.jetbrains.kotlin:kotlin-stdlib:$versions.kotlin",
-        javaxInject     : "javax.inject:javax.inject:$versions.javax_inject",
+        javaxInject      : "javax.inject:javax.inject:$versions.javax_inject",
         dagger           : "com.google.dagger:dagger:$versions.dagger",
         daggerCompiler   : "com.google.dagger:dagger-compiler:$versions.dagger",
         retrofitConverter: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
@@ -36,6 +38,7 @@ ext.libraries = [
         coroutinesCore   : "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.coroutines",
         coroutinesAndroid: "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.coroutines",
         roomRuntime      : "android.arch.persistence.room:runtime:$versions.archComponents",
-        roomCompiler     : "android.arch.persistence.room:compiler:$versions.archComponents"
-
+        roomCompiler     : "android.arch.persistence.room:compiler:$versions.archComponents",
+        junit            : "junit:junit:$versions.junit",
+        mockito          : "com.nhaarman:mockito-kotlin:$versions.mockito"
 ]

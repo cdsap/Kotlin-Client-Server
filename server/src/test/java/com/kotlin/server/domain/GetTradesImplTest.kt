@@ -2,6 +2,7 @@ package com.kotlin.server.domain
 
 import com.kotlin.core.entities.Trade
 import com.kotlin.core.entities.Trades
+import com.kotlin.server.repository.GetTradesRepository
 import com.nhaarman.mockito_kotlin.whenever
 import junit.framework.Assert.assertTrue
 import org.junit.Test
