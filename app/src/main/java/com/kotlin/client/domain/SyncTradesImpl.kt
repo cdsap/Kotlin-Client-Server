@@ -12,7 +12,7 @@ class SyncTradesImpl @Inject constructor(private val repository: GetTradesReposi
         val getLastTradeById = repository.getLastTradesById(id)
         repository.getTrades(id).trades
                 //   .filter { getLastTradeById.isNotEmpty() && it.trade_id > getLastTradeById[0].trade_id }
-                .map { TradeDb(it.trade_id, it.rate, it.amount, it.trade_date, it.trade_type, "") }
+                .map { TradeDb(it.trade_id, it.rate, it.amount, it.trade_date, it.trade_type, 1L) }
                 .map { repository.save(it) }
     }
 }
