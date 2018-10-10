@@ -8,9 +8,12 @@ import android.arch.persistence.room.Query
 interface DbInterface {
 
     @Query("Select * FROM TradeDb order by trade_id DESC")
-    fun getTradeDb(): List<TradeDb>
+    fun getTradeDb(id: Long): List<TradeDb>
 
     @Insert
     fun insertTrade(pair: TradeDb): Long
+
+    @Query("Select * FROM TradeDb  order by trade_id DESC LIMIT 1")
+    fun getLastTradesById(id: Long): TradeDb
 
 }

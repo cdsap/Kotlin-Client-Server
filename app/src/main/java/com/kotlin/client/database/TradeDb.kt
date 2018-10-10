@@ -9,7 +9,8 @@ class TradeDb(
         var rate: Double = 0.0,
         var amount: Double = 0.0,
         var trade_date: String = "",
-        var trade_type: String = ""
+        var trade_type: String = "",
+        var symbol: String
 ) {
     @PrimaryKey(autoGenerate = true)
     var id: Long = 0L

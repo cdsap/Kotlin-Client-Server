@@ -8,9 +8,8 @@ import com.kotlin.client.database.DbInterface
 import com.kotlin.client.domain.GetTradesImpl
 import com.kotlin.client.domain.SyncTradesImpl
 import com.kotlin.client.presenter.HomeScreenPresenter
-import com.kotlin.client.repository.GetTradesLocalRepository
-import com.kotlin.client.repository.GetTradesRemoteRepository
 import com.kotlin.client.repository.GetTradesRepository
+import com.kotlin.client.repository.GetTradesRepositoryImpl
 import com.kotlin.core.usecases.GetTrades
 import com.kotlin.core.usecases.SyncTrades
 import dagger.Module
@@ -27,32 +26,24 @@ class AppModule(private val context: Context) {
 
     @Provides
     @Singleton
-    fun providesSyncTrades(@Named("local") getTradesRepositoryLocal: GetTradesRepository,
-                           @Named("remote") getTradesRepositoryRemote: GetTradesRepository)
-            : SyncTrades = SyncTradesImpl(getTradesRepositoryRemote, getTradesRepositoryLocal)
+    fun providesSyncTrades(repository: GetTradesRepository)
+            : SyncTrades = SyncTradesImpl(repository)
 
 
     @Provides
     @Singleton
-    fun providesGetTrades(@Named("local") getTradesRepositoryLocal: GetTradesRepository,
-                          @Named("remote") getTradesRepositoryRemote: GetTradesRepository)
-            : GetTrades = GetTradesImpl(getTradesRepositoryRemote, getTradesRepositoryLocal)
+    fun providesRepository(db: DbInterface,
+                           api: BxApi): GetTradesRepository =
+            GetTradesRepositoryImpl(db, api)
+
+    @Provides
+    @Singleton
+    fun providesGetTrades(repository: GetTradesRepository)
+            : GetTrades = GetTradesImpl(repository)
 
     @Provides
     @Singleton
     fun providesPresenter(getTrades: GetTrades) = HomeScreenPresenter(getTrades)
-
-    @Provides
-    @Singleton
-    @Named("remote")
-    fun providesGetTradesRepositoryRemote(api: BxApi): GetTradesRepository =
-            GetTradesRemoteRepository(api)
-
-    @Provides
-    @Singleton
-    @Named("local")
-    fun providesGetTradesRepositoryLocal(db: DbInterface): GetTradesRepository =
-            GetTradesLocalRepository(db)
 
     @Provides
     @Singleton

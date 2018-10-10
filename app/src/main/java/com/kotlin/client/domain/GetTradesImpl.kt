@@ -8,22 +8,21 @@ import com.kotlin.core.usecases.GetTrades
 import javax.inject.Inject
 
 
-class GetTradesImpl @Inject constructor(private val repositoryLocal: GetTradesRepository,
-                                        private val repositoryRemote: GetTradesRepository)
+class GetTradesImpl @Inject constructor(private val repository: GetTradesRepository)
     : GetTrades {
 
     override fun getTrades(id: Long): Trades {
-        val list = repositoryLocal.getTrades(id)
+        val list = repository.getTradesPersisted(id)
         return if (list.trades.isEmpty()) {
-            repositoryRemote.getTrades(id).trades.map {
+            repository.getTradesRemotely(id).trades.map {
                 val trade = TradeDb(trade_type = it.trade_type,
                         trade_date = it.trade_date,
                         trade_id = it.trade_id,
                         amount = it.amount,
                         rate = it.rate)
-                repositoryLocal.save(trade)
+                repository.save(trade)
             }
-            repositoryLocal.getTrades(id)
+            repository.getTradesPersisted(id)
         } else {
             list
         }
