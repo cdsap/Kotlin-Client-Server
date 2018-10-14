@@ -5,11 +5,10 @@ import com.kotlin.server.database.TradeStore
 import com.kotlin.server.repository.GetTradesRepository
 import javax.inject.Inject
 
-class SyncTradesImpl @Inject constructor(private val localRepository: GetTradesRepository,
-                                         private val remoteRepository: GetTradesRepository)
+class SyncTradesImpl @Inject constructor(private val repository: GetTradesRepository)
     : SyncTrades {
     override fun syncTrades(id: Long) {
-        remoteRepository.getTrades(id).trades
+        repository.getTrades(id).trades
                 .map {
                     TradeStore(trade_type = it.trade_type,
                             trade_date = it.trade_date,
@@ -17,7 +16,7 @@ class SyncTradesImpl @Inject constructor(private val localRepository: GetTradesR
                             rate = it.rate,
                             amount = it.amount)
                 }
-                .map { localRepository.save(it) }
+                .map { repository.save(it) }
     }
 
 }

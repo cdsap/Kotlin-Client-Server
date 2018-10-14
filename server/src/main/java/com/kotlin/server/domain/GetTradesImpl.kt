@@ -7,13 +7,12 @@ import com.kotlin.server.repository.GetTradesRepository
 import javax.inject.Inject
 
 class GetTradesImpl @Inject constructor(
-        private val localRepository: GetTradesRepository,
-        private val remoteRepository: GetTradesRepository) : GetTrades {
+        private val repository: GetTradesRepository) : GetTrades {
 
     override fun getTrades(id: Long): Trades {
-        val trades = localRepository.getTrades(id)
+        val trades = repository.getTrades(id)
         if (trades.trades.isEmpty()) {
-            remoteRepository.getTrades(1).trades
+            repository.getTrades(1).trades
                     .map {
                         TradeStore(trade_type = it.trade_type,
                                 trade_date = it.trade_date,
@@ -21,9 +20,9 @@ class GetTradesImpl @Inject constructor(
                                 rate = it.rate,
                                 amount = it.amount)
                     }
-                    .map { localRepository.save(it) }
+                    .map { repository.save(it) }
 
         }
-        return localRepository.getTrades(1)
+        return repository.getTrades(1)
     }
 }

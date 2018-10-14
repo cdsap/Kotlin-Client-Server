@@ -17,14 +17,14 @@ class TradesAdapter(private val trades: List<Trade>) : RecyclerView.Adapter<Trad
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindFeedModel(trades[position])
+        holder.bindTrade(trades[position])
     }
 
     override fun getItemCount() = trades.size
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        fun bindFeedModel(feedModel: Trade) {
-            with(feedModel) {
+        fun bindTrade(trade: Trade) {
+            with(trade) {
                 itemView.date.text = trade_date
                 itemView.amount.text = "$amount"
                 itemView.type.text = trade_type
