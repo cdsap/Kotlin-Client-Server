@@ -7,5 +7,7 @@ interface GetTradesRepository {
 
     fun save(trade: TradeStore)
 
-    fun getTrades(id: Long): Trades
+    fun getTradesRemote(id: Long): Trades
+
+    fun getTradesPersisted(id: Long): Trades
 }

@@ -1,7 +1,10 @@
 package com.kotlin.server.database
 
+import com.googlecode.objectify.ObjectifyService
+import com.googlecode.objectify.Ref
 import com.googlecode.objectify.annotation.Entity
 import com.googlecode.objectify.annotation.Id
+import com.googlecode.objectify.annotation.Index
 
 @Entity
 class TradeStore(
@@ -10,4 +13,6 @@ class TradeStore(
         var rate: Double = 0.0,
         var amount: Double = 0.0,
         var trade_date: String = "",
-        var trade_type: String = "")
+        var trade_type: String = "",
+        @Index
+        var pair: Ref<PairStore> = Ref.create(ObjectifyService.ofy().load().type(PairStore::class.java).id(1L).safe()))
