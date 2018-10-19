@@ -1,4 +1,4 @@
-package com.kotlin.client.homescreen
+package view.homescreen
 
 import android.app.job.JobInfo
 import android.app.job.JobScheduler

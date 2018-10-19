@@ -1,4 +1,4 @@
-package com.kotlin.client.homescreen
+package view.homescreen
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater

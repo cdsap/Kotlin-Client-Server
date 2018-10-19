@@ -1,7 +1,7 @@
 package com.kotlin.client.di
 
 import android.content.Context
-import com.kotlin.client.homescreen.HomeScreenActivity
+import view.homescreen.HomeScreenActivity
 import com.kotlin.client.job.SyncJob
 import dagger.Component
 import javax.inject.Singleton
