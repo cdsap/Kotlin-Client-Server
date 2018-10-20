@@ -11,7 +11,6 @@ import com.kotlin.client.R
 import com.kotlin.client.di.AppModule
 import com.kotlin.client.di.DaggerInjector
 import com.kotlin.client.job.SyncJob
-import com.kotlin.client.presenter.HomeScreenPresenter
 import com.kotlin.core.entities.Trade
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.experimental.android.UI

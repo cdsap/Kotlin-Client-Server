@@ -1,4 +1,4 @@
-package com.kotlin.client.presenter
+package view.pairscreen
 
 import com.kotlin.core.usecases.GetPairs
 import javax.inject.Inject

@@ -11,7 +11,7 @@ import com.kotlin.client.database.PairDb
 import com.kotlin.client.database.SymbolDb
 import com.kotlin.client.domain.GetTradesImpl
 import com.kotlin.client.domain.SyncTradesImpl
-import com.kotlin.client.presenter.HomeScreenPresenter
+import view.homescreen.HomeScreenPresenter
 import com.kotlin.client.repository.GetTradesRepository
 import com.kotlin.client.repository.GetTradesRepositoryImpl
 import com.kotlin.core.usecases.GetTrades
@@ -19,7 +19,6 @@ import com.kotlin.core.usecases.SyncTrades
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.experimental.launch
-import javax.inject.Named
 import javax.inject.Singleton
 
 @Module

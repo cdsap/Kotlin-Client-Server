@@ -1,4 +1,4 @@
-package com.kotlin.client.presenter
+package view.homescreen
 
 import com.kotlin.core.entities.Trade
 import com.kotlin.core.usecases.GetTrades
