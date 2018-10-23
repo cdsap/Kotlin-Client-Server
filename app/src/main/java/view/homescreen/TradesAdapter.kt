@@ -7,18 +7,22 @@ import android.view.ViewGroup
 import com.kotlin.client.R
 import com.kotlin.core.entities.Trade
 import kotlinx.android.synthetic.main.item.view.*
+import view.BaseAdapter
 
 
-class TradesAdapter(private val trades: List<Trade>) : RecyclerView.Adapter<TradesAdapter.ViewHolder>() {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item, parent, false)
-        return ViewHolder(view)
+class TradesAdapter(private val trades: List<Trade>) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bindTrade(trades[position])
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+//    override fun onBindViewHolder(holder: BaseHolder, position: Int) {
+//        holder.bindItem(trades[position])
+//    }
+
 
     override fun getItemCount() = trades.size
 

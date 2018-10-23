@@ -1,10 +1,11 @@
-package com.kotlin.client.di
+package com.kotlin.client.di.pairscreen
 
 import dagger.Subcomponent
-import view.homescreen.HomeScreenActivity
-import view.homescreen.PairScreenActivity
+import view.pairscreen.PairScreenActivity
+import dagger.android.AndroidInjector
 
-@Subcomponent(modules = arrayOf(HomeScreenModule::class))
+
+@Subcomponent(modules = arrayOf(PairScreenModule::class))
 interface PairScreenComponent : AndroidInjector<PairScreenActivity> {
 
     @Subcomponent.Builder

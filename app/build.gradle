@@ -64,9 +64,13 @@ dependencies {
     implementation libraries.coroutinesCore
     implementation libraries.coroutinesAndroid
     implementation libraries.supportV4
-    implementation libraries.daggerCompiler
-    kapt libraries.dagger
+    implementation libraries.daggerAndroid
+    compile group: 'android.arch.work', name: 'work-runtime', version: '1.0.0-alpha10'
+
+    kapt libraries.daggerProcessor
     kapt libraries.daggerCompiler
+
+
     kapt libraries.roomCompiler
     implementation libraries.roomRuntime
     implementation libraries.kotlin

@@ -5,13 +5,13 @@ ext.versions = [
         endpoints     : '2.0.3',
         javax_servlet : '2.5',
         javax_inject  : '1',
-        dagger        : '2.4',
+        dagger        : '2.15',
         retrofit      : '2.3.0',
         gson          : '2.7',
         objectify     : '5.1.17',
         supportLibrary: '27.1.0',
         coroutines    : '0.21.2',
-        archComponents: '1.0.0',
+        archComponents: '1.1.0',
         junit         : '4.12',
         mockito       : '1.5.0'
 ]
@@ -28,6 +28,10 @@ ext.libraries = [
         javaxInject      : "javax.inject:javax.inject:$versions.javax_inject",
         dagger           : "com.google.dagger:dagger:$versions.dagger",
         daggerCompiler   : "com.google.dagger:dagger-compiler:$versions.dagger",
+        daggerAndroid    : "com.google.dagger:dagger-android:2.15",
+        daggerProcessor  : "com.google.dagger:dagger-android-processor:2.15",
+        dagger           : "com.google.dagger:dagger:2.15",
+
         retrofitConverter: "com.squareup.retrofit2:converter-gson:$versions.retrofit",
         retrofit         : "com.squareup.retrofit2:retrofit:$versions.retrofit",
         gson             : "com.google.code.gson:gson:$versions.gson",

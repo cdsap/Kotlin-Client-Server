@@ -1,11 +1,15 @@
 package com.kotlin.client.di
 
 import android.app.Activity
+import com.kotlin.client.di.homescreen.HomeScreenComponent
+import com.kotlin.client.di.pairscreen.PairScreenComponent
 import dagger.Binds
 import dagger.Module
+import dagger.android.ActivityKey
+import dagger.android.AndroidInjector
 import dagger.multibindings.IntoMap
 import view.homescreen.HomeScreenActivity
-import view.homescreen.PairScreenActivity
+import view.pairscreen.PairScreenActivity
 
 
 @Module

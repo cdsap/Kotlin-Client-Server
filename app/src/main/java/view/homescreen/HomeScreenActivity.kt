@@ -9,9 +9,9 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.kotlin.client.R
 import com.kotlin.client.di.AppModule
-import com.kotlin.client.di.DaggerInjector
 import com.kotlin.client.job.SyncJob
 import com.kotlin.core.entities.Trade
+import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
@@ -33,14 +33,12 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
         inject()
         setContentView(R.layout.activity_main)
         initComponents()
-        initJob()
+        //     initJob()
     }
 
     private fun inject() {
-        DaggerInjector.builder()
-                .appModule(AppModule(this))
-                .build()
-                .inject(this)
+        AndroidInjection.inject(this)
+
     }
 
     private fun initComponents() {
@@ -64,11 +62,11 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
     }
 
     private fun initJob() {
-        val builder = JobInfo.Builder(jobId++, ComponentName(this, SyncJob::class.java))
-        builder.run {
-            setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-            setPeriodic(PERIOD)
-        }
-        (getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler).schedule(builder.build())
+//        val builder = JobInfo.Builder(jobId++, ComponentName(this, SyncJob::class.java))
+//        builder.run {
+//            setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
+//            setPeriodic(PERIOD)
+//        }
+//        (getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler).schedule(builder.build())
     }
 }
