@@ -6,13 +6,7 @@ import androidx.work.WorkerParameters
 import com.kotlin.core.usecases.SyncTrades
 
 
-class SyncWorker(context: Context, workerParams: WorkerParameters) : Worker(context, workerParams) {
-
-    lateinit var syncTrades: SyncTrades
-
-    constructor(context: Context, workerParams: WorkerParameters, syncTrades: SyncTrades) : this(context, workerParams) {
-        this.syncTrades = syncTrades
-    }
+class SyncWorker(context: Context, workerParams: WorkerParameters, val syncTrades: SyncTrades) : Worker(context, workerParams) {
 
     override fun doWork(): Result {
         syncTrades.syncTrades(1L)

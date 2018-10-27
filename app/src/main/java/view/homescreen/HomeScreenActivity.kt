@@ -1,18 +1,12 @@
 package view.homescreen
 
-import android.app.job.JobInfo
-import android.app.job.JobScheduler
-import android.content.ComponentName
-import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
-import com.kotlin.client.di.AppModule
-import com.kotlin.client.job.SyncJob
 import com.kotlin.core.entities.Trade
 import dagger.android.AndroidInjection
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_trades.*
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import javax.inject.Inject
@@ -31,9 +25,8 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         inject()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_trades)
         initComponents()
-        //     initJob()
     }
 
     private fun inject() {
@@ -59,14 +52,5 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
         val adapter = TradesAdapter(result)
         recycler.adapter = adapter
         swipe.isRefreshing = false
-    }
-
-    private fun initJob() {
-//        val builder = JobInfo.Builder(jobId++, ComponentName(this, SyncJob::class.java))
-//        builder.run {
-//            setRequiredNetworkType(JobInfo.NETWORK_TYPE_ANY)
-//            setPeriodic(PERIOD)
-//        }
-//        (getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler).schedule(builder.build())
     }
 }

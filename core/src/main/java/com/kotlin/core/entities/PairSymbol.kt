@@ -2,7 +2,7 @@ package com.kotlin.core.entities
 
 data class PairSymbol(
         val id: Long,
-        val primarySymbol: Symbol,
-        val secondarySymbol: Symbol,
+        val primarySymbol: String,
+        val secondarySymbol: String,
         val rate: Double
 )
