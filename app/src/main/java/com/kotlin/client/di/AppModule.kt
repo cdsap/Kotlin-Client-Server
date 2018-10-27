@@ -17,6 +17,10 @@ class AppModule {
     fun context(application: Application) = application.applicationContext
 
     @Provides
-    fun providesSyncTrades(repository: GetTradesRepository)
-            : SyncTrades = SyncTradesImpl(repository)
+    fun providesWorkerFactory(syncTrades: SyncTrades)
+            : DaggerWorkerFactory = DaggerWorkerFactory(syncTrades)
+
+    @Provides
+    fun provideSyncTrades(repository: GetTradesRepository): SyncTrades =
+            SyncTradesImpl(repository)
 }

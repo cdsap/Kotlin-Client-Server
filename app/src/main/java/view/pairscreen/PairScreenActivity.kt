@@ -29,6 +29,8 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView {
     }
 
     private fun initComponents() {
+        val adapter = PairSymbolAdapter(emptyList())
+        recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
         presenter.initView(this)
         getData()
@@ -41,7 +43,9 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView {
     }
 
     override fun load(pairs: List<PairSymbol>) {
-        val adapter = PairSymbolAdapter(pairs)
-        recycler.adapter = adapter
+    //    val adapter = PairSymbolAdapter(pairs)
+        recycler.adapter = PairSymbolAdapter(pairs)
+
+
     }
 }
