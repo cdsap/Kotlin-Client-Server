@@ -10,11 +10,11 @@ class SyncTradesImpl @Inject constructor(private val repository: GetTradesReposi
     : SyncTrades {
 
     override fun syncTrades(id: Long) {
-        Log.e("inai","llegogoogogogogogogo")
-   //     val getLastTradeById = repository.getLastTradesById(id)
-//        repository.getTrades(id).trades
-//                //   .filter { getLastTradeById.isNotEmpty() && it.trade_id > getLastTradeById[0].trade_id }
-//                .map { TradeDb(it.trade_id, it.rate, it.amount, it.trade_date, it.trade_type, 1L) }
-//                .map { repository.save(it) }
+        // TODO check if we can avoid the call from the last element ID
+        //val getLastTradeById = repository.getLastTradesById(id)?.let {}
+        repository.getTrades(id).trades
+                //   .filter { getLastTradeById.isNotEmpty() && it.trade_id > getLastTradeById[0].trade_id }
+                .map { TradeDb(it.trade_id, it.rate, it.amount, it.trade_date, it.trade_type, 1L) }
+                .map { repository.save(it) }
     }
 }
