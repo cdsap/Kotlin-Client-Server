@@ -10,6 +10,9 @@ import javax.inject.Inject
 
 class GetTradesImpl @Inject constructor(private val repository: GetTradesRepository)
     : GetTrades {
+    override fun getTrades(): List<Trades> {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     override fun getTrades(id: Long): Trades {
         val list = repository.getTradesPersisted(id)

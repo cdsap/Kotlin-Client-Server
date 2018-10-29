@@ -10,4 +10,6 @@ class PairStore(
         @Id
         var id: Long = 0L,
         var primaryPairId: Ref<SymbolStore> = Ref.create(SymbolStore("BTH")),
-        var secondaryPairId: Ref<SymbolStore> = Ref.create(SymbolStore("BTH")))
+        var secondaryPairId: Ref<SymbolStore> = Ref.create(SymbolStore("BTH")),
+        var rate: Double = 0.0
+)

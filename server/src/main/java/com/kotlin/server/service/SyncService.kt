@@ -6,5 +6,5 @@ import javax.inject.Inject
 
 class SyncService @Inject constructor(private val syncTrades: SyncTrades) {
 
-    fun sync(pair: String): Unit = syncTrades.syncTrades(pair.toLong())
+    fun sync(): Unit = syncTrades.syncTrades()
 }

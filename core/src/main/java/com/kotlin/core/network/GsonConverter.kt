@@ -15,6 +15,4 @@ class GsonConverter {
             return GsonConverterFactory.create(gson)
         }
     }
-
-
 }

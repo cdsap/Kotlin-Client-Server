@@ -8,4 +8,6 @@ import javax.inject.Inject
 class GetTradesService @Inject constructor(private val getTrades: GetTrades) {
 
     fun getTrades(pair: String): Trades = getTrades.getTrades(pair.toLong())
+
+    fun getTradesByPair() : List<Trades> = getTrades.getTrades()
 }

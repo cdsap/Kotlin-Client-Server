@@ -32,7 +32,7 @@ class MainApplication : DaggerApplication() {
                                 .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
                                 .build())
                         .build()
-        WorkManager.getInstance().enqueue(workerRequest)
+      //  WorkManager.getInstance().enqueue(workerRequest)
 
         return appComponent
     }

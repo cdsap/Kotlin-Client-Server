@@ -30,7 +30,7 @@ class GetTradesRepositoryImpl(private val db: DbInterface,
                 rate = it.rate)
     }.toList())
 
-    override fun getTradesRemotely(id: Long): Trades = api.getTrades()
+    override fun getTradesRemotely(id: Long): Trades = api.getTrades(id)
 
     override fun save(trade: TradeDb) {
         db.insertTrade(trade)

@@ -13,6 +13,8 @@ import com.kotlin.server.domain.GetTradesImpl
 import com.kotlin.server.domain.SyncTradesImpl
 import com.kotlin.server.repository.GetTradesRepository
 import com.kotlin.server.repository.GetTradesRepositoryImpl
+import com.kotlin.server.repository.PairRepositoryImpl
+import com.kotlin.server.repository.PairsRepository
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -29,14 +31,17 @@ class AppModule {
 
     @Provides
     fun providesGetTrades(
-            repository: GetTradesRepository
+            repository: GetTradesRepository,
+            pairRepository: PairsRepository
     )
-            : GetTrades = GetTradesImpl(repository)
+            : GetTrades = GetTradesImpl(repository, pairRepository)
 
     @Provides
     fun providesSyncTrades(
-            repository: GetTradesRepository)
-            : SyncTrades = SyncTradesImpl(repository)
+            tradesRepository: GetTradesRepository,
+            pairRepository: PairsRepository)
+            : SyncTrades = SyncTradesImpl(tradesRepository,
+            pairRepository)
 
     @Provides
     fun providesRestApi(): BxApi = BxApi()
@@ -45,8 +50,12 @@ class AppModule {
     fun providesObjectifyService() = ObjectifyService.ofy()
 
     @Provides
-    fun providesRepository(objectify: Objectify,
-                           api: BxApi): GetTradesRepository = GetTradesRepositoryImpl(objectify, api)
+    fun providesTradesRepository(objectify: Objectify,
+                                 api: BxApi): GetTradesRepository = GetTradesRepositoryImpl(objectify, api)
+
+    @Provides
+    fun providesPairRepository(objectify: Objectify,
+                               api: BxApi): PairsRepository = PairRepositoryImpl(objectify)
 
     private fun initData() {
         //if (ObjectifyService.ofy().load().type(SymbolStore::class.java)

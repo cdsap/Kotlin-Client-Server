@@ -22,9 +22,9 @@ class BxApi {
         api = retrofit.create(Api::class.java)
     }
 
-    fun getTrades(): Trades {
+    fun getTrades(pair: Long): Trades {
         return try {
-            val a = api.getTrades().execute()
+            val a = api.getTrades(pair).execute()
             a.body()!!
 
         } catch (e: Exception) {

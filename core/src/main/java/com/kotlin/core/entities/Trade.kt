@@ -6,5 +6,6 @@ data class Trade(
         val rate: Double = 0.0,
         val amount: Double = 0.0,
         val trade_date: String = "",
-        val trade_type: String = ""
+        val trade_type: String = "",
+        val pair: Long = 1
 )

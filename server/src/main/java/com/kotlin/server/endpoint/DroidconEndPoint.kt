@@ -23,12 +23,17 @@ class DroidconEndPoint {
 
     @ApiMethod(name = "sync",
             httpMethod = ApiMethod.HttpMethod.GET,
-            path = "sync/{pair}")
-    fun sync(@Named("pair") id: String) = syncService.sync(id)
+            path = "sync/")
+    fun sync() = syncService.sync()
 
     @ApiMethod(name = "trades",
             httpMethod = ApiMethod.HttpMethod.GET,
             path = "trades/{pair}")
     fun getTrades(@Named("pair") id: String) = getTradesService.getTrades(id)
+
+    @ApiMethod(name = "trades",
+            httpMethod = ApiMethod.HttpMethod.GET,
+            path = "trades/")
+    fun getTradesByPair() = getTradesService.getTradesByPair()
 }
 

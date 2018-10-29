@@ -24,7 +24,8 @@ class GetTradesRepositoryImpl(private val db: Objectify,
                 .order(ORDER)
                 .list().map {
                     trades.add(Trade(trade_date = it.trade_date, trade_id = it.trade_id,
-                            trade_type = it.trade_type, amount = it.amount, rate = it.rate))
+                            trade_type = it.trade_type, amount = it.amount, rate = it.rate,
+                            pair = it.pair.get().id))
                 }.toList()
         return Trades(trades)
     }
