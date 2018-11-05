@@ -31,4 +31,14 @@ class BxApi {
             Trades(listOf())
         }
     }
+
+    fun syncTrades(): List<Trades> {
+        return try {
+            val a = api.syncTrades().execute()
+            a.body()!!
+
+        } catch (e: Exception) {
+            emptyList<Trades>()
+        }
+    }
 }

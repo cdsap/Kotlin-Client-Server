@@ -14,4 +14,6 @@ interface GetTradesRepository {
     fun getTrades(id: Long): Trades
 
     fun getLastTradesById(id: Long): Trade?
+
+    fun sync()
 }

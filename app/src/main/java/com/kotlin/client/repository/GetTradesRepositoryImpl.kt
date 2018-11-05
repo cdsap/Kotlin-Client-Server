@@ -8,6 +8,21 @@ import com.kotlin.core.entities.Trades
 
 class GetTradesRepositoryImpl(private val db: DbInterface,
                               private val api: BxApi) : GetTradesRepository {
+    override fun sync() {
+        api.syncTrades().forEach {
+            it.trades.map {
+                TradeDb(trade_type = it.trade_type,
+                        trade_date = it.trade_date,
+                        trade_id = it.trade_id,
+                        amount = it.amount,
+                        rate = it.rate,
+                        pair = 1L)
+
+            }.map {
+                db.insertTrade(it)
+            }
+        }
+    }
 
     override fun getLastTradesById(id: Long): Trade? {
         val lastTrade = db.getLastTradesById(id)
