@@ -1,9 +1,11 @@
 package com.kotlin.client.view.pairscreen
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
+import com.kotlin.client.view.homescreen.HomeScreenActivity
 
 import com.kotlin.core.entities.PairSymbol
 import dagger.android.AndroidInjection
@@ -12,7 +14,8 @@ import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
 import javax.inject.Inject
 
-class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView {
+class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
+        PairListListener {
 
     @Inject
     lateinit var presenter: PairScreenPresenter
@@ -22,6 +25,7 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView {
         inject()
         setContentView(R.layout.activity_trades)
         initComponents()
+        getData()
     }
 
     private fun inject() {
@@ -33,7 +37,8 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView {
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
         presenter.initView(this)
-        getData()
+        recycler.setOnClickListener {
+        }
     }
 
     private fun getData() {
@@ -43,10 +48,14 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView {
     }
 
     override fun load(pairs: List<PairSymbol>) {
-        //    val adapter = PairSymbolAdapter(pairs)
         recycler.adapter = PairSymbolAdapter(pairs)
         (recycler.adapter as PairSymbolAdapter).notifyDataSetChanged()
-
-
     }
+
+    override fun onPairClicked(id: Long) {
+        startActivity(Intent(this, HomeScreenActivity::class.java).apply {
+            putExtra("PAIR", id)
+        })
+    }
+
 }
