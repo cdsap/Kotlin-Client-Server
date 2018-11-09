@@ -25,7 +25,6 @@ class RepositoryModule {
                            api: BxApi): GetTradesRepository =
             GetTradesRepositoryImpl(db, api)
 
-
     @Provides
     fun providesRestApi(): BxApi = BxApi()
 

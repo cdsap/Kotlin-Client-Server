@@ -9,9 +9,7 @@ interface GetTradesRepository {
 
     fun getTradesPersisted(id: Long): Trades
 
-    fun save(trade: TradeDb)
-
-    fun getTrades(id: Long): Trades
+    fun saveTrade(trade: TradeDb)
 
     fun getLastTradesById(id: Long): Trade?
 

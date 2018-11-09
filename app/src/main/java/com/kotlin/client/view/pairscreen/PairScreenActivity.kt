@@ -1,4 +1,4 @@
-package view.pairscreen
+package com.kotlin.client.view.pairscreen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

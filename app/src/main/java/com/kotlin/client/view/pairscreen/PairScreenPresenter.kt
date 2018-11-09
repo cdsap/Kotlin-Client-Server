@@ -1,4 +1,4 @@
-package view.pairscreen
+package com.kotlin.client.view.pairscreen
 
 import com.kotlin.core.entities.PairSymbol
 import com.kotlin.core.usecases.GetPairs

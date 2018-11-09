@@ -24,7 +24,7 @@ class GetTradesImpl @Inject constructor(private val repository: GetTradesReposit
                         amount = it.amount,
                         rate = it.rate,
                         pair = 1L)
-                repository.save(trade)
+                repository.saveTrade(trade)
             }
             repository.getTradesPersisted(id)
         } else {

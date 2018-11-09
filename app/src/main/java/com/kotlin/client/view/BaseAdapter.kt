@@ -1,4 +1,4 @@
-package view
+package com.kotlin.client.view
 
 import android.view.LayoutInflater
 import android.view.View

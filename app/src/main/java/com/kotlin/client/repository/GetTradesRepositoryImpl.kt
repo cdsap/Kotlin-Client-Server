@@ -10,13 +10,14 @@ class GetTradesRepositoryImpl(private val db: DbInterface,
                               private val api: BxApi) : GetTradesRepository {
     override fun sync() {
         api.syncTrades().forEach {
+            it.trades
             it.trades.map {
                 TradeDb(trade_type = it.trade_type,
                         trade_date = it.trade_date,
                         trade_id = it.trade_id,
                         amount = it.amount,
                         rate = it.rate,
-                        pair = 1L)
+                        pair = it.pair)
 
             }.map {
                 db.insertTrade(it)
@@ -47,12 +48,8 @@ class GetTradesRepositoryImpl(private val db: DbInterface,
 
     override fun getTradesRemotely(id: Long): Trades = api.getTrades(id)
 
-    override fun save(trade: TradeDb) {
+    override fun saveTrade(trade: TradeDb) {
         db.insertTrade(trade)
-    }
-
-    override fun getTrades(id: Long): Trades {
-        TODO("not implemented")
     }
 
 }

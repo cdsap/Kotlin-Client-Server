@@ -1,4 +1,5 @@
-package view.homescreen
+package com.kotlin.client.view.homescreen
+
 
 import com.kotlin.core.entities.Trade
 import com.kotlin.core.usecases.GetTrades

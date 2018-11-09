@@ -1,4 +1,4 @@
-package view.homescreen
+package com.kotlin.client.view.homescreen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +9,7 @@ import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_trades.*
 import kotlinx.coroutines.experimental.android.UI
 import kotlinx.coroutines.experimental.launch
+import view.homescreen.HomeScreenPresenter
 import javax.inject.Inject
 
 class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {

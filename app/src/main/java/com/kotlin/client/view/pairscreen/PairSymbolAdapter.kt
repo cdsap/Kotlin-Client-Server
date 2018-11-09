@@ -1,4 +1,5 @@
-package view.pairscreen
+package com.kotlin.client.view.pairscreen
+
 
 import android.view.LayoutInflater
 import android.view.View
