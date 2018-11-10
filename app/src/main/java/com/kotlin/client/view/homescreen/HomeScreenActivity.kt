@@ -14,12 +14,6 @@ import javax.inject.Inject
 
 class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
 
-    companion object {
-        const val BTC = 1L
-        const val PERIOD = 100000L
-    }
-
-    private var jobId = 0
     @Inject
     lateinit var presenter: HomeScreenPresenter
 
@@ -32,20 +26,19 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
 
     private fun inject() {
         AndroidInjection.inject(this)
-
     }
 
     private fun initComponents() {
         recycler.layoutManager = LinearLayoutManager(this)
-        swipe.setOnRefreshListener { getData() }
+        swipe.setOnRefreshListener { getData(getIntent().getLongExtra("PAIR", 1L)) }
         presenter.initView(this)
-        getData()
+        getData(getIntent().getLongExtra("PAIR", 1L))
     }
 
-    private fun getData() {
+    private fun getData(longExtra: Long) {
         swipe.isRefreshing = true
         launch(UI) {
-            presenter.getData(BTC)
+            presenter.getData(longExtra)
         }
     }
 

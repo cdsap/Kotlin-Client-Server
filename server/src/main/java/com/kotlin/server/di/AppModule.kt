@@ -4,17 +4,16 @@ import com.googlecode.objectify.Objectify
 import com.googlecode.objectify.ObjectifyService
 import com.googlecode.objectify.Ref
 import com.kotlin.core.usecases.GetTrades
+import com.kotlin.core.usecases.SyncPairs
 import com.kotlin.core.usecases.SyncTrades
 import com.kotlin.server.api.BxApi
 import com.kotlin.server.database.PairStore
 import com.kotlin.server.database.SymbolStore
 import com.kotlin.server.database.TradeStore
 import com.kotlin.server.domain.GetTradesImpl
+import com.kotlin.server.domain.SyncPairsImpl
 import com.kotlin.server.domain.SyncTradesImpl
-import com.kotlin.server.repository.GetTradesRepository
-import com.kotlin.server.repository.GetTradesRepositoryImpl
-import com.kotlin.server.repository.PairRepositoryImpl
-import com.kotlin.server.repository.PairsRepository
+import com.kotlin.server.repository.*
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
@@ -37,6 +36,11 @@ class AppModule {
             : GetTrades = GetTradesImpl(repository, pairRepository)
 
     @Provides
+    fun providesSyncPrairs(
+            repository: SyncPairsRepository): SyncPairs = SyncPairsImpl(repository)
+
+
+    @Provides
     fun providesSyncTrades(
             tradesRepository: GetTradesRepository,
             pairRepository: PairsRepository)
@@ -56,6 +60,10 @@ class AppModule {
     @Provides
     fun providesPairRepository(objectify: Objectify,
                                api: BxApi): PairsRepository = PairRepositoryImpl(objectify)
+
+    @Provides
+    fun providesSyncPairRepository(objectify: Objectify,
+                                   api: BxApi) = SyncPairsRepository(objectify, api)
 
     private fun initData() {
         //if (ObjectifyService.ofy().load().type(SymbolStore::class.java)

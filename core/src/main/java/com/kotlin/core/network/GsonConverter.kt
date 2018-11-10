@@ -8,7 +8,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class GsonConverter {
 
     companion object {
-        fun createGsonConverter(): Converter.Factory {
+        fun createGsonConverterTrade(): Converter.Factory {
+            System.out.print("Dldldld")
             val gsonBuilder = GsonBuilder()
             gsonBuilder.registerTypeAdapter(Trades::class.java, TradesDeserializer())
             val gson = gsonBuilder.create()

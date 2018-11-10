@@ -1,5 +1,6 @@
 package com.kotlin.server.domain
 
+import com.kotlin.core.entities.PairAndTrades
 import com.kotlin.core.entities.Trades
 import com.kotlin.core.usecases.GetTrades
 import com.kotlin.server.database.TradeStore
@@ -13,10 +14,11 @@ class GetTradesImpl @Inject constructor(
         private val pairRepositoryImpl: PairsRepository) : GetTrades {
 
 
-    override fun getTrades(): List<Trades> {
-        val tradeList = mutableListOf<Trades>()
+    override fun getTrades(): List<PairAndTrades> {
+        val tradeList = mutableListOf<PairAndTrades>()
         pairRepositoryImpl.getPairs().forEach {
-            tradeList.add(getTrades(it.id))
+
+            tradeList.add(PairAndTrades(it, getTrades(it.id)))
         }
         return tradeList
     }

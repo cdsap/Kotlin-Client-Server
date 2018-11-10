@@ -9,5 +9,8 @@ interface Bx {
 
     @GET("/api/trade/?")
     fun getTrades(@Query("pairing") pairing_id: Long): Call<Trades>
+
+    @GET("/api/")
+    fun getPairInfo(): Call<PairsInfo>
 }
 

@@ -4,5 +4,6 @@ data class PairSymbol(
         val id: Long,
         val primarySymbol: String,
         val secondarySymbol: String,
-        val rate: Double
+        val rate: Double,
+        val volume: Double
 )

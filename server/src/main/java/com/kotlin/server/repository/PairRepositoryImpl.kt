@@ -12,7 +12,8 @@ class PairRepositoryImpl(val db: Objectify) : PairsRepository {
                     PairSymbol(id = it.id,
                             primarySymbol = it.primaryPairId.toString(),
                             secondarySymbol = it.secondaryPairId.toString(),
-                            rate = it.rate)
+                            rate = it.rate,
+                            volume = it.volume)
                 }
     }
 }
