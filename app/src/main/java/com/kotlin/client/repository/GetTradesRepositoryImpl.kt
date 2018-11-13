@@ -2,6 +2,7 @@ package com.kotlin.client.repository
 
 import com.kotlin.client.api.BxApi
 import com.kotlin.client.database.DbInterface
+import com.kotlin.client.database.PairDb
 import com.kotlin.client.database.TradeDb
 import com.kotlin.core.entities.Trade
 import com.kotlin.core.entities.Trades
@@ -10,8 +11,15 @@ class GetTradesRepositoryImpl(private val db: DbInterface,
                               private val api: BxApi) : GetTradesRepository {
     override fun sync() {
         api.syncTrades().forEach {
-            it.trades
-            it.trades.map {
+            db.updatePair(PairDb(
+                    id = it.pairSymbol.id,
+                    volume = it.pairSymbol.volume,
+                    primaryPairId = it.pairSymbol.primarySymbol,
+                    secondaryPairId = it.pairSymbol.secondarySymbol,
+                    lastPrice = it.pairSymbol.rate
+            ))
+
+            it.listOfTrades.trades.map {
                 TradeDb(trade_type = it.trade_type,
                         trade_date = it.trade_date,
                         trade_id = it.trade_id,

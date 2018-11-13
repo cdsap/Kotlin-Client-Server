@@ -2,7 +2,7 @@ package com.kotlin.client.di.homescreen
 
 import com.kotlin.client.domain.GetTradesImpl
 import com.kotlin.client.repository.GetTradesRepository
-import view.homescreen.HomeScreenPresenter
+import com.kotlin.client.view.homescreen.HomeScreenPresenter
 import com.kotlin.core.usecases.GetTrades
 import dagger.Module
 import dagger.Provides

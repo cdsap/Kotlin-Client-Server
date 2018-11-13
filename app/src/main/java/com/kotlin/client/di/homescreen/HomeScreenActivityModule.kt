@@ -1,9 +1,9 @@
 package com.kotlin.client.di.homescreen
 
 import com.kotlin.client.di.ActivityScope
+import com.kotlin.client.view.homescreen.HomeScreenActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import view.homescreen.HomeScreenActivity
 
 @Module
 abstract class HomeScreenActivityModule {

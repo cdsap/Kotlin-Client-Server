@@ -9,7 +9,6 @@ import com.kotlin.client.R
 import com.kotlin.client.view.pairscreen.PairSymbolAdapter
 import com.kotlin.core.entities.Trade
 import kotlinx.android.synthetic.main.item_trade.view.*
-import view.BaseAdapter
 
 class TradesAdapter(private val trades: List<Trade>) :
         RecyclerView.Adapter<TradesAdapter.TradesViewHolder>() {

@@ -13,5 +13,7 @@ class PairDb(
                 parentColumns = ["id"],
                 childColumns = ["primaryPairId", "secondaryPairId"])
         val primaryPairId: String,
-        val secondaryPairId: String
+        val secondaryPairId: String,
+        val lastPrice: Double,
+        val volume: Double
 )

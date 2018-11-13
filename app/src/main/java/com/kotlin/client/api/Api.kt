@@ -1,5 +1,6 @@
 package com.kotlin.client.api
 
+import com.kotlin.core.entities.PairAndTrades
 import com.kotlin.core.entities.Trades
 import retrofit2.Call
 import retrofit2.http.GET
@@ -12,5 +13,5 @@ interface Api {
     fun getTrades(@Query("pair") pair: Long): Call<Trades>
 
     @GET("droidcon/v1/trades")
-    fun syncTrades(): Call<List<Trades>>
+    fun syncTrades(): Call<List<PairAndTrades>>
 }

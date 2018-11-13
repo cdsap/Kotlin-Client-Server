@@ -3,6 +3,7 @@ package com.kotlin.client.domain
 
 import com.kotlin.client.database.TradeDb
 import com.kotlin.client.repository.GetTradesRepository
+import com.kotlin.core.entities.PairAndTrades
 import com.kotlin.core.entities.Trades
 import com.kotlin.core.usecases.GetTrades
 import javax.inject.Inject
@@ -10,9 +11,10 @@ import javax.inject.Inject
 
 class GetTradesImpl @Inject constructor(private val repository: GetTradesRepository)
     : GetTrades {
-    override fun getTrades(): List<Trades> {
+    override fun getTrades(): List<PairAndTrades> {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
 
     override fun getTrades(id: Long): Trades {
         val list = repository.getTradesPersisted(id)

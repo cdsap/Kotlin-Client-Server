@@ -1,7 +1,7 @@
 package com.kotlin.client.di.pairscreen
 
+import com.kotlin.client.view.pairscreen.PairScreenActivity
 import dagger.Subcomponent
-import view.pairscreen.PairScreenActivity
 import dagger.android.AndroidInjector
 
 

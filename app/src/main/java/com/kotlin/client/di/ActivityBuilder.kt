@@ -5,13 +5,13 @@ import com.kotlin.client.di.homescreen.HomeScreenComponent
 import com.kotlin.client.di.pairscreen.PairScreenComponent
 import dagger.Binds
 import dagger.Module
-import dagger.android.ActivityKey
-import dagger.android.AndroidInjector
-import dagger.android.ContributesAndroidInjector
-import dagger.multibindings.IntoMap
-import view.homescreen.HomeScreenActivity
-import view.pairscreen.PairScreenActivity
-
+//import dagger.android.ActivityKey
+//import dagger.android.AndroidInjector
+//import dagger.android.ContributesAndroidInjector
+//import dagger.multibindings.IntoMap
+//import view.homescreen.HomeScreenActivity
+//import view.pairscreen.PairScreenActivity
+//
 //
 //@Module
 //abstract class ActivityBuilder {

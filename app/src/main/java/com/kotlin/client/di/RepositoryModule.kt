@@ -11,6 +11,8 @@ import com.kotlin.client.database.PairDb
 import com.kotlin.client.database.SymbolDb
 import com.kotlin.client.repository.GetTradesRepository
 import com.kotlin.client.repository.GetTradesRepositoryImpl
+import com.kotlin.client.repository.PairRepository
+import com.kotlin.client.repository.PairRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import kotlinx.coroutines.experimental.launch
@@ -24,6 +26,11 @@ class RepositoryModule {
     fun providesRepository(db: DbInterface,
                            api: BxApi): GetTradesRepository =
             GetTradesRepositoryImpl(db, api)
+
+    @Provides
+    fun providesPairRepository(db: DbInterface,
+                               api: BxApi): PairRepository =
+            PairRepositoryImpl(db)
 
     @Provides
     fun providesRestApi(): BxApi = BxApi()
@@ -42,10 +49,10 @@ class RepositoryModule {
                             dbInterface.insertSymbol(SymbolDb("OMG"))
                             dbInterface.insertSymbol(SymbolDb("XRP"))
                             dbInterface.insertSymbol(SymbolDb("ETH"))
-                            dbInterface.insertPair(PairDb(1, "THB", "BTC"))
-                            dbInterface.insertPair(PairDb(25, "THB", "XRP"))
-                            dbInterface.insertPair(PairDb(26, "THB", "OMG"))
-                            dbInterface.insertPair(PairDb(21, "THB", "ETH"))
+                            dbInterface.insertPair(PairDb(1, "THB", "BTC", 0.0, 0.0))
+                            dbInterface.insertPair(PairDb(25, "THB", "XRP", 0.0, 0.0))
+                            dbInterface.insertPair(PairDb(26, "THB", "OMG", 0.0, 0.0))
+                            dbInterface.insertPair(PairDb(21, "THB", "ETH", 0.0, 0.0))
                         }
                     }
                 })

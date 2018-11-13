@@ -3,6 +3,7 @@ package com.kotlin.client.database
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import androidx.room.Update
 
 @Dao
 interface DbInterface {
@@ -12,6 +13,9 @@ interface DbInterface {
 
     @Insert
     fun insertTrade(pair: TradeDb): Long
+
+    @Update
+    fun updatePair(pair: PairDb)
 
     @Insert
     fun insertPair(pair: PairDb): Long
@@ -24,5 +28,6 @@ interface DbInterface {
 
     @Query("Select * FROM PairDb")
     fun getPairs(): List<PairDb>
+
 
 }

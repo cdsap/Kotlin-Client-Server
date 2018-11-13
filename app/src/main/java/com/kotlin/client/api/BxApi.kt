@@ -1,6 +1,7 @@
 package com.kotlin.client.api
 
 import com.kotlin.client.BuildConfig
+import com.kotlin.core.entities.PairAndTrades
 import com.kotlin.core.entities.Trades
 import com.kotlin.core.network.GsonConverter
 import retrofit2.Retrofit
@@ -33,13 +34,13 @@ class BxApi {
         }
     }
 
-    fun syncTrades(): List<Trades> {
+    fun syncTrades(): List<PairAndTrades> {
         return try {
             val a = api.syncTrades().execute()
             a.body()!!
 
         } catch (e: Exception) {
-            emptyList<Trades>()
+            emptyList<PairAndTrades>()
         }
     }
 }
