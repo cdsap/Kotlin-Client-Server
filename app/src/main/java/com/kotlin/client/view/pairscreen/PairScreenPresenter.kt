@@ -2,8 +2,6 @@ package com.kotlin.client.view.pairscreen
 
 import com.kotlin.core.entities.PairSymbol
 import com.kotlin.core.usecases.GetPairs
-import kotlinx.coroutines.experimental.CommonPool
-import kotlinx.coroutines.experimental.async
 import javax.inject.Inject
 
 class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs) {
@@ -15,8 +13,8 @@ class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs) {
     }
 
     suspend fun getData() {
-        val result = async(CommonPool) { getPairs.get() }.await()
-        view.load(result)
+       // val result = async(CommonPool) { getPairs.get() }.await()
+       // view.load(result)
     }
 
     interface ScreenView {

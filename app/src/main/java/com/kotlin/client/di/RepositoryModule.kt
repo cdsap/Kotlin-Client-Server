@@ -5,32 +5,34 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.kotlin.client.api.BxApi
-import com.kotlin.client.database.AppDatabase
-import com.kotlin.client.database.DbInterface
-import com.kotlin.client.database.PairDb
-import com.kotlin.client.database.SymbolDb
-import com.kotlin.client.repository.GetTradesRepository
-import com.kotlin.client.repository.GetTradesRepositoryImpl
-import com.kotlin.client.repository.PairRepository
-import com.kotlin.client.repository.PairRepositoryImpl
+import com.kotlin.client.database.*
+import com.kotlin.client.repository.*
+import com.kotlin.core.repository.PairsRepository
+import com.kotlin.core.repository.SyncRepository
+import com.kotlin.core.repository.TradesRepository
 import dagger.Module
 import dagger.Provides
-import kotlinx.coroutines.experimental.launch
-import javax.inject.Singleton
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 @Module
 class RepositoryModule {
     lateinit var dbInterface: DbInterface
 
     @Provides
-    fun providesRepository(db: DbInterface,
-                           api: BxApi): GetTradesRepository =
+    fun providesTradeRepository(db: DbInterface,
+                                api: BxApi): TradesRepository<TradeDb> =
             GetTradesRepositoryImpl(db, api)
 
     @Provides
     fun providesPairRepository(db: DbInterface,
-                               api: BxApi): PairRepository =
+                               api: BxApi): PairsRepository =
             PairRepositoryImpl(db)
+
+    @Provides
+    fun providesSyncPairRepository(db: DbInterface,
+                                   api: BxApi): SyncRepository =
+            SyncPairRepositoryImpl(db, api)
 
     @Provides
     fun providesRestApi(): BxApi = BxApi()
@@ -43,7 +45,7 @@ class RepositoryModule {
                 .addCallback(object : RoomDatabase.Callback() {
                     override fun onCreate(db: SupportSQLiteDatabase) {
                         super.onCreate(db)
-                        launch {
+                        GlobalScope.launch {
                             dbInterface.insertSymbol(SymbolDb("THB"))
                             dbInterface.insertSymbol(SymbolDb("BTC"))
                             dbInterface.insertSymbol(SymbolDb("OMG"))

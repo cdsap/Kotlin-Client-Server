@@ -1,6 +1,6 @@
 package com.kotlin.core.entities
 
-data class PairAndTrades(
+data class Market(
         val pairSymbol: PairSymbol,
-        val listOfTrades: Trades
+        val trades: Trades
 )

@@ -3,6 +3,9 @@ package com.kotlin.server.di
 import com.googlecode.objectify.Objectify
 import com.googlecode.objectify.ObjectifyService
 import com.googlecode.objectify.Ref
+import com.kotlin.core.repository.PairsRepository
+import com.kotlin.core.repository.SyncRepository
+import com.kotlin.core.repository.TradesRepository
 import com.kotlin.core.usecases.GetTrades
 import com.kotlin.core.usecases.SyncPairs
 import com.kotlin.core.usecases.SyncTrades
@@ -10,15 +13,15 @@ import com.kotlin.server.api.BxApi
 import com.kotlin.server.database.PairStore
 import com.kotlin.server.database.SymbolStore
 import com.kotlin.server.database.TradeStore
+import com.kotlin.server.di.repository.RepositoryModule
 import com.kotlin.server.domain.GetTradesImpl
 import com.kotlin.server.domain.SyncPairsImpl
 import com.kotlin.server.domain.SyncTradesImpl
 import com.kotlin.server.repository.*
 import dagger.Module
 import dagger.Provides
-import javax.inject.Named
 
-@Module
+@Module(includes = RepositoryModule::class.java)
 class AppModule {
 
     init {
@@ -30,19 +33,19 @@ class AppModule {
 
     @Provides
     fun providesGetTrades(
-            repository: GetTradesRepository,
+            repository: TradesRepository<TradeStore>,
             pairRepository: PairsRepository
     )
             : GetTrades = GetTradesImpl(repository, pairRepository)
 
     @Provides
     fun providesSyncPrairs(
-            repository: SyncPairsRepository): SyncPairs = SyncPairsImpl(repository)
+            repository: SyncRepository): SyncPairs = SyncPairsImpl(repository)
 
 
     @Provides
     fun providesSyncTrades(
-            tradesRepository: GetTradesRepository,
+            tradesRepository: TradesRepository<TradeStore>,
             pairRepository: PairsRepository)
             : SyncTrades = SyncTradesImpl(tradesRepository,
             pairRepository)
@@ -53,17 +56,6 @@ class AppModule {
     @Provides
     fun providesObjectifyService() = ObjectifyService.ofy()
 
-    @Provides
-    fun providesTradesRepository(objectify: Objectify,
-                                 api: BxApi): GetTradesRepository = GetTradesRepositoryImpl(objectify, api)
-
-    @Provides
-    fun providesPairRepository(objectify: Objectify,
-                               api: BxApi): PairsRepository = PairRepositoryImpl(objectify)
-
-    @Provides
-    fun providesSyncPairRepository(objectify: Objectify,
-                                   api: BxApi) = SyncPairsRepository(objectify, api)
 
     private fun initData() {
         //if (ObjectifyService.ofy().load().type(SymbolStore::class.java)

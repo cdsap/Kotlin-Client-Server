@@ -1,13 +1,14 @@
 package com.kotlin.server.repository
 
 import com.googlecode.objectify.Objectify
+import com.kotlin.core.repository.SyncRepository
 import com.kotlin.server.api.BxApi
 import com.kotlin.server.database.PairStore
 
-class SyncPairsRepository(private val db: Objectify,
-                          private val api: BxApi) {
+class SyncPairsRepositoryImpl(private val db: Objectify,
+                              private val api: BxApi) : SyncRepository {
 
-    fun sync() {
+    override fun sync() {
         val pairs = db.load()
                 .type(PairStore::class.java)
                 .map { it.id }

@@ -49,12 +49,6 @@ android {
 
 }
 
-kotlin {
-    experimental {
-        coroutines 'enable'
-    }
-}
-
 dependencies {
     api project(":core")
     implementation libraries.javaxInject

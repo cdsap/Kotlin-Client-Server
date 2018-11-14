@@ -7,8 +7,9 @@ import com.kotlin.client.R
 import com.kotlin.core.entities.Trade
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_trades.*
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
@@ -36,9 +37,9 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
 
     private fun getData(longExtra: Long) {
         swipe.isRefreshing = true
-        launch(UI) {
-            presenter.getData(longExtra)
-        }
+     //   CoroutineScope..uiScope.launch { /
+        // presenter.getData(longExtra)
+       // }
     }
 
     override fun load(result: List<Trade>) {

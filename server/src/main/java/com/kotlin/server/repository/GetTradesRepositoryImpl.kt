@@ -4,12 +4,13 @@ import com.googlecode.objectify.Key
 import com.googlecode.objectify.Objectify
 import com.kotlin.core.entities.Trade
 import com.kotlin.core.entities.Trades
+import com.kotlin.core.repository.TradesRepository
 import com.kotlin.server.api.BxApi
 import com.kotlin.server.database.PairStore
 import com.kotlin.server.database.TradeStore
 
 class GetTradesRepositoryImpl(private val db: Objectify,
-                              private val api: BxApi) : GetTradesRepository {
+                              private val api: BxApi) : TradesRepository<TradeStore> {
 
 
     override fun getTradesRemote(id: Long): Trades {

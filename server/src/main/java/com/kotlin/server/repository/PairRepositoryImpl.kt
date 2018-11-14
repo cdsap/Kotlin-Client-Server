@@ -2,6 +2,7 @@ package com.kotlin.server.repository
 
 import com.googlecode.objectify.Objectify
 import com.kotlin.core.entities.PairSymbol
+import com.kotlin.core.repository.PairsRepository
 import com.kotlin.server.database.PairStore
 
 class PairRepositoryImpl(val db: Objectify) : PairsRepository {

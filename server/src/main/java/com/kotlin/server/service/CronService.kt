@@ -12,7 +12,6 @@ class CronService(val url: String) : HttpServlet() {
         const val URL = "https://kotlin-client-server.appspot.com/droidcon/v1/sync/"
     }
 
-
     override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
         val url = URL(url)
         val conn = url.openConnection() as HttpURLConnection

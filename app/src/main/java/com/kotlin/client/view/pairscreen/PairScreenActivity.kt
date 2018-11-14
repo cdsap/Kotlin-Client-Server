@@ -10,8 +10,8 @@ import com.kotlin.client.view.homescreen.HomeScreenActivity
 import com.kotlin.core.entities.PairSymbol
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_pairs.*
-import kotlinx.coroutines.experimental.android.UI
-import kotlinx.coroutines.experimental.launch
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
@@ -42,7 +42,7 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
     }
 
     private fun getData() {
-        launch(UI) {
+        GlobalScope.launch {
             presenter.getData()
         }
     }

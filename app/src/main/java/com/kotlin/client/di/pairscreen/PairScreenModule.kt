@@ -1,8 +1,8 @@
 package com.kotlin.client.di.pairscreen
 
 import com.kotlin.client.domain.GetPairsImpl
-import com.kotlin.client.repository.PairRepository
 import com.kotlin.client.view.pairscreen.PairScreenPresenter
+import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.usecases.GetPairs
 import dagger.Module
 import dagger.Provides
@@ -15,7 +15,7 @@ public class PairScreenModule {
     }
 
     @Provides
-    fun providesGetPairs(pairRepository: PairRepository): GetPairs {
+    fun providesGetPairs(pairRepository: PairsRepository): GetPairs {
         return GetPairsImpl(pairRepository)
     }
 }
