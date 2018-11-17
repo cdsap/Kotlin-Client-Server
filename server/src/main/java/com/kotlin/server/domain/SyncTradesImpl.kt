@@ -2,6 +2,7 @@ package com.kotlin.server.domain
 
 import com.googlecode.objectify.ObjectifyService
 import com.googlecode.objectify.Ref
+import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.usecases.SyncTrades
 import com.kotlin.server.database.PairStore
 import com.kotlin.server.database.TradeStore

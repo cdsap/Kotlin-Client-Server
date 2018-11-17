@@ -18,7 +18,6 @@ class BxApi {
         val retrofit = Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(GsonConverter.createGsonConverterTrade())
-                .addConverterFactory(GsonConverter.createGsonConverterTrade())
                 .build()
 
         api = retrofit.create(Api::class.java)

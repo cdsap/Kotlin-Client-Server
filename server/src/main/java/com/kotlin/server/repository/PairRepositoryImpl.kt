@@ -4,6 +4,7 @@ import com.googlecode.objectify.Objectify
 import com.kotlin.core.entities.PairSymbol
 import com.kotlin.core.repository.PairsRepository
 import com.kotlin.server.database.PairStore
+import com.kotlin.server.database.SymbolStore
 
 class PairRepositoryImpl(val db: Objectify) : PairsRepository {
     override fun getPairs(): List<PairSymbol> {
@@ -11,8 +12,8 @@ class PairRepositoryImpl(val db: Objectify) : PairsRepository {
                 .list()
                 .map {
                     PairSymbol(id = it.id,
-                            primarySymbol = it.primaryPairId.toString(),
-                            secondarySymbol = it.secondaryPairId.toString(),
+                            primarySymbol =it.primaryPairId.key.name,
+                            secondarySymbol = it.secondaryPairId.key.name,
                             rate = it.rate,
                             volume = it.volume)
                 }

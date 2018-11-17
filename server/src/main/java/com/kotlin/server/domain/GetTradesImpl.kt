@@ -2,6 +2,7 @@ package com.kotlin.server.domain
 
 import com.kotlin.core.entities.Market
 import com.kotlin.core.entities.Trades
+import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.repository.TradesRepository
 import com.kotlin.core.usecases.GetTrades
 import com.kotlin.server.database.TradeStore

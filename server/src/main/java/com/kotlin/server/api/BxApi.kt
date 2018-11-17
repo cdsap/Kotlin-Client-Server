@@ -23,7 +23,6 @@ class BxApi {
         val retrofit = Retrofit.Builder()
                 .baseUrl(URL)
                 .addConverterFactory(createGsonConverterPair())
-                .addConverterFactory(GsonConverter.createGsonConverterTrade())
                 .callFactory(CallFactoryWrapper())
                 .build()
 
@@ -34,6 +33,7 @@ class BxApi {
         val gsonBuilder = GsonBuilder()
         System.out.println("yyyy")
         gsonBuilder.registerTypeAdapter(PairsInfo::class.java, PairsDeserializer())
+        gsonBuilder.registerTypeAdapter(Trades::class.java, TradesDeserializer())
         val gson = gsonBuilder.create()
         return GsonConverterFactory.create(gson)
     }

@@ -48,8 +48,11 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
     }
 
     override fun load(pairs: List<PairSymbol>) {
-        recycler.adapter = PairSymbolAdapter(pairs, this)
-        (recycler.adapter as PairSymbolAdapter).notifyDataSetChanged()
+        runOnUiThread {
+            recycler.adapter = PairSymbolAdapter(pairs, this)
+            (recycler.adapter as PairSymbolAdapter).notifyDataSetChanged()
+
+        }
     }
 
     override fun onPairClicked(id: Long) {
