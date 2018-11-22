@@ -51,15 +51,15 @@ android {
 
 dependencies {
     api project(":core")
-    implementation libraries.javaxInject
     implementation libraries.supportAppcompat
     implementation libraries.supportRecycler
     implementation libraries.supportCardView
     implementation libraries.coroutinesCore
+    compile group: 'android.arch.work', name: 'work-runtime', version: '1.0.0-alpha10'
     implementation libraries.coroutinesAndroid
     implementation libraries.supportV4
     implementation libraries.daggerAndroid
-    compile group: 'android.arch.work', name: 'work-runtime', version: '1.0.0-alpha10'
+    implementation libraries.javaxInject
     kapt libraries.daggerProcessor
     kapt libraries.daggerCompiler
     kapt libraries.roomCompiler

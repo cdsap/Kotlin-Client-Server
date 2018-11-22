@@ -32,7 +32,9 @@ class MainApplication : DaggerApplication() {
                                 .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
                                 .build())
                         .build()
-         WorkManager.getInstance().enqueue(workerRequest)
+        val initRequest = OneTimeWorkRequest.Builder(SyncWorker::class.java).build()
+      //  WorkManager.getInstance().enqueue(initRequest)
+        //  WorkManager.getInstance().enqueue(initRequest)
 
         return appComponent
     }

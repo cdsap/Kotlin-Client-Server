@@ -4,7 +4,7 @@ ext.versions = [
         androidGradle : '3.2.1',
         endpoints     : '2.0.3',
         javax_servlet : '2.5',
-        javax_inject  : '1',
+          javax_inject  : '1',
         dagger        : '2.15',
         retrofit      : '2.3.0',
         gson          : '2.7',

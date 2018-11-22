@@ -2,9 +2,11 @@ package com.kotlin.client.view.pairscreen
 
 import android.content.Intent
 import android.os.Bundle
+import android.telecom.VideoProfile
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
+import com.kotlin.client.R.id.swipe
 import com.kotlin.client.view.homescreen.HomeScreenActivity
 
 import com.kotlin.core.entities.PairSymbol
@@ -33,12 +35,21 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
     }
 
     private fun initComponents() {
-        val adapter = PairSymbolAdapter(emptyList(),this)
+        val adapter = PairSymbolAdapter(emptyList(), this)
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
         presenter.initView(this)
         recycler.setOnClickListener {
         }
+
+        swipe.setOnRefreshListener {
+           // swipe.isRefreshing = true
+            GlobalScope.launch{
+                presenter.refresh()
+
+            }
+        }
+
     }
 
     private fun getData() {
@@ -49,6 +60,8 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
 
     override fun load(pairs: List<PairSymbol>) {
         runOnUiThread {
+            swipe.isRefreshing = false
+
             recycler.adapter = PairSymbolAdapter(pairs, this)
             (recycler.adapter as PairSymbolAdapter).notifyDataSetChanged()
 
