@@ -1,7 +1,7 @@
 package com.kotlin.client.di.homescreen
 
 import com.kotlin.client.di.ActivityScope
-import com.kotlin.client.view.homescreen.HomeScreenActivity
+import com.kotlin.client.view.homescreen.TradesActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -9,5 +9,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class HomeScreenActivityModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [HomeScreenModule::class])
-    abstract fun contributeHomeScreenActivity() : HomeScreenActivity
+    abstract fun contributeHomeScreenActivity() : TradesActivity
 }

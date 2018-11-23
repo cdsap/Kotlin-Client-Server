@@ -2,12 +2,10 @@ package com.kotlin.client.view.pairscreen
 
 import android.content.Intent
 import android.os.Bundle
-import android.telecom.VideoProfile
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
-import com.kotlin.client.R.id.swipe
-import com.kotlin.client.view.homescreen.HomeScreenActivity
+import com.kotlin.client.view.homescreen.TradesActivity
 
 import com.kotlin.core.entities.PairSymbol
 import dagger.android.AndroidInjection
@@ -39,14 +37,10 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
         presenter.initView(this)
-        recycler.setOnClickListener {
-        }
-
         swipe.setOnRefreshListener {
            // swipe.isRefreshing = true
             GlobalScope.launch{
                 presenter.refresh()
-
             }
         }
 
@@ -69,7 +63,7 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
     }
 
     override fun onPairClicked(id: Long) {
-        startActivity(Intent(this, HomeScreenActivity::class.java).apply {
+        startActivity(Intent(this, TradesActivity::class.java).apply {
             putExtra("PAIR", id)
         })
     }

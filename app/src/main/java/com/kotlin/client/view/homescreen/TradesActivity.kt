@@ -1,6 +1,7 @@
 package com.kotlin.client.view.homescreen
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
@@ -12,7 +13,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
+class TradesActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
 
     @Inject
     lateinit var presenter: HomeScreenPresenter
@@ -29,7 +30,9 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
     }
 
     private fun initComponents() {
+        val adapter = TradesAdapter(emptyList())
         recycler.layoutManager = LinearLayoutManager(this)
+        recycler.adapter = adapter
         swipe.setOnRefreshListener { getData(getIntent().getLongExtra("PAIR", 1L)) }
         presenter.initView(this)
         getData(getIntent().getLongExtra("PAIR", 1L))
@@ -37,14 +40,17 @@ class HomeScreenActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
 
     private fun getData(longExtra: Long) {
         swipe.isRefreshing = true
-     //   CoroutineScope..uiScope.launch { /
-        // presenter.getData(longExtra)
-       // }
+        GlobalScope.launch {
+            presenter.getData(longExtra)
+        }
     }
 
     override fun load(result: List<Trade>) {
-        val adapter = TradesAdapter(result)
-        recycler.adapter = adapter
-        swipe.isRefreshing = false
+        Log.e("inaki","trades"+result.count())
+
+        runOnUiThread {
+            recycler.adapter = TradesAdapter(result)
+            swipe.isRefreshing = false
+        }
     }
 }

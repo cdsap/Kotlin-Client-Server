@@ -9,7 +9,7 @@ import dagger.Module
 //import dagger.android.AndroidInjector
 //import dagger.android.ContributesAndroidInjector
 //import dagger.multibindings.IntoMap
-//import view.homescreen.HomeScreenActivity
+//import view.homescreen.TradesActivity
 //import view.pairscreen.PairScreenActivity
 //
 //
@@ -18,7 +18,7 @@ import dagger.Module
 //
 //    @Binds
 //    @IntoMap
-//    @ActivityKey(HomeScreenActivity::class)
+//    @ActivityKey(TradesActivity::class)
 //    abstract fun bindHomeScreenActivity(builder: HomeScreenComponent.Builder): AndroidInjector.Factory<out Activity>
 //
 //    @Binds

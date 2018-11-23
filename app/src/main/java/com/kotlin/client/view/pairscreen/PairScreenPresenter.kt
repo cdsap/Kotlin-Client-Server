@@ -19,6 +19,7 @@ class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs,
     }
 
     suspend fun getData() {
+
         val result = GlobalScope.async { getPairs.get() }.await()
         view.load(result)
     }
