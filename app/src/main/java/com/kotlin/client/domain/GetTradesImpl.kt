@@ -1,6 +1,7 @@
 package com.kotlin.client.domain
 
 
+import android.util.Log
 import com.kotlin.client.database.TradeDb
 import com.kotlin.core.entities.Market
 import com.kotlin.core.entities.Trades
@@ -15,17 +16,17 @@ class GetTradesImpl @Inject constructor(private val repository: TradesRepository
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-
     override fun getTrades(id: Long): Trades {
         val list = repository.getTradesPersisted(id)
         return if (list.trades.isEmpty()) {
             repository.getTradesRemote(id).trades.map {
-                val trade = TradeDb(trade_type = it.trade_type,
-                        trade_date = it.trade_date,
-                        trade_id = it.trade_id,
-                        amount = it.amount,
-                        rate = it.rate,
-                        pair = it.pair)
+                val trade =
+                        TradeDb(trade_type = it.trade_type,
+                                trade_date = it.trade_date,
+                                trade_id = it.trade_id,
+                                amount = it.amount,
+                                rate = it.rate,
+                                pair = it.pair)
                 repository.save(trade)
             }
             repository.getTradesPersisted(id)

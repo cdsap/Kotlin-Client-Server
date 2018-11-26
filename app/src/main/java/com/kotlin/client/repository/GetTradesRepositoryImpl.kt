@@ -1,5 +1,6 @@
 package com.kotlin.client.repository
 
+import android.util.Log
 import com.kotlin.client.api.BxApi
 import com.kotlin.client.database.DbInterface
 import com.kotlin.client.database.PairDb

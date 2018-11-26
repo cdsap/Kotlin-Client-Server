@@ -39,6 +39,7 @@ class BxApi {
     fun getTrades(pair: Long): Trades {
         return try {
             val a = api.getTrades(pair).execute()
+            Log.e("inaki","kkkdkdkdkdkdk"+pair)
             a.body()!!
 
         } catch (e: Exception) {
