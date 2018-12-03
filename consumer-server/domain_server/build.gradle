@@ -1,8 +1,14 @@
-apply plugin: 'java-library'
+apply from: "$rootDir/dependencies/dependencies.gradle"
+apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-}
+    api project(":core")
+    implementation libraries.javaxInject
+    implementation libraries.kotlin
+    kapt libraries.daggerProcessor
+    kapt libraries.daggerCompiler
+    implementation libraries.daggerCompiler
+    compile libraries.kotlin
 
-sourceCompatibility = "7"
-targetCompatibility = "7"
+}

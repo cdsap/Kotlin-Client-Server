@@ -18,7 +18,6 @@ allprojects {
     repositories {
         maven {
             url 'https://maven-central.storage.googleapis.com'
-            maven { url "https://kotlin.bintray.com/ktor" }
         }
         jcenter()
         google()
