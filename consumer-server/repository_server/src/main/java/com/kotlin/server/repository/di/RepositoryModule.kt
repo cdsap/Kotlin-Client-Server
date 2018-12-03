@@ -2,7 +2,6 @@ package com.kotlin.server.repository.di
 
 import com.googlecode.objectify.Objectify
 import com.googlecode.objectify.ObjectifyService
-import com.googlecode.objectify.Ref
 import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.repository.SyncRepository
 import com.kotlin.core.repository.TradesRepository
@@ -10,9 +9,6 @@ import com.kotlin.server.repository.GetTradesRepositoryImpl
 import com.kotlin.server.repository.PairRepositoryImpl
 import com.kotlin.server.repository.SyncPairsRepositoryImpl
 import com.kotlin.server.repository.api.BxApi
-import com.kotlin.server.repository.database.PairStore
-import com.kotlin.server.repository.database.SymbolStore
-import com.kotlin.server.repository.database.TradeStore
 import dagger.Module
 import dagger.Provides
 
@@ -46,7 +42,7 @@ class RepositoryModule {
 
     @Provides
     fun providesObjectifyService(): Objectify {
-
+        ObjectifyService.init()
         return ObjectifyService.ofy()
     }
 
