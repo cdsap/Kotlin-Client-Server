@@ -42,7 +42,9 @@ class CallWrapper(private val request: Request, private var executed: Boolean = 
                 "PUT".equals(request.method(), ignoreCase = true)) {
 
             val url = URL(request.url().url().toString())
+
             val con = url.openConnection() as HttpURLConnection
+            con.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
 
             if ("PATCH" == request.method()) {
                 con.setRequestProperty("X-HTTP-Method-Override", "PATCH")
@@ -95,6 +97,7 @@ class CallWrapper(private val request: Request, private var executed: Boolean = 
     private fun parseResponse(connection: HttpURLConnection): Response.Builder {
         val builder = Response.Builder()
         builder.request(request())
+
         builder.protocol(Protocol.HTTP_1_1)
         builder.code(connection.responseCode)
         builder.message(connection.responseMessage.toString())

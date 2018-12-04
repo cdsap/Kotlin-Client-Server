@@ -14,18 +14,7 @@ import javax.servlet.ServletContextListener
 class Bootstrap : ServletContextListener {
 
     override fun contextInitialized(sce: ServletContextEvent?) {
-        ObjectifyService.init()
 
-        System.out.println("2111")
-        ObjectifyService.register(TradeStore::class.java)
-        System.out.println("211vvvvvvv1")
-
-        ObjectifyService.register(SymbolStore::class.java)
-        System.out.println("211ww1")
-        ObjectifyService.register(PairStore::class.java)
-        System.out.println("211ssss1")
-        initData()
-        System.out.println("2111")
     }
 
     override fun contextDestroyed(sce: ServletContextEvent?) {
@@ -33,21 +22,6 @@ class Bootstrap : ServletContextListener {
     }
 
 
-    private fun initData() {
-        //if (ObjectifyService.ofy().load().type(SymbolStore::class.java)
-        //                .count() == 0) {
-        System.out.println("21www11")
-
-
-        ObjectifyService.run {
-
-ofy().save().entity(SymbolStore("THB"))
-
-      //      ofy().factory()
-//                    Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("ETH").safe())))
-        }
-
-    }
 
 
 }
