@@ -15,4 +15,6 @@ class TradeStore(
         var trade_date: String = "",
         var trade_type: String = "",
         @Index
-        var pair: Ref<PairStore> = Ref.create(ObjectifyService.ofy().load().type(PairStore::class.java).id(1L).safe()))
+        var pair: Ref<PairStore> = Ref
+                .create(ObjectifyService.ofy().load()
+                        .type(PairStore::class.java).id(1L).safe()))

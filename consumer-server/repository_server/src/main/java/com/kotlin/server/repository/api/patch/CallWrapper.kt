@@ -42,9 +42,10 @@ class CallWrapper(private val request: Request, private var executed: Boolean = 
                 "PUT".equals(request.method(), ignoreCase = true)) {
 
             val url = URL(request.url().url().toString())
+            System.out.println(request.url().url().toString())
 
             val con = url.openConnection() as HttpURLConnection
-            con.addRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1)");
+            con.addRequestProperty("User-Agent", "Mozilla/4.76")
 
             if ("PATCH" == request.method()) {
                 con.setRequestProperty("X-HTTP-Method-Override", "PATCH")
