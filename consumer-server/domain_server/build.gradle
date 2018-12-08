@@ -5,10 +5,10 @@ apply plugin: 'kotlin-kapt'
 dependencies {
     api project(":core")
     implementation libraries.javaxInject
+    compile 'com.google.appengine:appengine-api-1.0-sdk:1.9.49'
     implementation libraries.kotlin
     kapt libraries.daggerProcessor
     kapt libraries.daggerCompiler
     implementation libraries.daggerCompiler
     compile libraries.kotlin
-
 }

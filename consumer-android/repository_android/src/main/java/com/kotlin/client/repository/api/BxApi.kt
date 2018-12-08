@@ -1,49 +1,26 @@
-package com.kotlin.client.api
+package com.kotlin.client.repository.api
 
-import android.util.Log
 import com.google.gson.GsonBuilder
-import com.kotlin.client.repository.api.Api
-import com.kotlin.client.repository.api.MarketOverall
+import com.kotlin.client.api.OverallDesrializer
+import com.kotlin.client.api.Trades2Serial
 import com.kotlin.core.entities.Market
 import com.kotlin.core.entities.Trades
 import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class BxApi {
+class BxApi(val retrofit: Retrofit) {
 
-    companion object {
-        const val URL = "gpgpgp" // todo BuildConfig.URL
-    }
+    private val api: Api = retrofit.create(Api::class.java)
 
-    private val api: Api
 
-    init {
-        val retrofit = Retrofit.Builder()
-                .baseUrl(URL)
-                .addConverterFactory(createGsonConverterPair())
-                .build()
-
-        api = retrofit.create(Api::class.java)
-    }
-
-    fun createGsonConverterPair(): Converter.Factory {
-        val gsonBuilder = GsonBuilder()
-        System.out.println("yyyy")
-        gsonBuilder.registerTypeAdapter(MarketOverall::class.java, OverallDesrializer())
-        gsonBuilder.registerTypeAdapter(Trades::class.java, Trades2Serial())
-        val gson = gsonBuilder.create()
-        return GsonConverterFactory.create(gson)
-    }
 
     fun getTrades(pair: Long): Trades {
         return try {
             val a = api.getTrades(pair).execute()
-            Log.e("inaki","kkkdkdkdkdkdk"+pair)
             a.body()!!
 
         } catch (e: Exception) {
-            Log.e("inaki","sllslslslsls +e.t"+e.message)
             Trades(listOf())
         }
     }

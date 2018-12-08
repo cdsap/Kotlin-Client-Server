@@ -7,5 +7,4 @@ import com.kotlin.core.usecases.GetPairs
 class GetPairsImpl(val pairRepository: PairsRepository) : GetPairs {
 
     override fun get(): List<PairSymbol> = pairRepository.getPairs()
-
 }

@@ -4,10 +4,8 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     api project(":core")
-    kapt libraries.daggerProcessor
     kapt libraries.daggerCompiler
+    implementation libraries.dagger
     compile libraries.kotlin
-    implementation libraries.daggerCompiler
-
-
+    // kapt libraries.daggerProcessor
 }

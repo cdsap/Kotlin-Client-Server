@@ -1,9 +1,9 @@
 package com.kotlin.client.repository
 
-import com.kotlin.client.api.BxApi
 import com.kotlin.client.database.DbInterface
 import com.kotlin.client.database.PairDb
 import com.kotlin.client.database.TradeDb
+import com.kotlin.client.repository.api.BxApi
 import com.kotlin.core.repository.SyncRepository
 
 class SyncPairRepositoryImpl(private val db: DbInterface,

@@ -13,7 +13,7 @@ class SyncPairsRepositoryImpl(private val db: Objectify,
         val pairs = db.load()
                 .type(PairStore::class.java)
                 .map { it.id }
-System.out.println("11111")
+        System.out.println("11111")
         api.getPairsInfo().pairInfoList.forEach {
             if (pairs.contains(it.pairing_id)) {
                 val a = db.load().type(PairStore::class.java)
@@ -21,8 +21,9 @@ System.out.println("11111")
                 a.volume = it.volume_24_hours
                 a.rate = it.last_price
                 try {
+                    System.out.println("saving")
                     db.save().entity(a)
-                } catch (e: Exception){
+                } catch (e: Exception) {
                     System.out.println(e.message)
                 }
             }

@@ -24,8 +24,6 @@ dependencies {
 
 appengine {
     deploy {
-
-        projectId = "kotlin-client-server"
         version = "1"
 
     }

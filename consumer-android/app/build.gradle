@@ -50,8 +50,8 @@ android {
 }
 
 dependencies {
-    api project(":consumer-android:domain_android")
-    api project(":consumer-android:repository_android")
+    implementation project(":consumer-android:domain_android")
+    implementation project(":consumer-android:repository_android")
     implementation libraries.supportAppcompat
     implementation libraries.supportRecycler
     implementation libraries.supportCardView
@@ -59,10 +59,11 @@ dependencies {
     implementation libraries.coroutinesCore
     implementation libraries.coroutinesAndroid
     implementation libraries.supportV4
-    implementation libraries.daggerAndroid
     implementation libraries.javaxInject
     kapt libraries.daggerProcessor
     kapt libraries.daggerCompiler
+    implementation libraries.daggerAndroid
+
     implementation libraries.kotlin
 }
 

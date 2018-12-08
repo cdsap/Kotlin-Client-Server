@@ -14,10 +14,6 @@
             <param-value>false</param-value>
         </init-param>
     </servlet>
-    <listener>
-        <listener-class>com.kotlin.server.service.Bootstrap</listener-class>
-    </listener>
-
     <servlet>
         <servlet-name>CronServlet</servlet-name>
         <servlet-class>com.kotlin.server.service.CronService</servlet-class>

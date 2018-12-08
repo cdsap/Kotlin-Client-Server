@@ -1,9 +1,8 @@
 package com.kotlin.server.repository.di
 
 import com.googlecode.objectify.Objectify
-import com.googlecode.objectify.ObjectifyFactory
 import com.googlecode.objectify.ObjectifyService
-import com.googlecode.objectify.ObjectifyService.factory
+
 import com.googlecode.objectify.Ref
 import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.repository.SyncRepository
@@ -21,52 +20,38 @@ import dagger.Provides
 @Module
 class RepositoryModule {
     init {
-        System.out.println("211ssss1")
         initData()
-     //   ObjectifyService.init()
-
-
     }
 
     @Provides
-    fun providesTradesRepository(objectify: ObjectifyFactory,
-                                 api: BxApi): TradesRepository = GetTradesRepositoryImpl(objectify.ofy(), api)
+    fun providesTradesRepository(objectify: Objectify,
+                                 api: BxApi): TradesRepository = GetTradesRepositoryImpl(objectify, api)
 
     @Provides
-    fun providesPairRepository(objectify: ObjectifyFactory,
-                               api: BxApi): PairsRepository = PairRepositoryImpl(objectify.ofy())
+    fun providesPairRepository(objectify: Objectify,
+                               api: BxApi): PairsRepository = PairRepositoryImpl(objectify)
 
     @Provides
-    fun providesSyncPairRepository(objectify: ObjectifyFactory,
-                                   api: BxApi) = SyncPairsRepositoryImpl(objectify.ofy(), api)
+    fun providesSyncPairRepository(objectify: Objectify,
+                                   api: BxApi) = SyncPairsRepositoryImpl(objectify, api)
 
     @Provides
-    fun providesSyncRepository(objectify: ObjectifyFactory,
-                               api: BxApi): SyncRepository = SyncPairsRepositoryImpl(objectify.ofy(), api)
+    fun providesSyncRepository(objectify: Objectify,
+                               api: BxApi): SyncRepository = SyncPairsRepositoryImpl(objectify, api)
 
     @Provides
     fun providesRestApi(): BxApi = BxApi()
 
     @Provides
-    fun providesObjectifyService(): ObjectifyFactory {
-        System.out.println("21www11")
+    fun providesObjectifyService(): Objectify {
+        return ObjectifyService.ofy()
+    }
 
-        ObjectifyService.init()
+    private fun initData() {
         ObjectifyService.begin()
-
-
-        System.out.println("2111")
-        factory().register(TradeStore::class.java)
-        System.out.println("211vvvvvvv1")
-
-        factory().register(SymbolStore::class.java)
-        System.out.println("211ww1")
-        factory().register(PairStore::class.java)
-        System.out.println("211ssss1")
-//        initData()
-        System.out.println("2111")
-
-
+        ObjectifyService.register(TradeStore::class.java)
+        ObjectifyService.register(PairStore::class.java)
+        ObjectifyService.register(SymbolStore::class.java)
 
         ObjectifyService.ofy().save().entity(SymbolStore("THB")).now()
         ObjectifyService.ofy().save().entity(SymbolStore("BTC")).now()
@@ -76,35 +61,23 @@ class RepositoryModule {
 
         ObjectifyService.ofy().save().entity(PairStore(
                 1,
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("THB").safe()),
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("BTC").safe())))
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("THB").safe()),
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("BTC").safe())))
 
-        ObjectifyService.factory().ofy().save().entity(PairStore(
+        ObjectifyService.ofy().save().entity(PairStore(
                 25,
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("THB").safe()),
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("XRP").safe())))
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("THB").safe()),
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("XRP").safe())))
 
-        ObjectifyService.factory().ofy().save().entity(PairStore(
+        ObjectifyService.ofy().save().entity(PairStore(
                 26,
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("THB").safe()),
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("OMG").safe())))
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("THB").safe()),
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("OMG").safe())))
 
-        ObjectifyService.factory().ofy().save().entity(PairStore(
+        ObjectifyService.ofy().save().entity(PairStore(
                 21,
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("THB").safe()),
-                Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("ETH").safe())))
-        //      ofy().factory()
-//                    Ref.create(ObjectifyService.factory().ofy().load().type(SymbolStore::class.java).id("ETH").safe())))
-
-        return ObjectifyService.factory()
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("THB").safe()),
+                Ref.create(ObjectifyService.ofy().load().type(SymbolStore::class.java).id("ETH").safe())))
     }
-
-    private fun initData() {
-        //if (ObjectifyService.factory().ofy().load().type(SymbolStore::class.java)
-        //                .count() == 0) {
-
-    }
-
-
 }
 

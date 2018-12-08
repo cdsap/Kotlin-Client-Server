@@ -21,12 +21,11 @@ android {
 }
 
 dependencies {
-    api project(":consumer-android:domain_android")
+    implementation project(":consumer-android:domain_android")
     api project(":core")
-    kapt libraries.daggerProcessor
-    kapt libraries.daggerCompiler
     kapt libraries.roomCompiler
     implementation libraries.dagger
+    kapt libraries.daggerCompiler
     implementation libraries.gson
     api libraries.retrofitConverter
     api libraries.retrofit
