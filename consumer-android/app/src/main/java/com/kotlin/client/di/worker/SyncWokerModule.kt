@@ -1,8 +1,8 @@
 package com.kotlin.client.di.worker
 
-import com.kotlin.client.domain.SyncTradesImpl
 import com.kotlin.core.repository.SyncRepository
 import com.kotlin.core.usecases.SyncTrades
+import com.kotlin.core.usecases.impl.SyncTradesImpl
 import dagger.Module
 import dagger.Provides
 

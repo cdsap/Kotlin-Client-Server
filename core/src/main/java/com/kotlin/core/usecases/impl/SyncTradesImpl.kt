@@ -1,4 +1,4 @@
-package com.kotlin.client.domain
+package com.kotlin.core.usecases.impl
 
 import com.kotlin.core.repository.SyncRepository
 import com.kotlin.core.usecases.SyncTrades

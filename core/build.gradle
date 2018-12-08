@@ -1,9 +1,13 @@
-apply plugin: 'java-library'
+apply from: "$rootDir/dependencies/dependencies.gradle"
 apply plugin: 'kotlin'
+apply plugin: 'kotlin-kapt'
 
 dependencies {
     implementation libraries.kotlin
     api libraries.retrofitConverter
     api libraries.retrofit
+    kapt libraries.daggerProcessor
+    api libraries.dagger
+    kapt libraries.daggerCompiler
     api libraries.gson
 }

@@ -5,8 +5,8 @@ import com.kotlin.client.BuildConfig
 import com.kotlin.client.di.homescreen.HomeScreenComponent
 import com.kotlin.client.di.pairscreen.PairScreenComponent
 import com.kotlin.client.di.worker.SyncWokerModule
-import com.kotlin.client.domain.di.DomainModule
 import com.kotlin.client.repository.di.RepositoryModule
+import com.kotlin.core.DomainModule
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named

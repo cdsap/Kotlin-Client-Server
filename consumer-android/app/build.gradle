@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-    implementation project(":consumer-android:domain_android")
+    implementation project(":core")
     implementation project(":consumer-android:repository_android")
     implementation libraries.supportAppcompat
     implementation libraries.supportRecycler

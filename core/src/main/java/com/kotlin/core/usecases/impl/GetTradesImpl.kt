@@ -1,13 +1,12 @@
-package com.kotlin.server.repository.domain
+package com.kotlin.core.usecases.impl
 
 import com.kotlin.core.entities.Market
 import com.kotlin.core.entities.Trades
 import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.repository.TradesRepository
 import com.kotlin.core.usecases.GetTrades
-import javax.inject.Inject
 
-class GetTradesImpl @Inject constructor(
+class GetTradesImpl (
         private val repository: TradesRepository,
         private val pairRepositoryImpl: PairsRepository) : GetTrades {
 
@@ -20,7 +19,14 @@ class GetTradesImpl @Inject constructor(
     }
 
     override fun getTrades(id: Long): Trades {
-        val trades = repository.getTradesPersisted(id)
-        return trades
+        val list = repository.getTradesPersisted(id)
+        return if (list.trades.isEmpty()) {
+            repository.getTradesRemote(id).trades.map {
+                repository.save(it)
+            }
+            repository.getTradesPersisted(id)
+        } else {
+            list
+        }
     }
 }
