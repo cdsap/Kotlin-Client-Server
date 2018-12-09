@@ -7,13 +7,13 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 
-class CronService(val url: String) : HttpServlet() {
+class CronService : HttpServlet() {
     companion object {
         const val URL = "https://kotlin-client-server.appspot.com/droidcon/v1/sync/"
     }
 
     override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
-        val url = URL(url)
+        val url = URL(URL)
         val conn = url.openConnection() as HttpURLConnection
         conn.requestMethod = "GET"
         conn.inputStream

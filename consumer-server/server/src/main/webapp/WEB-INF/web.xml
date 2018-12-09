@@ -7,7 +7,7 @@
         <servlet-class>com.google.api.server.spi.EndpointsServlet</servlet-class>
         <init-param>
             <param-name>services</param-name>
-            <param-value>com.kotlin.server.endpoint.DroidconEndPoint</param-value>
+            <param-value>com.kotlin.server.endpoint.EndPoint</param-value>
         </init-param>
         <init-param>
             <param-name>restricted</param-name>

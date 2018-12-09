@@ -9,8 +9,8 @@ import com.kotlin.server.di.DaggerInjector
 import com.kotlin.server.service.SyncPairs
 import javax.inject.Named
 
-@Api(name = "droidcon", version = "v1")
-class DroidconEndPoint {
+@Api(name = "api", version = "v1")
+class EndPoint {
     init {
         DaggerInjector.builder().build().inject(this)
     }

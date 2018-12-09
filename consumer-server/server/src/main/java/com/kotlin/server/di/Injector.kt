@@ -1,6 +1,6 @@
 package com.kotlin.server.di
 
-import com.kotlin.server.endpoint.DroidconEndPoint
+import com.kotlin.server.endpoint.EndPoint
 import com.kotlin.server.repository.di.RepositoryModule
 import com.kotlin.server.repository.domain.di.DomainModule
 import dagger.Component
@@ -13,5 +13,5 @@ import javax.inject.Singleton
         DomainModule::class)))
 interface Injector {
 
-    fun inject(droidconEndPoint: DroidconEndPoint)
+    fun inject(endPoint: EndPoint)
 }
