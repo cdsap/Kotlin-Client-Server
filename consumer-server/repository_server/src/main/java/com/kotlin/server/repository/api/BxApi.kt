@@ -1,9 +1,7 @@
 package com.kotlin.server.repository.api
 
 import com.google.gson.*
-import com.kotlin.core.entities.Trade
 import com.kotlin.core.entities.Trades
-import com.kotlin.core.network.GsonConverter
 import com.kotlin.core.network.TradesDeserializer
 import com.kotlin.server.repository.api.patch.CallFactoryWrapper
 import retrofit2.Converter
@@ -29,7 +27,7 @@ class BxApi {
         bx = retrofit.create(Bx::class.java)
     }
 
-    fun createGsonConverterPair(): Converter.Factory {
+    private fun createGsonConverterPair(): Converter.Factory {
         val gsonBuilder = GsonBuilder()
         System.out.println("yyyy")
         gsonBuilder.registerTypeAdapter(PairsInfo::class.java, PairsDeserializer())
@@ -51,22 +49,14 @@ class BxApi {
 
     class PairsDeserializer : JsonDeserializer<PairsInfo> {
 
-        companion object {
-            const val TRADES_ENTITY = "trades"
-        }
 
         private val gson = Gson()
 
         @Throws(JsonParseException::class)
         override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): PairsInfo {
-            System.out.println("xxxxxxx")
-            val pairsInfo = mutableListOf<PairInfo>()
-            println("sllslsls" + json.asJsonObject.toString())
             val value = mutableListOf<PairInfo>()
-            for ((key, valuex) in json.asJsonObject.entrySet()) {
-                println("++++++")
-                println(valuex)
-                val pairInfo = gson.fromJson(valuex, PairInfo::class.java)
+            for ((_, pair) in json.asJsonObject.entrySet()) {
+                val pairInfo = gson.fromJson(pair, PairInfo::class.java)
                 value.add(pairInfo)
             }
             return PairsInfo(value)

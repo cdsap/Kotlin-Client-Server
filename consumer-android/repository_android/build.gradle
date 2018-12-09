@@ -23,8 +23,8 @@ android {
 dependencies {
     implementation project(":consumer-android:domain_android")
     api project(":core")
-    kapt libraries.roomCompiler
     implementation libraries.dagger
+    kapt libraries.roomCompiler
     kapt libraries.daggerCompiler
     implementation libraries.gson
     api libraries.retrofitConverter

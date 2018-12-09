@@ -1,14 +1,12 @@
 package com.kotlin.client.view.homescreen
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
 import com.kotlin.core.entities.Trade
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_trades.*
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -46,8 +44,6 @@ class TradesActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
     }
 
     override fun load(result: List<Trade>) {
-        Log.e("inaki","trades"+result.count())
-
         runOnUiThread {
             recycler.adapter = TradesAdapter(result)
             swipe.isRefreshing = false

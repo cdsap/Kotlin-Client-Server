@@ -9,7 +9,6 @@ import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.client.R
 import com.kotlin.core.entities.PairSymbol
-import org.w3c.dom.Text
 
 
 interface PairListListener {
@@ -27,26 +26,17 @@ class PairSymbolAdapter(private val pairs: List<PairSymbol>,
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PairViewHolder {
 
         val v = LayoutInflater.from(parent.context).inflate(R.layout.item_pair, parent, false)
-        val holder = PairViewHolder(v)
-        return holder
+        return PairViewHolder(v)
     }
 
     override fun getItemCount(): Int = pairs.size
 
 
     inner class PairViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var textView: TextView
-        var cardView: CardView
-        var volume: TextView
-        var price: TextView
-
-        init {
-            textView = itemView.findViewById(R.id.pair)
-            cardView = itemView.findViewById(R.id.cardView)
-            volume = itemView.findViewById(R.id.volume)
-            price = itemView.findViewById(R.id.price)
-
-        }
+        var textView: TextView = itemView.findViewById(R.id.pair)
+        var cardView: CardView = itemView.findViewById(R.id.cardView)
+        var volume: TextView = itemView.findViewById(R.id.volume)
+        var price: TextView = itemView.findViewById(R.id.price)
 
         fun bind(data: PairSymbol) {
             textView.text = "${data.primarySymbol}-${data.secondarySymbol}"

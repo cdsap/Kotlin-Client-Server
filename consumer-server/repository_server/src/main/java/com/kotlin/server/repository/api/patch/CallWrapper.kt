@@ -42,7 +42,6 @@ class CallWrapper(private val request: Request, private var executed: Boolean = 
                 "PUT".equals(request.method(), ignoreCase = true)) {
 
             val url = URL(request.url().url().toString())
-            System.out.println(request.url().url().toString())
 
             val con = url.openConnection() as HttpURLConnection
             con.addRequestProperty("User-Agent", "Mozilla/4.76")
@@ -56,8 +55,7 @@ class CallWrapper(private val request: Request, private var executed: Boolean = 
 
             setHeaders(request, url, con)
 
-            // Send body if we're required to do so.
-            if (HttpMethod.requiresRequestBody(request.method()) && request.body()!!.contentLength() > 0) {
+           if (HttpMethod.requiresRequestBody(request.method()) && request.body()!!.contentLength() > 0) {
 
                 val payload = Buffer()
                 request.body()!!.writeTo(payload)
@@ -84,7 +82,6 @@ class CallWrapper(private val request: Request, private var executed: Boolean = 
             con.setRequestProperty(header, headers.get(header))
         }
 
-        // HttpsUrlConnection isn't supported on App Engine, so add a new Header to fix that.
         if (request.isHttps) {
             var port = url.port
             if (port == -1) {

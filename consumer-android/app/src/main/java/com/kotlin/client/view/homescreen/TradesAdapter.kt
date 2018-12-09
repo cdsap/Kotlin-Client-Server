@@ -6,9 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.client.R
-import com.kotlin.client.view.pairscreen.PairSymbolAdapter
 import com.kotlin.core.entities.Trade
-import kotlinx.android.synthetic.main.item_trade.view.*
 
 class TradesAdapter(private val trades: List<Trade>) :
         RecyclerView.Adapter<TradesAdapter.TradesViewHolder>() {
@@ -26,18 +24,11 @@ class TradesAdapter(private val trades: List<Trade>) :
 
 
     inner class TradesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        var date: TextView
-        var amount: TextView
-        var type: TextView
-
-        init {
-            date = itemView.findViewById(R.id.date)
-            amount = itemView.findViewById(R.id.amount)
-            type = itemView.findViewById(R.id.type)
-        }
+        var date: TextView = itemView.findViewById(R.id.date)
+        var amount: TextView = itemView.findViewById(R.id.amount)
+        var type: TextView = itemView.findViewById(R.id.type)
 
         fun bind(data: Trade) {
-
             date.text = data.trade_date
             amount.text = "${data.amount}"
             type.text = data.trade_type

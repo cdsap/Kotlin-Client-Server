@@ -13,7 +13,6 @@ class SyncTradesImpl @Inject constructor(
 
     override fun syncTrades() {
         pairRepository.getPairs().map {
-            System.out.println("PairSymbol  " + it.id)
             val pairId = it.id
             tradesRepository.getTradesRemote(it.id).trades
                     .map {

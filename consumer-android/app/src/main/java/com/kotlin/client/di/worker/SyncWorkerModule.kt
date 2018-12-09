@@ -7,7 +7,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class SyncWokerModule {
+class SyncWorkerModule {
     @Provides
     fun providesWorkerFactory(syncTrades: SyncTrades)
             : DaggerWorkerFactory = DaggerWorkerFactory(syncTrades)

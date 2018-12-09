@@ -55,7 +55,7 @@ dependencies {
     implementation libraries.supportAppcompat
     implementation libraries.supportRecycler
     implementation libraries.supportCardView
-    compile group: 'android.arch.work', name: 'work-runtime', version: '1.0.0-alpha10'
+    implementation libraries.workManager
     implementation libraries.coroutinesCore
     implementation libraries.coroutinesAndroid
     implementation libraries.supportV4
@@ -63,7 +63,6 @@ dependencies {
     kapt libraries.daggerProcessor
     kapt libraries.daggerCompiler
     implementation libraries.daggerAndroid
-
     implementation libraries.kotlin
 }
 

@@ -5,7 +5,7 @@ import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
 
-@Subcomponent(modules = arrayOf(PairScreenModule::class))
+@Subcomponent(modules = [PairScreenModule::class])
 interface PairScreenComponent : AndroidInjector<PairScreenActivity> {
 
     @Subcomponent.Builder

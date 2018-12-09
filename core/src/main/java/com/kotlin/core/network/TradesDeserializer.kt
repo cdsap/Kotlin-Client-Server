@@ -16,13 +16,9 @@ class TradesDeserializer : JsonDeserializer<Trades> {
     @Throws(JsonParseException::class)
     override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): Trades {
         val trades = mutableListOf<Trade>()
-        //Log.e("inaki","sss")
-        println(json.asJsonObject.get(TRADES_ENTITY))
         json.asJsonObject.get(TRADES_ENTITY).asJsonArray.forEach {
-            val trade = gson.fromJson(it, Trade::class.java)
-            trades.add(trade)
+            trades.add(gson.fromJson(it, Trade::class.java))
         }
-
         return Trades(trades)
     }
 }

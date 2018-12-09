@@ -6,6 +6,5 @@ dependencies {
     api project(":core")
     kapt libraries.daggerCompiler
     implementation libraries.dagger
-    compile libraries.kotlin
-    // kapt libraries.daggerProcessor
+    implementation libraries.kotlin
 }
