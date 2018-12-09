@@ -1,3 +1,3 @@
 include ':core'
-include ':consumer-android:app', ':consumer-android:domain_android', ':consumer-android:repository_android'
-include ':consumer-server:server', ':consumer-server:domain_server', ':consumer-server:repository_server'
+include ':consumer-android:app', ':consumer-android:domain-android', ':consumer-android:repository-android'
+include ':consumer-server:server', ':consumer-server:domain-server', ':consumer-server:repository-server'

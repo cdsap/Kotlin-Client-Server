@@ -50,8 +50,8 @@ android {
 }
 
 dependencies {
-    implementation project(":consumer-android:domain_android")
-    implementation project(":consumer-android:repository_android")
+    implementation project(":consumer-android:domain-android")
+    implementation project(":consumer-android:repository-android")
     implementation libraries.supportAppcompat
     implementation libraries.supportRecycler
     implementation libraries.supportCardView

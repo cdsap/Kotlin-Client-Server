@@ -5,8 +5,8 @@ apply plugin: 'kotlin'
 apply plugin: 'kotlin-kapt'
 
 dependencies {
-    api project(":consumer-server:domain_server")
-    api project(":consumer-server:repository_server")
+    api project(":consumer-server:domain-server")
+    api project(":consumer-server:repository-server")
     implementation libraries.objectify
     implementation libraries.endpoints
     implementation libraries.javaxServlet
