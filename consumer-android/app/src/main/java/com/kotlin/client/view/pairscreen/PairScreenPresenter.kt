@@ -17,14 +17,15 @@ class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs,
     }
 
     suspend fun getData() {
-
         val result = GlobalScope.async { getPairs.get() }.await()
         view.load(result)
     }
 
     suspend fun refresh() {
-        val result = GlobalScope.async { syncPairs.syncTrades() }.await()
-        //  view.load(result)
+         GlobalScope.async { syncPairs.syncTrades() }.await()
+        val result = GlobalScope.async { getPairs.get() }.await()
+        view.load(result)
+
     }
 
     interface ScreenView {

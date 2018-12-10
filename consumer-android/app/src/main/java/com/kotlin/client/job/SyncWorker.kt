@@ -1,6 +1,7 @@
 package com.kotlin.client.job
 
 import android.content.Context
+import androidx.work.Result
 import androidx.work.Worker
 import androidx.work.WorkerParameters
 import com.kotlin.core.usecases.SyncTrades
@@ -11,6 +12,6 @@ class SyncWorker(context: Context,
 
     override fun doWork(): Result {
         syncTrades.syncTrades()
-        return Result.SUCCESS
+        return Result.success()
     }
 }

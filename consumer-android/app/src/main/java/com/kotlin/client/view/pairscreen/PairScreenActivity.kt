@@ -2,6 +2,7 @@ package com.kotlin.client.view.pairscreen
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
@@ -10,12 +11,15 @@ import com.kotlin.client.view.homescreen.TradesActivity
 import com.kotlin.core.entities.PairSymbol
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_pairs.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
 class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
-        PairListListener {
+        PairListListener, CoroutineScope {
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+    private val job = SupervisorJob()
 
     @Inject
     lateinit var presenter: PairScreenPresenter
@@ -38,28 +42,23 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
         recycler.layoutManager = LinearLayoutManager(this)
         presenter.initView(this)
         swipe.setOnRefreshListener {
-           // swipe.isRefreshing = true
-            GlobalScope.launch{
-                presenter.refresh()
-            }
+            swipe.isRefreshing = true
+            refresh()
         }
-
     }
 
-    private fun getData() {
-        GlobalScope.launch {
-            presenter.getData()
-        }
+    private fun getData() = launch {
+        presenter.getData()
+    }
+
+    private fun refresh() = launch {
+        presenter.refresh()
     }
 
     override fun load(pairs: List<PairSymbol>) {
-        runOnUiThread {
-            swipe.isRefreshing = false
-
-            recycler.adapter = PairSymbolAdapter(pairs, this)
-            (recycler.adapter as PairSymbolAdapter).notifyDataSetChanged()
-
-        }
+        swipe.isRefreshing = false
+        recycler.adapter = PairSymbolAdapter(pairs, this)
+        (recycler.adapter as PairSymbolAdapter).notifyDataSetChanged()
     }
 
     override fun onPairClicked(id: Long) {
@@ -68,4 +67,8 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
         })
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineContext.cancelChildren()
+    }
 }
