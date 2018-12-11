@@ -1,7 +1,9 @@
 package com.kotlin.client.di
 
 import android.app.Application
+import android.content.Context
 import com.kotlin.client.BuildConfig
+import com.kotlin.client.database.AppDatabase
 import com.kotlin.client.di.homescreen.HomeScreenComponent
 import com.kotlin.client.di.pairscreen.PairScreenComponent
 import com.kotlin.client.di.worker.SyncWorkerModule
@@ -21,4 +23,10 @@ class AppModule {
     @Provides
     @Named("URL")
     fun provideUrl() = BuildConfig.URL
+
+    @Provides
+    fun providesDb(context: Context): AppDatabase {
+        return AppDatabase.getInstance(context)
+    }
+
 }
