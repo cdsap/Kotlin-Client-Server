@@ -22,10 +22,9 @@ class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs,
     }
 
     suspend fun refresh() {
-         GlobalScope.async { syncPairs.syncTrades() }.await()
+        GlobalScope.async { syncPairs.syncTrades() }.await()
         val result = GlobalScope.async { getPairs.get() }.await()
         view.load(result)
-
     }
 
     interface ScreenView {

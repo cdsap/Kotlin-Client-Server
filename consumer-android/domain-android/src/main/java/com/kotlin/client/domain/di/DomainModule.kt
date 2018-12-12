@@ -3,6 +3,7 @@ package com.kotlin.client.domain.di
 import com.kotlin.client.domain.GetPairsImpl
 import com.kotlin.client.domain.GetTradesImpl
 import com.kotlin.core.repository.PairsRepository
+import com.kotlin.core.repository.SyncRepository
 import com.kotlin.core.repository.TradesRepository
 import com.kotlin.core.usecases.GetPairs
 import com.kotlin.core.usecases.GetTrades
@@ -18,6 +19,8 @@ class DomainModule {
     }
 
     @Provides
-    fun providesGetTrades(repository: TradesRepository)
-            : GetTrades = GetTradesImpl(repository)
+    fun providesGetTrades(repository: TradesRepository,
+                          pairsRepository: PairsRepository,
+                          syncRepository: SyncRepository)
+            : GetTrades = GetTradesImpl(repository, pairsRepository, syncRepository)
 }

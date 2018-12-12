@@ -2,10 +2,10 @@ package com.kotlin.client
 
 import androidx.work.*
 import com.kotlin.client.di.DaggerAppComponent
+import com.kotlin.client.di.worker.DaggerWorkerFactory
 import com.kotlin.client.job.SyncWorker
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
-import com.kotlin.client.di.worker.DaggerWorkerFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
@@ -13,7 +13,7 @@ import javax.inject.Inject
 class MainApplication : DaggerApplication() {
 
     @Inject
-    lateinit var workerFactor: DaggerWorkerFactory
+    lateinit var workerFactory: DaggerWorkerFactory
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
         val appComponent = DaggerAppComponent
@@ -21,19 +21,18 @@ class MainApplication : DaggerApplication() {
                 .application(this).build()
         appComponent.inject(this)
         val configuration = Configuration.Builder()
-                .setWorkerFactory(workerFactor)
+                .setWorkerFactory(workerFactory)
                 .build()
 
         WorkManager.initialize(this, configuration)
         val workerRequest =
-                PeriodicWorkRequest.Builder(SyncWorker::class.java, 15, TimeUnit.MINUTES)
+                PeriodicWorkRequest.Builder(SyncWorker::class.java, 60, TimeUnit.MINUTES)
                         .setConstraints(Constraints.Builder().setRequiresCharging(false)
-                                .setRequiredNetworkType(NetworkType.NOT_REQUIRED)
+                                .setRequiredNetworkType(NetworkType.UNMETERED)
+                                .setRequiresStorageNotLow(true)
                                 .build())
                         .build()
-        val initRequest = OneTimeWorkRequest.Builder(SyncWorker::class.java).build()
-      //  WorkManager.getInstance().enqueue(initRequest)
-        //  WorkManager.getInstance().enqueue(initRequest)
+        WorkManager.getInstance().enqueue(workerRequest)
 
         return appComponent
     }

@@ -20,6 +20,7 @@ class GetTradesImpl @Inject constructor(
     }
 
     override fun getTrades(id: Long): Trades {
+
         val trades = repository.getTradesPersisted(id)
         return trades
     }

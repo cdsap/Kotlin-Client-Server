@@ -12,9 +12,9 @@ data class MarketOverall(@SerializedName("items") val items: List<Market>)
 
 interface Api {
 
-    @GET("droidcon/v1/trades/{id}")
+    @GET("api/v1/trades/{id}")
     fun getTrades(@Path("id") pair: Long): Call<Trades>
 
-    @GET("droidcon/v1/trades")
+    @GET("api/v1/trades")
     fun syncTrades(): Call<MarketOverall>
 }

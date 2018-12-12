@@ -5,7 +5,6 @@ import android.util.Log
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import androidx.sqlite.db.SupportSQLiteDatabase
 import java.util.concurrent.Executors
 
 @Database(entities = [TradeDb::class, PairDb::class, SymbolDb::class],
@@ -30,26 +29,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::
                     class.java,
                     "bx.db")
-                    .addCallback(
-                            object : Callback() {
-                                override fun onCreate(db: SupportSQLiteDatabase) {
-                                    super.onCreate(db)
-                                    Log.e("inaki", "xx")
 
-                                    ioThread {
-                                        Log.e("inaki", "cc")
-                                        getInstance(context).dbInterface().insertSymbol(SymbolDb("THB"))
-                                        getInstance(context).dbInterface().insertSymbol(SymbolDb("BTC"))
-                                        getInstance(context).dbInterface().insertSymbol(SymbolDb("OMG"))
-                                        getInstance(context).dbInterface().insertSymbol(SymbolDb("XRP"))
-                                        getInstance(context).dbInterface().insertSymbol(SymbolDb("ETH"))
-                                        getInstance(context).dbInterface().insertPair(PairDb(1, "THB", "BTC", 0.0, 0.0))
-                                        getInstance(context).dbInterface().insertPair(PairDb(25, "THB", "XRP", 0.0, 0.0))
-                                        getInstance(context).dbInterface().insertPair(PairDb(26, "THB", "OMG", 0.0, 0.0))
-                                        getInstance(context).dbInterface().insertPair(PairDb(21, "THB", "ETH", 0.0, 0.0))
-                                    }
-                                }
-                            })
                     .build()
         }
     }

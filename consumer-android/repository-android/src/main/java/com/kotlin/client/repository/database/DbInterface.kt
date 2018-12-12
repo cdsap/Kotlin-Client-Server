@@ -26,5 +26,7 @@ interface DbInterface {
     @Query("Select * FROM PairDb")
     fun getPairs(): List<PairDb>
 
+    @Query("Select * FROM PairDb where id=:id")
+    fun getPairs(id: Long): PairDb
 
 }

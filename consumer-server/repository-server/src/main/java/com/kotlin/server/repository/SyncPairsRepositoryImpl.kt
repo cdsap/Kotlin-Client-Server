@@ -1,6 +1,7 @@
 package com.kotlin.server.repository
 
 import com.googlecode.objectify.Objectify
+import com.kotlin.core.entities.Market
 import com.kotlin.core.repository.SyncRepository
 import com.kotlin.server.repository.api.BxApi
 import com.kotlin.server.repository.database.PairStore
@@ -8,7 +9,7 @@ import com.kotlin.server.repository.database.PairStore
 class SyncPairsRepositoryImpl(private val db: Objectify,
                               private val api: BxApi) : SyncRepository {
 
-    override fun sync() {
+    override fun sync()  : List<Market>{
         val pairs = db.load()
                 .type(PairStore::class.java)
                 .map { it.id }
@@ -22,5 +23,6 @@ class SyncPairsRepositoryImpl(private val db: Objectify,
             }
 
         }
+        return mutableListOf()
     }
 }

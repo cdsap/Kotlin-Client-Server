@@ -32,7 +32,7 @@ class RepositoryModule {
     @Provides
     fun providesPairRepository(db: DbInterface,
                                api: BxApi): PairsRepository =
-            PairRepositoryImpl(db)
+            PairRepositoryImpl(db, api)
 
     @Provides
     fun providesSyncPairRepository(db: DbInterface,
@@ -55,7 +55,6 @@ class RepositoryModule {
     fun providesDbInterface(appDatabase: AppDatabase): DbInterface {
         return appDatabase.dbInterface()
     }
-
 
 
     private fun createGsonConverterPair(): Converter.Factory {
