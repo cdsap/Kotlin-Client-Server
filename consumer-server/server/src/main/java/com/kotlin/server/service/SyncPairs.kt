@@ -1,10 +1,10 @@
 package com.kotlin.server.service
 
-import com.kotlin.core.usecases.SyncPairs
+import com.kotlin.core.usecases.GetPairs
 import javax.inject.Inject
 
 
-class SyncPairs @Inject constructor(private val syncPairs: SyncPairs) {
+class SyncPairs @Inject constructor(private val getPairs: GetPairs) {
 
-    fun sync(): Unit = syncPairs.syncPairs()
+    fun sync() = getPairs.sync()
 }

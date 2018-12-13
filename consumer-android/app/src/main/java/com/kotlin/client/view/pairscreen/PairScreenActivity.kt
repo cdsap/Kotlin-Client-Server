@@ -2,11 +2,10 @@ package com.kotlin.client.view.pairscreen
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
-import com.kotlin.client.view.homescreen.TradesActivity
+import com.kotlin.client.view.tradescreen.TradesActivity
 
 import com.kotlin.core.entities.PairSymbol
 import dagger.android.AndroidInjection

@@ -1,6 +1,6 @@
 package com.kotlin.client.di
 
-import com.kotlin.client.di.homescreen.HomeScreenActivityModule
+import com.kotlin.client.di.tradescreen.HomeScreenActivityModule
 import com.kotlin.client.di.pairscreen.PairScreenActivityModule
 import dagger.Module
 

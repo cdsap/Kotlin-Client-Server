@@ -1,4 +1,4 @@
-package com.kotlin.client.view.homescreen
+package com.kotlin.client.view.tradescreen
 
 
 import com.kotlin.core.entities.Trade
@@ -7,7 +7,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import javax.inject.Inject
 
-class HomeScreenPresenter @Inject constructor(private val getTrades: GetTrades) {
+class TradesScreenPresenter @Inject constructor(private val getTrades: GetTrades) {
 
     lateinit var view: ScreenView
 
@@ -17,6 +17,11 @@ class HomeScreenPresenter @Inject constructor(private val getTrades: GetTrades) 
 
     suspend fun getData(id: Long) {
         val result = GlobalScope.async { getTrades.getTrades(id) }.await()
+        view.load(result.trades)
+    }
+
+    suspend fun refreshData(id: Long) {
+        val result = GlobalScope.async { getTrades.refreshTrades(id) }.await()
         view.load(result.trades)
     }
 

@@ -1,4 +1,4 @@
-package com.kotlin.client.view.homescreen
+package com.kotlin.client.view.tradescreen
 
 import android.view.LayoutInflater
 import android.view.View

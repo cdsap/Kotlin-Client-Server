@@ -26,7 +26,7 @@ class RepositoryModule {
 
     @Provides
     fun providesPairRepository(objectify: Objectify,
-                               api: BxApi): PairsRepository = PairRepositoryImpl(objectify)
+                               api: BxApi): PairsRepository = PairRepositoryImpl(objectify, api)
 
     @Provides
     fun providesSyncPairRepository(objectify: Objectify,

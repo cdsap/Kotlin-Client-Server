@@ -1,4 +1,4 @@
-package com.kotlin.client.domain
+package com.kotlin.core.usecases.impl
 
 import com.kotlin.core.entities.PairSymbol
 import com.kotlin.core.repository.PairsRepository

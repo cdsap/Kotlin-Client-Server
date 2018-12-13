@@ -15,7 +15,7 @@ dependencies {
     implementation libraries.daggerCompiler
     kapt libraries.dagger
     implementation libraries.gson
-    implementation project(path: ':core')
+    implementation project(path: ':core-domain')
     testImplementation libraries.junit
     testImplementation libraries.mockito
     //   compile "io.ktor:ktor-server-servlet:$ktor_version"

@@ -4,7 +4,7 @@ apply plugin: 'kotlin-kapt'
 
 dependencies {
     api project(":consumer-server:domain-server")
-    api project(":core")
+    api project(':core-domain')
     implementation libraries.objectify
     implementation libraries.kotlin
     implementation libraries.retrofitConverter

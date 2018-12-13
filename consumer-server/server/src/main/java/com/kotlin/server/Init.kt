@@ -1,6 +1,6 @@
 package com.kotlin.server
 
-import com.kotlin.core.usecases.SyncPairs
+import com.kotlin.core.usecases.GetPairs
 import javax.inject.Inject
 import javax.servlet.GenericServlet
 import javax.servlet.ServletRequest
@@ -14,12 +14,12 @@ class Init : GenericServlet() {
     }
 
     @Inject
-    lateinit var getPairs: SyncPairs
+    lateinit var getPairs: GetPairs
 
     override fun service(req: ServletRequest?, res: ServletResponse?) {}
 
     override fun init() {
         super.init()
-        getPairs.syncPairs()
+        getPairs.sync()
     }
 }

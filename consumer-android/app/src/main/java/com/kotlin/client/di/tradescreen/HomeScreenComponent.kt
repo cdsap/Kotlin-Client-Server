@@ -1,6 +1,6 @@
-package com.kotlin.client.di.homescreen
+package com.kotlin.client.di.tradescreen
 
-import com.kotlin.client.view.homescreen.TradesActivity
+import com.kotlin.client.view.tradescreen.TradesActivity
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 

@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".view.homescreen.TradesActivity" />
+        <activity android:name=".view.tradescreen.TradesActivity" />
 
         <activity android:name=".view.pairscreen.PairScreenActivity">
             <intent-filter>

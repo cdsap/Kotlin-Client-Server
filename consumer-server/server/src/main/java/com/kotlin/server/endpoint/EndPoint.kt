@@ -19,7 +19,7 @@ class EndPoint {
     lateinit var syncService: SyncTradesService
 
     @Inject
-    lateinit var syncService2: SyncPairs
+    lateinit var syncPairs: SyncPairs
 
     @Inject
     lateinit var getTradesService: GetTradesService
@@ -32,7 +32,7 @@ class EndPoint {
     @ApiMethod(name = "syncPairs",
             httpMethod = ApiMethod.HttpMethod.GET,
             path = "syncPairs/")
-    fun sync2() = syncService2.sync()
+    fun sync2() = syncPairs.sync()
 
 
     @ApiMethod(name = "trades",
@@ -40,9 +40,11 @@ class EndPoint {
             path = "trades/{pair}")
     fun getTrades(@Named("pair") id: String) = getTradesService.getTrades(id)
 
-    @ApiMethod(name = "trades",
-            httpMethod = ApiMethod.HttpMethod.GET,
-            path = "trades/")
-    fun getTradesByPair() = getTradesService.getTradesByPair()
+    companion object {
+        const val URL = ""
+        const val VERSION = "2"
+        const val ENDPOINT = ""
+
+    }
 }
 

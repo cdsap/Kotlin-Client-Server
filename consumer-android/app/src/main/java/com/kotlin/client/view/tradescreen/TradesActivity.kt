@@ -1,4 +1,4 @@
-package com.kotlin.client.view.homescreen
+package com.kotlin.client.view.tradescreen
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -7,14 +7,19 @@ import com.kotlin.client.R
 import com.kotlin.core.entities.Trade
 import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_trades.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
+import kotlinx.coroutines.*
 import javax.inject.Inject
+import kotlin.coroutines.CoroutineContext
 
-class TradesActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
+class TradesActivity : AppCompatActivity(),
+        TradesScreenPresenter.ScreenView, CoroutineScope {
+
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.Main + job
+    private val job = SupervisorJob()
 
     @Inject
-    lateinit var presenter: HomeScreenPresenter
+    lateinit var presenter: TradesScreenPresenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,17 +41,18 @@ class TradesActivity : AppCompatActivity(), HomeScreenPresenter.ScreenView {
         getData(getIntent().getLongExtra("PAIR", 1L))
     }
 
-    private fun getData(longExtra: Long) {
+    private fun getData(longExtra: Long) = launch {
         swipe.isRefreshing = true
-        GlobalScope.launch {
-            presenter.getData(longExtra)
-        }
+        presenter.getData(longExtra)
     }
 
     override fun load(result: List<Trade>) {
-        runOnUiThread {
-            recycler.adapter = TradesAdapter(result)
-            swipe.isRefreshing = false
-        }
+        recycler.adapter = TradesAdapter(result)
+        swipe.isRefreshing = false
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        coroutineContext.cancelChildren()
     }
 }

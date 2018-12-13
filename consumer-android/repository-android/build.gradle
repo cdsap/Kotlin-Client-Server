@@ -21,8 +21,7 @@ android {
 }
 
 dependencies {
-    implementation project(":consumer-android:domain-android")
-    api project(":core")
+    api project(':core-domain')
     implementation libraries.dagger
     kapt libraries.roomCompiler
     kapt libraries.daggerCompiler
