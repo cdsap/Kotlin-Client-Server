@@ -1,12 +1,10 @@
 package com.kotlin.client
 
-import androidx.work.*
+import androidx.work.Configuration
 import com.kotlin.client.di.DaggerAppComponent
 import com.kotlin.client.di.worker.DaggerWorkerFactory
-import com.kotlin.client.job.SyncWorker
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
-import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 
@@ -24,15 +22,15 @@ class MainApplication : DaggerApplication() {
                 .setWorkerFactory(workerFactory)
                 .build()
 
-        WorkManager.initialize(this, configuration)
-        val workerRequest =
-                PeriodicWorkRequest.Builder(SyncWorker::class.java, 60, TimeUnit.MINUTES)
-                        .setConstraints(Constraints.Builder().setRequiresCharging(false)
-                                .setRequiredNetworkType(NetworkType.UNMETERED)
-                                .setRequiresStorageNotLow(true)
-                                .build())
-                        .build()
-        WorkManager.getInstance().enqueue(workerRequest)
+//        WorkManager.initialize(this, configuration)
+//        val workerRequest =
+//                PeriodicWorkRequest.Builder(SyncWorker::class.java, 60, TimeUnit.MINUTES)
+//                        .setConstraints(Constraints.Builder().setRequiresCharging(false)
+//                                .setRequiredNetworkType(NetworkType.UNMETERED)
+//                                .setRequiresStorageNotLow(true)
+//                                .build())
+//                        .build()
+//                        //     WorkManager.getInstance().enqueue(workerRequest)
 
         return appComponent
     }

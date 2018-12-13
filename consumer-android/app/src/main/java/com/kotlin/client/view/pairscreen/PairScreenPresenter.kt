@@ -2,13 +2,11 @@ package com.kotlin.client.view.pairscreen
 
 import com.kotlin.core.entities.PairSymbol
 import com.kotlin.core.usecases.GetPairs
-import com.kotlin.core.usecases.SyncTrades
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import javax.inject.Inject
 
-class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs,
-                                              private val syncPairs: SyncTrades) {
+class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs) {
 
     lateinit var view: PairScreenPresenter.ScreenView
 
@@ -22,8 +20,7 @@ class PairScreenPresenter @Inject constructor(private val getPairs: GetPairs,
     }
 
     suspend fun refresh() {
-        GlobalScope.async { syncPairs.syncTrades() }.await()
-        val result = GlobalScope.async { getPairs.get() }.await()
+        val result = GlobalScope.async { getPairs.sync() }.await()
         view.load(result)
     }
 

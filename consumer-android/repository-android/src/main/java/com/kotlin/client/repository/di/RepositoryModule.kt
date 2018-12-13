@@ -7,12 +7,10 @@ import com.kotlin.client.database.AppDatabase
 import com.kotlin.client.database.DbInterface
 import com.kotlin.client.repository.GetTradesRepositoryImpl
 import com.kotlin.client.repository.PairRepositoryImpl
-import com.kotlin.client.repository.SyncPairRepositoryImpl
 import com.kotlin.client.repository.api.BxApi
 import com.kotlin.client.repository.api.MarketOverall
 import com.kotlin.core.entities.Trades
 import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.repository.SyncRepository
 import com.kotlin.core.repository.TradesRepository
 import dagger.Module
 import dagger.Provides
@@ -33,11 +31,6 @@ class RepositoryModule {
     fun providesPairRepository(db: DbInterface,
                                api: BxApi): PairsRepository =
             PairRepositoryImpl(db, api)
-
-    @Provides
-    fun providesSyncPairRepository(db: DbInterface,
-                                   api: BxApi): SyncRepository =
-            SyncPairRepositoryImpl(db, api)
 
     @Provides
     fun providesRestApi(retrofit: Retrofit): BxApi = BxApi(retrofit)

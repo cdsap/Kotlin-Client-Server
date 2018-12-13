@@ -4,4 +4,6 @@ import com.kotlin.core.entities.PairSymbol
 
 interface PairsRepository {
     fun getPairs(): List<PairSymbol>
+
+    fun syncPairs(): List<PairSymbol>
 }

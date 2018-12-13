@@ -1,18 +1,13 @@
 package com.kotlin.client.di.worker
 
-import com.kotlin.client.domain.SyncTradesImpl
-import com.kotlin.core.repository.SyncRepository
-import com.kotlin.core.usecases.SyncTrades
+import com.kotlin.core.usecases.GetPairs
 import dagger.Module
 import dagger.Provides
 
 @Module
 class SyncWorkerModule {
     @Provides
-    fun providesWorkerFactory(syncTrades: SyncTrades)
+    fun providesWorkerFactory(syncTrades: GetPairs)
             : DaggerWorkerFactory = DaggerWorkerFactory(syncTrades)
 
-    @Provides
-    fun provideSyncTrades(repository: SyncRepository): SyncTrades =
-            SyncTradesImpl(repository)
 }

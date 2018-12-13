@@ -4,14 +4,14 @@ import android.content.Context
 import androidx.work.Result
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.kotlin.core.usecases.SyncTrades
+import com.kotlin.core.usecases.GetPairs
 
 class SyncWorker(context: Context,
                  workerParams: WorkerParameters,
-                 private val syncTrades: SyncTrades) : Worker(context, workerParams) {
+                 private val syncTrades: GetPairs) : Worker(context, workerParams) {
 
     override fun doWork(): Result {
-        syncTrades.syncTrades()
+        syncTrades.sync()
         return Result.success()
     }
 }
