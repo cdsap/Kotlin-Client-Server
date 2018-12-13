@@ -1,5 +1,6 @@
 package com.kotlin.server.di
 
+import com.kotlin.server.Init
 import com.kotlin.server.endpoint.EndPoint
 import com.kotlin.server.repository.di.RepositoryModule
 import com.kotlin.server.repository.domain.di.DomainModule
@@ -14,4 +15,6 @@ import javax.inject.Singleton
 interface Injector {
 
     fun inject(endPoint: EndPoint)
+
+    fun inject(init: Init)
 }

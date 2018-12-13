@@ -10,14 +10,9 @@ class SyncPairsRepositoryImpl(private val db: Objectify,
                               private val api: BxApi) : SyncRepository {
 
     override fun sync(): List<Market> {
-        // val pairs = db.load()
-        //         .type(PairStore::class.java)
-        //         .map { it.id }
         api.getPairsInfo().pairInfoList.forEach {
-            System.out.println("***************")
-            System.out.println("***************"+ db.load().type(PairStore::class.java).id(it.pairing_id))
 
-                    //   if (db.load().type(PairStore::class.java).id(it.pairing_id) == null) {
+            if (db.load().type(PairStore::class.java).id(it.pairing_id).now() == null) {
                 db.save().entity(PairStore(
                         id = it.pairing_id,
                         volume = it.volume_24_hours,
@@ -26,14 +21,14 @@ class SyncPairsRepositoryImpl(private val db: Objectify,
                         secondaryPairId = it.secondary_currency)
                 )
 
-//            } else {
-//                val pairStore = db.load().type(PairStore::class.java)
-//                        .id(it.pairing_id).safe()
-//                pairStore.volume = it.volume_24_hours
-//                pairStore.rate = it.last_price
-//
-//                db.save().entity(pairStore)
-//            }
+            } else {
+                val pairStore = db.load().type(PairStore::class.java)
+                        .id(it.pairing_id).safe()
+                pairStore.volume = it.volume_24_hours
+                pairStore.rate = it.last_price
+
+                db.save().entity(pairStore)
+            }
 
         }
         return mutableListOf()

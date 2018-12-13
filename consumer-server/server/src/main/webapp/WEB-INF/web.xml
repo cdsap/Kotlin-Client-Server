@@ -18,6 +18,16 @@
         <servlet-name>CronServlet</servlet-name>
         <servlet-class>com.kotlin.server.service.CronService</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CronServlet2</servlet-name>
+        <servlet-class>com.kotlin.server.service.CronService2</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>my-xccxcxccx</servlet-name>
+        <servlet-class>com.kotlin.server.Init</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
     <servlet-mapping>
         <servlet-name>EndpointsServlet</servlet-name>
@@ -25,7 +35,11 @@
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>CronServlet</servlet-name>
-        <url-pattern>/sync</url-pattern>
+        <url-pattern>/syncTrades</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CronServlet2</servlet-name>
+        <url-pattern>/syncPairs</url-pattern>
     </servlet-mapping>
     <filter>
         <filter-name>ObjectifyFilter</filter-name>

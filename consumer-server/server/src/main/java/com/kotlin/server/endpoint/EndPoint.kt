@@ -24,10 +24,9 @@ class EndPoint {
     @Inject
     lateinit var getTradesService: GetTradesService
 
-
-    @ApiMethod(name = "sync",
+    @ApiMethod(name = "syncTrades",
             httpMethod = ApiMethod.HttpMethod.GET,
-            path = "sync/")
+            path = "syncTrades/")
     fun sync() = syncService.sync()
 
     @ApiMethod(name = "syncPairs",

@@ -29,5 +29,4 @@ class DomainModule {
                           pairRepository: PairsRepository)
             : SyncTrades = SyncTradesImpl(tradesRepository, pairRepository)
 
-
 }

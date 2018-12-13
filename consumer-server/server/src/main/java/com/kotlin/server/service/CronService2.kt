@@ -7,9 +7,9 @@ import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
 
-class CronService : HttpServlet() {
+class CronService2 : HttpServlet() {
     companion object {
-        const val URL = "https://kotlin-client-server.appspot.com/api/v1/syncTrades/"
+        const val URL = "https://kotlin-client-server.appspot.com/api/v1/syncPairs/"
     }
 
     override fun doGet(req: HttpServletRequest?, resp: HttpServletResponse?) {
