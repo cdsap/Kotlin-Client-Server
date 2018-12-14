@@ -1,4 +1,4 @@
-package com.kotlin.server.repository.api
+package com.kotlin.server.repository.api.entities
 
 import com.google.gson.annotations.SerializedName
 

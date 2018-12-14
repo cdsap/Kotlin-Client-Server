@@ -3,6 +3,8 @@ package com.kotlin.server.repository.api
 import com.google.gson.*
 import com.kotlin.core.entities.Trades
 import com.kotlin.core.network.TradesDeserializer
+import com.kotlin.server.repository.api.entities.PairInfo
+import com.kotlin.server.repository.api.entities.PairsInfo
 import com.kotlin.server.repository.api.patch.CallFactoryWrapper
 import retrofit2.Converter
 import retrofit2.Retrofit
