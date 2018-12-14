@@ -24,8 +24,15 @@ dependencies {
 
 appengine {
     deploy {
-        version = "1"
+        version = "2"
+        projectId = 'APPENGINE_CONFIG'
 
+    }
+    run {
+        // configure local run
+      //  adminHost = "http://localhost"
+      //  adminPort = 8081
+      //  datastorePath = "/Users/ivillar/kotlin-client-server/Kotlin-Client-Server/consumer-server/server/build/exploded-server/WEB-INF/appengine-generated/"
     }
 }
 sourceCompatibility = "1.8"

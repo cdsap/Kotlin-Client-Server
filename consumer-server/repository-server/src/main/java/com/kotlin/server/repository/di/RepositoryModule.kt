@@ -1,6 +1,11 @@
 package com.kotlin.server.repository.di
 
+import com.google.api.client.util.store.DataStore
+import com.google.api.client.util.store.DataStoreFactory
+import com.google.appengine.api.utils.SystemProperty
+import com.google.cloud.datastore.DatastoreOptions
 import com.googlecode.objectify.Objectify
+import com.googlecode.objectify.ObjectifyFactory
 import com.googlecode.objectify.ObjectifyService
 import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.repository.SyncRepository
@@ -45,6 +50,16 @@ class RepositoryModule {
     }
 
     private fun initData() {
+        if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
+            ObjectifyService.init()
+        } else {
+            val dataStore =  DatastoreOptions.newBuilder()
+                    .setHost("http://localhost:8081")
+                    .setProjectId("kotlin-client-server")
+                    .build()
+                    .service
+            ObjectifyService.init(ObjectifyFactory(dataStore))
+        }
         ObjectifyService.begin()
         ObjectifyService.register(TradeStore::class.java)
         ObjectifyService.register(PairStore::class.java)
