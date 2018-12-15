@@ -6,6 +6,7 @@ import com.google.api.server.spi.config.Api
 import com.google.api.server.spi.config.ApiMethod
 import javax.inject.Inject
 import com.kotlin.server.di.DaggerInjector
+import com.kotlin.server.service.GetMarketService
 import com.kotlin.server.service.SyncPairs
 import javax.inject.Named
 
@@ -24,6 +25,9 @@ class EndPoint {
     @Inject
     lateinit var getTradesService: GetTradesService
 
+    @Inject
+    lateinit var getMarketService: GetMarketService
+
     @ApiMethod(name = "syncTrades",
             httpMethod = ApiMethod.HttpMethod.GET,
             path = "syncTrades/")
@@ -39,6 +43,11 @@ class EndPoint {
             httpMethod = ApiMethod.HttpMethod.GET,
             path = "trades/{pair}")
     fun getTrades(@Named("pair") id: String) = getTradesService.getTrades(id)
+
+    @ApiMethod(name = "market",
+            httpMethod = ApiMethod.HttpMethod.GET,
+            path = "market/")
+    fun getMarket() = getMarketService.getMarket()
 
     companion object {
         const val URL = ""

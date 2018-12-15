@@ -1,13 +1,8 @@
 package com.kotlin.client.repository.api
 
-import com.google.gson.GsonBuilder
-import com.kotlin.client.api.OverallDesrializer
-import com.kotlin.client.api.Trades2Serial
 import com.kotlin.core.entities.Market
 import com.kotlin.core.entities.Trades
-import retrofit2.Converter
 import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 
 class BxApi(val retrofit: Retrofit) {
 

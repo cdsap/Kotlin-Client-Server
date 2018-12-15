@@ -7,14 +7,15 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
 
-data class MarketOverall(@SerializedName("items") val items: List<Market>)
-
-
 interface Api {
 
     @GET("api/v1/trades/{id}")
     fun getTrades(@Path("id") pair: Long): Call<Trades>
 
-    @GET("api/v1/trades")
+    @GET("api/v1/market")
     fun syncTrades(): Call<MarketOverall>
 }
+
+
+data class MarketOverall(@SerializedName("items") val items: List<Market>)
+

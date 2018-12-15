@@ -1,8 +1,6 @@
-package com.kotlin.client.api
+package com.kotlin.client.repository.api
 
-import android.util.Log
 import com.google.gson.*
-import com.kotlin.client.repository.api.MarketOverall
 import com.kotlin.core.entities.Market
 import java.lang.reflect.Type
 
@@ -18,12 +16,9 @@ class OverallDesrializer : JsonDeserializer<MarketOverall> {
     override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): MarketOverall {
         val trades = mutableListOf<Market>()
         json.asJsonObject.get(TRADES_ENTITY).asJsonArray.forEach {
-            Log.e("inaki", "xkxkxkxkxxk")
             val trade = gson.fromJson(it, Market::class.java)
             trades.add(trade)
         }
-        Log.e("inaki", "finishing")
-        Log.e("inaki", "finishing")
         return MarketOverall(trades)
     }
 }

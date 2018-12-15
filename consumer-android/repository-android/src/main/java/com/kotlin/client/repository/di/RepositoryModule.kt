@@ -1,7 +1,7 @@
 package com.kotlin.client.repository.di
 
 import com.google.gson.GsonBuilder
-import com.kotlin.client.api.OverallDesrializer
+import com.kotlin.client.repository.api.OverallDesrializer
 import com.kotlin.client.api.Trades2Serial
 import com.kotlin.client.database.AppDatabase
 import com.kotlin.client.database.DbInterface

@@ -4,4 +4,6 @@ import com.kotlin.core.entities.Market
 
 interface SyncRepository {
     fun sync(): List<Market>
+
+    fun get(): List<Market>
 }
