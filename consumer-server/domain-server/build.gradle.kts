@@ -10,5 +10,7 @@ dependencies {
     kapt(Dependencies.daggerProcessor)
     kapt(Dependencies.daggerCompiler)
     implementation(Dependencies.daggerCompiler)
-    compile(Dependencies.kotlin)
+    implementation(Dependencies.kotlin)
+    testImplementation(Dependencies.kotlinTest)
+    testImplementation(Dependencies.mockitoKotlin)
 }

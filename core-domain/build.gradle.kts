@@ -1,4 +1,4 @@
-plugins{
+plugins {
     id("kotlin")
 }
 
@@ -7,9 +7,10 @@ val test by tasks.getting(Test::class) {
 }
 
 dependencies {
-    implementation (Dependencies.kotlin)
-    api (Dependencies.retrofitConverter)
-    api (Dependencies.retrofit)
-    api (Dependencies.gson)
-    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.1.11")
+    implementation(Dependencies.kotlin)
+    api(Dependencies.retrofitConverter)
+    api(Dependencies.retrofit)
+    api(Dependencies.gson)
+    testImplementation(Dependencies.kotlinTest)
+    testImplementation(Dependencies.mockitoKotlin)
 }

@@ -7,11 +7,11 @@ import com.kotlin.core.usecases.GetPairs
 class GetPairsImpl(private val pairRepository: PairsRepository) : GetPairs {
 
     override fun get(): List<PairSymbol> {
-        val pairs = pairRepository.getPairs()
-        return if (pairs.isEmpty()) {
-            return pairRepository.syncPairs()
+        val list = pairRepository.getPairs()
+        return if (list.isEmpty()) {
+            sync()
         } else {
-            pairs
+            pairRepository.getPairs()
         }
     }
 

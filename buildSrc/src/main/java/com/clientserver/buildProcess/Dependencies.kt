@@ -16,6 +16,8 @@ object Versions {
     val workManager = "1.0.0-alpha12"
     val junit = "4.12"
     val mockito = "1.5.0"
+    val kotlinTest = "3.1.11"
+    val mockitoKotlin = "2.0.0-RC1"
 }
 
 object Dependencies {
@@ -50,4 +52,7 @@ object Dependencies {
     val roomCompiler = "android.arch.persistence.room:compiler:${Versions.archComponents}"
     val junit = "junit:junit:${Versions.junit}"
     val mockito = "com.nhaarman:mockito-kotlin:${Versions.mockito}"
+    val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
+    val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
+
 }
