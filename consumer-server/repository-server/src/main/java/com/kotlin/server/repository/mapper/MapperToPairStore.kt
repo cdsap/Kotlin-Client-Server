@@ -13,5 +13,4 @@ class MapperToPairStore : Mapper<PairInfo, PairStore> {
                 primaryPairId = origin.primary_currency,
                 secondaryPairId = origin.secondary_currency)
     }
-
 }

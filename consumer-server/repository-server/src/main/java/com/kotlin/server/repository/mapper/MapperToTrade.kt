@@ -10,5 +10,4 @@ class MapperToTrade : Mapper<TradeStore, Trade> {
                 trade_type = origin.trade_type, amount = origin.amount, rate = origin.rate,
                 pair = origin.pair.get().id)
     }
-
 }

@@ -53,7 +53,7 @@ class RepositoryModule {
         if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
             ObjectifyService.init()
         } else {
-            val dataStore =  DatastoreOptions.newBuilder()
+            val dataStore = DatastoreOptions.newBuilder()
                     .setHost("http://localhost:8081")
                     .setProjectId("kotlin-client-server")
                     .build()

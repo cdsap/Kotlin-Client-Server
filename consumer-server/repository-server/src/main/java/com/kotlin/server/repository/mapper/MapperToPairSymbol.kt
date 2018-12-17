@@ -11,5 +11,4 @@ class MapperToPairSymbol : Mapper<PairStore, PairSymbol> {
                 volume = origin.volume,
                 rate = origin.rate)
     }
-
 }

@@ -9,7 +9,6 @@ class BxApi(val retrofit: Retrofit) {
     private val api: Api = retrofit.create(Api::class.java)
 
 
-
     fun getTrades(pair: Long): Trades {
         return try {
             val a = api.getTrades(pair).execute()

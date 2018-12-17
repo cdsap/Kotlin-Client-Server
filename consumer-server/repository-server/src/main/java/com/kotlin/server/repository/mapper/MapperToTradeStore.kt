@@ -15,5 +15,4 @@ class MapperToTradeStore : Mapper<Trade, TradeStore> {
                 trade_type = origin.trade_type,
                 pair = Ref.create(PairStore(origin.pair)))
     }
-
 }

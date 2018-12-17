@@ -9,5 +9,5 @@ import dagger.android.ContributesAndroidInjector
 abstract class HomeScreenActivityModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [HomeScreenModule::class])
-    abstract fun contributeHomeScreenActivity() : TradesActivity
+    abstract fun contributeHomeScreenActivity(): TradesActivity
 }

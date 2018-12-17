@@ -10,7 +10,7 @@ import javax.inject.Inject
 
 
 class GetMarketImpl @Inject constructor(
-            private val syncRepository: SyncRepository)
+        private val syncRepository: SyncRepository)
     : GetMarket {
 
     override fun get(): List<Market> = syncRepository.get()

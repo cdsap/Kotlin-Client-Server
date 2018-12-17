@@ -22,3 +22,4 @@ class GetTradesRepositoryImpl(private val db: Objectify,
     override fun getTradesPersisted(id: Long): Trades = Trades(db.queryTrades(id))
 
 }
+

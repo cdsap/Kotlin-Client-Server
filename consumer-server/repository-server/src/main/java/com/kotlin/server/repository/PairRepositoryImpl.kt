@@ -6,6 +6,8 @@ import com.kotlin.core.entities.PairSymbol
 import com.kotlin.core.repository.PairsRepository
 import com.kotlin.server.repository.api.BxApi
 import com.kotlin.server.repository.database.PairStore
+import com.kotlin.server.repository.database.queryPairById
+import com.kotlin.server.repository.database.queryPairs
 import com.kotlin.server.repository.mapper.MapperToPairStore
 import com.kotlin.server.repository.mapper.MapperToPairSymbol
 
@@ -18,7 +20,7 @@ class PairRepositoryImpl(private val db: Objectify,
     override fun syncPairs(): List<PairSymbol> {
         api.getPairsInfo().pairInfoList.forEach {
 
-            if (db.load().type(PairStore::class.java).id(it.pairing_id).now() == null) {
+            if (db.queryPairById(it.pairing_id).now() == null) {
                 db.save().entity(mapperToPairStore.transform(it))
             } else {
                 val pairStore = db.load().type(PairStore::class.java)
@@ -32,7 +34,6 @@ class PairRepositoryImpl(private val db: Objectify,
         return getPairs()
     }
 
-    override fun getPairs(): List<PairSymbol> = db.load().type(PairStore::class.java)
-            .list()
+    override fun getPairs(): List<PairSymbol> = db.queryPairs()
             .map { mapperToPairSymbol.transform(it) }
 }

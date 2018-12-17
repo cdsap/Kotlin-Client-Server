@@ -55,7 +55,7 @@ class CallWrapper(private val request: Request, private var executed: Boolean = 
 
             setHeaders(request, url, con)
 
-           if (HttpMethod.requiresRequestBody(request.method()) && request.body()!!.contentLength() > 0) {
+            if (HttpMethod.requiresRequestBody(request.method()) && request.body()!!.contentLength() > 0) {
 
                 val payload = Buffer()
                 request.body()!!.writeTo(payload)

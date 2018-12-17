@@ -50,8 +50,6 @@ class BxApi {
 
 
     class PairsDeserializer : JsonDeserializer<PairsInfo> {
-
-
         private val gson = Gson()
 
         @Throws(JsonParseException::class)
