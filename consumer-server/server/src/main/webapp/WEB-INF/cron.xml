@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cronentries>
+    <cron>
+        <url>/syncTrades</url>
+        <description>Update every 30 minutes</description>
+        <schedule>every 30 minutes</schedule>
+    </cron>
+    <cron>
+        <url>/syncPairs</url>
+        <description>Update every 20 minutes</description>
+        <schedule>every 20 minutes</schedule>
+    </cron>
+</cronentries>
