@@ -4,7 +4,7 @@ import com.kotlin.core.entities.Market
 import com.kotlin.core.entities.Trades
 import retrofit2.Retrofit
 
-class BxApi(val retrofit: Retrofit) {
+class BxApi(retrofit: Retrofit) {
 
     private val api: Api = retrofit.create(Api::class.java)
 
@@ -24,7 +24,7 @@ class BxApi(val retrofit: Retrofit) {
                 val a = api.syncTrades().execute()
                 a.body()!!.items
             } catch (e: Exception) {
-                emptyList<Market>()
+                emptyList()
             }
 
 }

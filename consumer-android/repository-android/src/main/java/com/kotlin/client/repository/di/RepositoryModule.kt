@@ -1,15 +1,15 @@
 package com.kotlin.client.repository.di
 
 import com.google.gson.GsonBuilder
-import com.kotlin.client.repository.api.OverallDesrializer
-import com.kotlin.client.api.Trades2Serial
-import com.kotlin.client.database.AppDatabase
+import com.kotlin.client.repository.api.MarketDeserializer
+import com.kotlin.client.repository.database.AppDatabase
 import com.kotlin.client.database.DbInterface
 import com.kotlin.client.repository.GetTradesRepositoryImpl
 import com.kotlin.client.repository.PairRepositoryImpl
 import com.kotlin.client.repository.api.BxApi
 import com.kotlin.client.repository.api.MarketOverall
 import com.kotlin.core.entities.Trades
+import com.kotlin.core.network.TradesDeserializer
 import com.kotlin.core.repository.PairsRepository
 import com.kotlin.core.repository.TradesRepository
 import dagger.Module
@@ -52,8 +52,8 @@ class RepositoryModule {
 
     private fun createGsonConverterPair(): Converter.Factory {
         val gsonBuilder = GsonBuilder()
-        gsonBuilder.registerTypeAdapter(MarketOverall::class.java, OverallDesrializer())
-        gsonBuilder.registerTypeAdapter(Trades::class.java, Trades2Serial())
+        gsonBuilder.registerTypeAdapter(MarketOverall::class.java, MarketDeserializer())
+        gsonBuilder.registerTypeAdapter(Trades::class.java, TradesDeserializer())
         val gson = gsonBuilder.create()
         return GsonConverterFactory.create(gson)
     }

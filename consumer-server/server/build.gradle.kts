@@ -14,6 +14,8 @@ dependencies {
     implementation(Dependencies.kotlin)
     implementation(Dependencies.javaxInject)
     implementation(Dependencies.daggerCompiler)
+    api(Dependencies.retrofitConverter)
+    api(Dependencies.retrofit)
     kapt(Dependencies.dagger)
     implementation(Dependencies.gson)
     implementation(project(":core-domain"))

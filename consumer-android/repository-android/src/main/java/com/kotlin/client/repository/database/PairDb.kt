@@ -9,9 +9,6 @@ import androidx.room.PrimaryKey
 class PairDb(
         @PrimaryKey
         val id: Long,
-        @ForeignKey(entity = SymbolDb::class,
-                parentColumns = ["id"],
-                childColumns = ["primaryPairId", "secondaryPairId"])
         val primaryPairId: String,
         val secondaryPairId: String,
         val lastPrice: Double,

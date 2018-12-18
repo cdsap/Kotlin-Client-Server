@@ -17,9 +17,6 @@ interface DbInterface {
     @Insert
     fun insertPair(pair: PairDb): Long
 
-    @Insert
-    fun insertSymbol(pair: SymbolDb): Long
-
     @Query("Select * FROM TradeDb where pair = :id order by trade_id DESC LIMIT 1")
     fun getLastTradesById(id: Long): TradeDb
 

@@ -3,7 +3,7 @@ package com.kotlin.client.di
 import android.app.Application
 import android.content.Context
 import com.kotlin.client.BuildConfig
-import com.kotlin.client.database.AppDatabase
+import com.kotlin.client.repository.database.AppDatabase
 import com.kotlin.client.di.tradescreen.HomeScreenComponent
 import com.kotlin.client.di.pairscreen.PairScreenComponent
 import com.kotlin.client.di.worker.SyncWorkerModule

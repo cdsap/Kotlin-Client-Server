@@ -4,10 +4,10 @@ import com.google.gson.*
 import com.kotlin.core.entities.Market
 import java.lang.reflect.Type
 
-class OverallDesrializer : JsonDeserializer<MarketOverall> {
+class MarketDeserializer : JsonDeserializer<MarketOverall> {
 
     companion object {
-        const val TRADES_ENTITY = "items"
+        const val ENTITY = "items"
     }
 
     private val gson = Gson()
@@ -15,7 +15,7 @@ class OverallDesrializer : JsonDeserializer<MarketOverall> {
     @Throws(JsonParseException::class)
     override fun deserialize(json: JsonElement, typeOfT: Type, context: JsonDeserializationContext): MarketOverall {
         val trades = mutableListOf<Market>()
-        json.asJsonObject.get(TRADES_ENTITY).asJsonArray.forEach {
+        json.asJsonObject.get(ENTITY).asJsonArray.forEach {
             val trade = gson.fromJson(it, Market::class.java)
             trades.add(trade)
         }
