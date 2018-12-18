@@ -2,7 +2,6 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
       - image: circleci/android:api-28
 
       # Specify service dependencies here if necessary
@@ -34,7 +33,8 @@ jobs:
             - ~/.gradle
           key: v1-dependencies-{{ checksum "build.gradle.kts" }}
 
-      # run tests!
+      - run: ./gradlew :consumer-android:app:assembleDebug
+
       - run: ./gradlew  test
 
 
