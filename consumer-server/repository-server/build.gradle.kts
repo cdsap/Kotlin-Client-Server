@@ -16,6 +16,9 @@ dependencies {
     implementation(Dependencies.appengineApi)
     kapt(Dependencies.daggerProcessor)
     kapt(Dependencies.daggerCompiler)
+    testImplementation(Dependencies.kotlinTest)
+    testImplementation(Dependencies.mockitoKotlin)
+
 
 }
 

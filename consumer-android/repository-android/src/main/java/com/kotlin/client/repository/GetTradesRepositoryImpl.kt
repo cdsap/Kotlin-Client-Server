@@ -1,7 +1,7 @@
 package com.kotlin.client.repository
 
-import com.kotlin.client.database.DbInterface
-import com.kotlin.client.database.TradeDb
+import com.kotlin.client.repository.database.DbInterface
+import com.kotlin.client.repository.database.TradeDb
 import com.kotlin.client.repository.api.BxApi
 import com.kotlin.core.entities.Trade
 import com.kotlin.core.entities.Trades

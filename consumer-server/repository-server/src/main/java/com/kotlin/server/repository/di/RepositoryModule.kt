@@ -15,15 +15,16 @@ import com.kotlin.core.repository.TradesRepository
 import com.kotlin.server.repository.GetTradesRepositoryImpl
 import com.kotlin.server.repository.PairRepositoryImpl
 import com.kotlin.server.repository.SyncPairsRepositoryImpl
-import com.kotlin.server.repository.api.BxApi
+import com.kotlin.server.repository.api.BxApiImpl
 import com.kotlin.server.repository.api.PairsDeserializer
 import com.kotlin.server.repository.api.entities.PairsInfo
 import com.kotlin.server.repository.api.patch.CallFactoryWrapper
+import com.kotlin.server.repository.database.DbImpl
+import com.kotlin.server.repository.database.DbInterface
 import com.kotlin.server.repository.database.PairStore
 import com.kotlin.server.repository.database.TradeStore
 import dagger.Module
 import dagger.Provides
-import retrofit2.Converter
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -32,6 +33,9 @@ class RepositoryModule {
     init {
         initData()
     }
+
+    @Provides
+    fun providesDbInterface(objectify: Objectify) = DbImpl(objectify)
 
     @Provides
     fun providesRetrofit(gsonConverterFactory: GsonConverterFactory): Retrofit =
@@ -52,23 +56,21 @@ class RepositoryModule {
     }
 
     @Provides
-    fun providesTradesRepository(objectify: Objectify,
-                                 api: BxApi): TradesRepository = GetTradesRepositoryImpl(objectify, api)
+    fun providesTradesRepository(dbInterface: DbInterface,
+                                 api: BxApiImpl): TradesRepository =
+            GetTradesRepositoryImpl(dbInterface, api)
 
     @Provides
-    fun providesPairRepository(objectify: Objectify,
-                               api: BxApi): PairsRepository = PairRepositoryImpl(objectify, api)
+    fun providesPairRepository(dbInterface: DbInterface,
+                               api: BxApiImpl): PairsRepository =
+            PairRepositoryImpl(dbInterface, api)
 
     @Provides
-    fun providesSyncPairRepository(objectify: Objectify,
-                                   api: BxApi) = SyncPairsRepositoryImpl(objectify, api)
+    fun providesSyncPairRepository(dbInterface: DbInterface,
+                                   api: BxApiImpl) = SyncPairsRepositoryImpl(dbInterface, api)
 
     @Provides
-    fun providesSyncRepository(objectify: Objectify,
-                               api: BxApi): SyncRepository = SyncPairsRepositoryImpl(objectify, api)
-
-    @Provides
-    fun providesRestApi(retrofit: Retrofit): BxApi = BxApi(retrofit)
+    fun providesRestApi(retrofit: Retrofit): BxApiImpl = BxApiImpl(retrofit)
 
     @Provides
     fun providesObjectifyService(): Objectify {

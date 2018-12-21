@@ -1,15 +1,16 @@
-package com.kotlin.server.repository.mapper
+package com.kotlin.client.repository.mapper
 
+import com.kotlin.client.repository.database.PairDb
 import com.kotlin.core.entities.PairSymbol
 import com.kotlin.core.mapper.Mapper
-import com.kotlin.server.repository.database.PairStore
 
-class MapperToPairSymbol : Mapper<PairStore, PairSymbol> {
-    override fun transform(origin: PairStore): PairSymbol {
+class MapperToPairSymbol : Mapper<PairDb, PairSymbol> {
+    override fun transform(origin: PairDb): PairSymbol {
         return PairSymbol(id = origin.id,
                 primarySymbol = origin.primaryPairId,
                 secondarySymbol = origin.secondaryPairId,
                 volume = origin.volume,
-                rate = origin.rate)
+                rate = origin.lastPrice)
     }
+
 }
