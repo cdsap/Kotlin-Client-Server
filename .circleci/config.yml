@@ -33,5 +33,5 @@ jobs:
       - run: ./gradlew  test testReport
 
       - store_test_results:
-                path: test-reports/
+                path: build/reports/tests/
 
