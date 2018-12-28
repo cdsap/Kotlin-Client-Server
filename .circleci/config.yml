@@ -34,4 +34,5 @@ jobs:
 
       - store_test_results:
                 path: build/reports/tests/
-
+      - store_artifacts:
+                path: build/reports/tests/
