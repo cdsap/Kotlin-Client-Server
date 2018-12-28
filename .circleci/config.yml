@@ -33,6 +33,7 @@ jobs:
       - run: ./gradlew  test testReport
 
       - type: test-results-store
-           path: build/reports/tests
+           path:
+             - build/reports/tests
 
 
