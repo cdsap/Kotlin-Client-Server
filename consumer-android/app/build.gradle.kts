@@ -62,4 +62,3 @@ dependencies {
     // compile group: 'androidx.test.espresso', name: 'espresso-core', version: '3.1.1'
 
 }
-

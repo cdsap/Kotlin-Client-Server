@@ -14,5 +14,4 @@ interface DbInterface {
 
     fun saveTrade(tradeStore: TradeStore)
 
-
 }

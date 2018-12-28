@@ -23,6 +23,7 @@ import com.kotlin.server.repository.database.DbImpl
 import com.kotlin.server.repository.database.DbInterface
 import com.kotlin.server.repository.database.PairStore
 import com.kotlin.server.repository.database.TradeStore
+import com.sun.rowset.internal.SyncResolverImpl
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit
@@ -35,7 +36,7 @@ class RepositoryModule {
     }
 
     @Provides
-    fun providesDbInterface(objectify: Objectify) = DbImpl(objectify)
+    fun providesDbInterface(objectify: Objectify): DbInterface = DbImpl(objectify)
 
     @Provides
     fun providesRetrofit(gsonConverterFactory: GsonConverterFactory): Retrofit =
@@ -67,7 +68,7 @@ class RepositoryModule {
 
     @Provides
     fun providesSyncPairRepository(dbInterface: DbInterface,
-                                   api: BxApiImpl) = SyncPairsRepositoryImpl(dbInterface, api)
+                                   api: BxApiImpl): SyncRepository = SyncPairsRepositoryImpl(dbInterface, api)
 
     @Provides
     fun providesRestApi(retrofit: Retrofit): BxApiImpl = BxApiImpl(retrofit)

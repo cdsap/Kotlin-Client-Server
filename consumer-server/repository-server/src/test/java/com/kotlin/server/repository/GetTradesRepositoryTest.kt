@@ -62,31 +62,31 @@ class GetTradesRepositoryTest : BehaviorSpec({
 
             }
         }
-        `when`("Saving Trade") {
-            val db = mock<DbInterface> {}
-            val api = mock<BxApi> {}
-            val getTradesRepository = GetTradesRepositoryImpl(db, api)
-
-            val trades = getTradesRepository.save(Trade(
-                    rate = 1.0,
-                    amount = 2.0,
-                    pair = 1L,
-                    trade_date = "",
-                    trade_id = 10L,
-                    trade_type = "sell"
-            ))
-            then("RTrade is transfdomerd ") {
-                verify(db).saveTrade(argThat {
-                    this.amount == 2.0 &&
-                            rate == 1.0 &&
-                            trade_date == "" &&
-                            trade_id == 10L &&
-                            trade_type == "sell"
-
-                })
-
-            }
-
-        }
+//        `when`("Saving Trade") {
+//            val db = mock<DbInterface> {}
+//            val api = mock<BxApi> {}
+//            val getTradesRepository = GetTradesRepositoryImpl(db, api)
+//
+//            val trades = getTradesRepository.save(Trade(
+//                    rate = 1.0,
+//                    amount = 2.0,
+//                    pair = 1L,
+//                    trade_date = "",
+//                    trade_id = 10L,
+//                    trade_type = "sell"
+//            ))
+//            then("RTrade is transfdomerd ") {
+//                verify(db).saveTrade(argThat {
+//                    this.amount == 2.0 &&
+//                            rate == 1.0 &&
+//                            trade_date == "" &&
+//                            trade_id == 10L &&
+//                            trade_type == "sell"
+//
+//                })
+//
+//            }
+//
+//        }
     }
 })

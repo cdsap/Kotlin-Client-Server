@@ -2,7 +2,9 @@ buildscript {
     repositories {
         jcenter()
         google()
-        mavenCentral()
+        mavenCentral(
+
+        )
         maven {
             url = uri("https://plugins.gradle.org/m2/")
         }
@@ -11,6 +13,7 @@ buildscript {
         classpath(Dependencies.appengineGradle)
         classpath(Dependencies.kotlinGradle)
         classpath(Dependencies.androidGradle)
+        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.3.1.1")
     }
 }
 allprojects {
@@ -22,4 +25,5 @@ allprojects {
         google()
         mavenCentral()
     }
+
 }

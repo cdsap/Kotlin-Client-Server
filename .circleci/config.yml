@@ -30,4 +30,11 @@ jobs:
 
       - run: ./gradlew :consumer-android:app:assembleDebug
 
-      - run: ./gradlew  test
+      - run: ./gradlew  test testReport
+
+      - type: test-results-store
+           path: /build/reports/tests
+     # we should build when we are relasing deploying to the
+     # project
+
+

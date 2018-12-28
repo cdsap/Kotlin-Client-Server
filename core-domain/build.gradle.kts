@@ -1,3 +1,5 @@
+import com.clientserver.buildProcess.JUnitOptions.applyJUnitOptions
+
 plugins {
     id("kotlin")
 }
@@ -5,6 +7,8 @@ plugins {
 val test by tasks.getting(Test::class) {
     useJUnitPlatform { }
 }
+
+applyJUnitOptions()
 
 dependencies {
     implementation(Dependencies.kotlin)

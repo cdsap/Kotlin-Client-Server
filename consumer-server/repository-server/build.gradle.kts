@@ -1,7 +1,15 @@
+import com.clientserver.buildProcess.JUnitOptions.applyJUnitOptions
+
 plugins {
     id("kotlin")
     id("kotlin-kapt")
 }
+
+val test by tasks.getting(Test::class) {
+    useJUnitPlatform { }
+}
+
+applyJUnitOptions()
 
 dependencies {
     api(project(":consumer-server:domain-server"))
@@ -18,7 +26,4 @@ dependencies {
     kapt(Dependencies.daggerCompiler)
     testImplementation(Dependencies.kotlinTest)
     testImplementation(Dependencies.mockitoKotlin)
-
-
 }
-

@@ -1,7 +1,10 @@
+import com.clientserver.buildProcess.JUnitOptions.applyJUnitOptions
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("de.mannodermaus.android-junit5")
 }
 
 android {
@@ -16,6 +19,9 @@ android {
     buildTypes {
     }
 }
+
+applyJUnitOptions()
+
 
 dependencies {
     api(project(":core-domain"))
