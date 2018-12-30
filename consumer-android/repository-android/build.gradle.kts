@@ -1,7 +1,10 @@
+import com.clientserver.buildProcess.CollectUnitTest.collectUnitTest
+
 plugins {
     id("com.android.library")
     id("kotlin-android")
     id("kotlin-kapt")
+    id("de.mannodermaus.android-junit5")
 }
 
 android {
@@ -17,6 +20,9 @@ android {
     }
 }
 
+collectUnitTest()
+
+
 dependencies {
     api(project(":core-domain"))
     implementation(Dependencies.dagger)
@@ -28,4 +34,7 @@ dependencies {
     implementation(Dependencies.coroutinesCore)
     implementation(Dependencies.coroutinesAndroid)
     implementation(Dependencies.roomRuntime)
+    testImplementation(Dependencies.kotlinTest)
+    testImplementation(Dependencies.mockitoKotlin)
+
 }

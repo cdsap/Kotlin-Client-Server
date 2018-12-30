@@ -1,9 +1,18 @@
+import com.clientserver.buildProcess.CollectUnitTest.collectUnitTest
+
 plugins {
     id("war")
     id("com.google.cloud.tools.appengine-standard")
     id("kotlin")
     id("kotlin-kapt")
 }
+
+val test by tasks.getting(Test::class) {
+    useJUnitPlatform { }
+}
+
+collectUnitTest()
+
 
 dependencies {
     api(project(":consumer-server:domain-server"))
@@ -29,5 +38,3 @@ appengine {
         projectId = "APPENGINE_CONFIG"
     }
 }
-
-

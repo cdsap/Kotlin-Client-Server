@@ -6,7 +6,7 @@ import com.kotlin.core.usecases.SyncTrades
 import javax.inject.Inject
 
 
-class SyncTradesImpl @Inject constructor(
+class SyncTradesImpl(
         private val tradesRepository: TradesRepository,
         private val pairRepository: PairsRepository)
     : SyncTrades {

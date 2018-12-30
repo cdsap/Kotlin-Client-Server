@@ -9,8 +9,7 @@ import com.kotlin.core.usecases.SyncTrades
 import javax.inject.Inject
 
 
-class GetMarketImpl @Inject constructor(
-        private val syncRepository: SyncRepository)
+class GetMarketImpl(private val syncRepository: SyncRepository)
     : GetMarket {
 
     override fun get(): List<Market> = syncRepository.get()

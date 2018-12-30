@@ -1,7 +1,16 @@
+import com.clientserver.buildProcess.CollectUnitTest.collectUnitTest
+
 plugins {
     id("kotlin")
     id("kotlin-kapt")
 }
+
+val test by tasks.getting(Test::class) {
+    useJUnitPlatform { }
+}
+
+collectUnitTest()
+
 
 dependencies {
     api(project(":core-domain"))

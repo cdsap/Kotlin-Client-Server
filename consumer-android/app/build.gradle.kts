@@ -54,5 +54,11 @@ dependencies {
     kapt(Dependencies.daggerCompiler)
     implementation(Dependencies.daggerAndroid)
     implementation(Dependencies.kotlin)
-}
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.1.1")
+    androidTestImplementation("androidx.test:rules:1.1.1")
+    androidTestImplementation("androidx.test:runner:1.1.1")
+    androidTestImplementation("androidx.test:core:1.1.0")
+    androidTestImplementation(Dependencies.mockitoKotlin)
+    // compile group: 'androidx.test.espresso', name: 'espresso-core', version: '3.1.1'
 
+}

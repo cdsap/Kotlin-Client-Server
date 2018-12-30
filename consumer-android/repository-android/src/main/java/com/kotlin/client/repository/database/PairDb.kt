@@ -1,9 +1,8 @@
-package com.kotlin.client.database
+package com.kotlin.client.repository.database
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
-
 
 @Entity
 class PairDb(

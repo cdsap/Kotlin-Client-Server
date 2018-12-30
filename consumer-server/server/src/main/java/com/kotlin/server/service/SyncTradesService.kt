@@ -8,5 +8,4 @@ class SyncTradesService @Inject constructor(private val syncTrades: SyncTrades) 
 
     fun sync(): Unit = syncTrades.syncTrades()
 
-
 }

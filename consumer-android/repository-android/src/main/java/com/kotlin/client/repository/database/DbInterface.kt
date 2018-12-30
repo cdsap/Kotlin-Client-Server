@@ -1,9 +1,9 @@
-package com.kotlin.client.database
+package com.kotlin.client.repository.database
 
 import androidx.room.*
 
 @Dao
-interface DbInterface {
+interface  DbInterface {
 
     @Query("Select * FROM TradeDb where pair = :id order by trade_id DESC")
     fun getTradeDb(id: Long): List<TradeDb>
@@ -16,9 +16,6 @@ interface DbInterface {
 
     @Insert
     fun insertPair(pair: PairDb): Long
-
-    @Query("Select * FROM TradeDb where pair = :id order by trade_id DESC LIMIT 1")
-    fun getLastTradesById(id: Long): TradeDb
 
     @Query("Select * FROM PairDb")
     fun getPairs(): List<PairDb>
