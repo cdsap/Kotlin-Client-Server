@@ -1,4 +1,4 @@
-import com.clientserver.buildProcess.JUnitOptions.applyJUnitOptions
+import com.clientserver.buildProcess.CollectUnitTest.collectUnitTest
 
 plugins {
     id("war")
@@ -11,7 +11,7 @@ val test by tasks.getting(Test::class) {
     useJUnitPlatform { }
 }
 
-applyJUnitOptions()
+collectUnitTest()
 
 
 dependencies {

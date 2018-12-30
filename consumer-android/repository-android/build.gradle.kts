@@ -1,4 +1,4 @@
-import com.clientserver.buildProcess.JUnitOptions.applyJUnitOptions
+import com.clientserver.buildProcess.CollectUnitTest.collectUnitTest
 
 plugins {
     id("com.android.library")
@@ -20,7 +20,7 @@ android {
     }
 }
 
-applyJUnitOptions()
+collectUnitTest()
 
 
 dependencies {

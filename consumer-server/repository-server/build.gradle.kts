@@ -1,4 +1,4 @@
-import com.clientserver.buildProcess.JUnitOptions.applyJUnitOptions
+import com.clientserver.buildProcess.CollectUnitTest.collectUnitTest
 
 plugins {
     id("kotlin")
@@ -9,7 +9,7 @@ val test by tasks.getting(Test::class) {
     useJUnitPlatform { }
 }
 
-applyJUnitOptions()
+collectUnitTest()
 
 dependencies {
     api(project(":consumer-server:domain-server"))

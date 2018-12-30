@@ -29,7 +29,7 @@ jobs:
 
       - run: ./gradlew :consumer-server:server:appengineStage
 
-      - run: ./gradlew  test testReport
+      - run: ./gradlew  test collectUnitTest
 
       - store_test_results:
                 path: build/reports/tests/
