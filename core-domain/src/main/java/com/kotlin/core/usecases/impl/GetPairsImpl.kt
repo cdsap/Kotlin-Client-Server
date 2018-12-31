@@ -16,5 +16,4 @@ class GetPairsImpl(private val pairRepository: PairsRepository) : GetPairs {
     }
 
     override fun sync(): List<PairSymbol> = pairRepository.syncPairs()
-
 }

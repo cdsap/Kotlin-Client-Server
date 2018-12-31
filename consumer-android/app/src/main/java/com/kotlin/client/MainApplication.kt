@@ -3,6 +3,7 @@ package com.kotlin.client
 import androidx.work.Configuration
 import com.kotlin.client.di.DaggerAppComponent
 import com.kotlin.client.di.worker.DaggerWorkerFactory
+import com.kotlin.client.job.SyncWorker
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 import javax.inject.Inject
@@ -30,7 +31,7 @@ class MainApplication : DaggerApplication() {
 //                                .setRequiresStorageNotLow(true)
 //                                .build())
 //                        .build()
-//                        //     WorkManager.getInstance().enqueue(workerRequest)
+//        WorkManager.getInstance().enqueue(workerRequest)
 
         return appComponent
     }

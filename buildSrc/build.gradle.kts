@@ -7,8 +7,6 @@ buildscript {
         jcenter()
         mavenCentral()
         google()
-        mavenLocal()
-        maven { url = uri("https://maven.fabric.io/public") }
     }
 
     dependencies {
@@ -24,7 +22,6 @@ plugins {
 repositories {
     google()
     jcenter()
-    gradlePluginPortal()
 }
 
 dependencies {
