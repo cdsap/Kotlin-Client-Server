@@ -2,6 +2,7 @@ package com.kotlin.server.repository.mapper
 
 import com.googlecode.objectify.Ref
 import com.kotlin.core.entities.Trade
+import com.kotlin.core.mapper.Mapper
 import com.kotlin.server.repository.database.PairStore
 import com.kotlin.server.repository.database.TradeStore
 

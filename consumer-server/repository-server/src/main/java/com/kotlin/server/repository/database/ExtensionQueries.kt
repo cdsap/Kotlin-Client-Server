@@ -24,6 +24,10 @@ fun Objectify.queryPairs() = this.load().type(PairStore::class.java).list()
 fun Objectify.queryPairById(id: Long) = this.load().type(PairStore::class.java)
         .id(id)
 
+fun Objectify.savePair(pairStore: PairStore) = this.save().entity(pairStore)
+
+fun Objectify.saveTrade(trade : TradeStore) = this.save().entity(trade)
+
 private const val FIELD = "__key__"
 private const val DIRECTION = "-"
 const val ORDER = "$DIRECTION$FIELD"

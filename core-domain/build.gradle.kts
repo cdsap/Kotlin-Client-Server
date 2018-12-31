@@ -1,3 +1,5 @@
+import com.clientserver.buildProcess.CollectUnitTest.collectUnitTest
+
 plugins {
     id("kotlin")
 }
@@ -5,6 +7,8 @@ plugins {
 val test by tasks.getting(Test::class) {
     useJUnitPlatform { }
 }
+
+collectUnitTest()
 
 dependencies {
     implementation(Dependencies.kotlin)
