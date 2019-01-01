@@ -16,15 +16,15 @@
     </servlet>
     <servlet>
         <servlet-name>CronServlet</servlet-name>
-        <servlet-class>com.kotlin.server.service.CronService</servlet-class>
+        <servlet-class>com.kotlin.server.cron.CronTrades</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CronServlet2</servlet-name>
-        <servlet-class>com.kotlin.server.service.CronService2</servlet-class>
+        <servlet-class>com.kotlin.server.cron.CronPairs</servlet-class>
     </servlet>
 
     <servlet>
-        <servlet-name>my-xccxcxccx</servlet-name>
+        <servlet-name>Init</servlet-name>
         <servlet-class>com.kotlin.server.Init</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>

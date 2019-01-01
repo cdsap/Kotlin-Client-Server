@@ -6,11 +6,13 @@ import com.google.api.server.spi.config.Api
 import com.google.api.server.spi.config.ApiMethod
 import javax.inject.Inject
 import com.kotlin.server.di.DaggerInjector
+import com.kotlin.server.endpoint.EndPoint.Companion.ENDPOINT
+import com.kotlin.server.endpoint.EndPoint.Companion.VERSION
 import com.kotlin.server.service.GetMarketService
-import com.kotlin.server.service.SyncPairs
+import com.kotlin.server.service.SyncPairsService
 import javax.inject.Named
 
-@Api(name = "api", version = "v1")
+@Api(name = ENDPOINT, version = VERSION)
 class EndPoint {
     init {
         DaggerInjector.builder().build().inject(this)
@@ -20,7 +22,7 @@ class EndPoint {
     lateinit var syncService: SyncTradesService
 
     @Inject
-    lateinit var syncPairs: SyncPairs
+    lateinit var syncPairs: SyncPairsService
 
     @Inject
     lateinit var getTradesService: GetTradesService
@@ -50,9 +52,9 @@ class EndPoint {
     fun getMarket() = getMarketService.getMarket()
 
     companion object {
-        const val URL = ""
-        const val VERSION = "2"
-        const val ENDPOINT = ""
+        const val BASE_URL = "https://kotlin-client-server.appspot.com/"
+        const val VERSION = "v2"
+        const val ENDPOINT = "api"
 
     }
 }
