@@ -21,6 +21,12 @@ Repository based in this [article](https://medium.com/p/c2db393e576e/edit) and p
 - Deploy local instance:
 `./gradlew appengineRun`
 
+- Install Cloud Datastore Emulator
+`gcloud components install cloud-datastore-emulator`
+
+- Run Datastore Emulator
+`gcloud beta emulators datastore start`
+
 #### Deploy App Engine
 
 - Create project Google Cloud

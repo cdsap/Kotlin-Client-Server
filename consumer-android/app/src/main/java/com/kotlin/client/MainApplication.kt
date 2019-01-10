@@ -23,15 +23,16 @@ class MainApplication : DaggerApplication() {
                 .setWorkerFactory(workerFactory)
                 .build()
 
-//        WorkManager.initialize(this, configuration)
-//        val workerRequest =
-//                PeriodicWorkRequest.Builder(SyncWorker::class.java, 60, TimeUnit.MINUTES)
-//                        .setConstraints(Constraints.Builder().setRequiresCharging(false)
-//                                .setRequiredNetworkType(NetworkType.UNMETERED)
-//                                .setRequiresStorageNotLow(true)
-//                                .build())
-//                        .build()
-//        WorkManager.getInstance().enqueue(workerRequest)
+        WorkManager.initialize(this, configuration)
+        val workerRequest =
+                PeriodicWorkRequest.Builder(SyncWorker::class.java, 60, TimeUnit.MINUTES)
+                        .setConstraints(Constraints.Builder()
+                                .setRequiresCharging(false)
+                                .setRequiredNetworkType(NetworkType.UNMETERED)
+                                .setRequiresStorageNotLow(true)
+                                .build())
+                        .build()
+        WorkManager.getInstance().enqueue(workerRequest)
 
         return appComponent
     }

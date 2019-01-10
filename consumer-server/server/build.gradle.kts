@@ -28,7 +28,6 @@ dependencies {
     kapt(Dependencies.dagger)
     implementation(Dependencies.gson)
     implementation(project(":core-domain"))
-    testImplementation(Dependencies.junit)
     testImplementation(Dependencies.mockito)
 }
 
