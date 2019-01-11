@@ -11,7 +11,7 @@ import dagger.android.DaggerApplication
 
 @Component(modules = [AndroidInjectionModule::class,
     AppModule::class,
-    ContributeActivityModule::class])
+    ScreensActivityModule::class])
 interface AppComponent : AndroidInjector<DaggerApplication> {
 
     @Component.Builder
