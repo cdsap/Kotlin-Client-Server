@@ -14,6 +14,7 @@ buildscript {
         classpath(Dependencies.kotlinGradle)
         classpath(Dependencies.androidGradle)
         classpath(Dependencies.androidJunit5)
+        classpath(Dependencies.jetifierProcessor)
     }
 }
 allprojects {
