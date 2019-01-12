@@ -21,7 +21,7 @@ android {
             }
         }
         multiDexEnabled = true
-        buildConfigField("String", "URL", "ENDPOINT_GAE")
+        buildConfigField("String", "URL", "\"ENDPOINT_GAE\"")
     }
     buildTypes {
     }
