@@ -1,8 +1,8 @@
 package com.kotlin.client.di
 
-import com.kotlin.core.entities.Trades
-import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.repository.TradesRepository
+import com.kotlin.core.domain.entities.Trades
+import com.kotlin.core.domain.entities.repository.PairsRepository
+import com.kotlin.core.domain.entities.repository.TradesRepository
 import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.mock
 import dagger.Module

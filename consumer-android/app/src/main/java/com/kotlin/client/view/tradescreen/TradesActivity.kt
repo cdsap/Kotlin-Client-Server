@@ -4,12 +4,13 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
-import com.kotlin.core.entities.Trade
+import com.kotlin.core.domain.entities.Trade
 import dagger.android.AndroidInjection
-import kotlinx.android.synthetic.main.activity_trades.*
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
+import kotlinx.android.synthetic.main.activity_trades.*
+
 
 class TradesActivity : AppCompatActivity(),
         TradesScreenPresenter.ScreenView, CoroutineScope {

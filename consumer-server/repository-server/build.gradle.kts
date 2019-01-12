@@ -12,8 +12,9 @@ val test by tasks.getting(Test::class) {
 collectUnitTest()
 
 dependencies {
-    api(project(":consumer-server:domain-server"))
-    api(project(":core-domain"))
+    implementation(project(":consumer-server:domain-server"))
+    implementation(project(":core-domain"))
+    implementation(project(":core-network"))
     implementation(Dependencies.objectify)
     implementation(Dependencies.kotlin)
     api(Dependencies.retrofitConverter)

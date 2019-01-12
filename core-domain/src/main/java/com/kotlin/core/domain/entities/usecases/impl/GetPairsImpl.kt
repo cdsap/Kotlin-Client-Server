@@ -1,8 +1,8 @@
-package com.kotlin.core.usecases.impl
+package com.kotlin.core.domain.entities.usecases.impl
 
-import com.kotlin.core.entities.PairSymbol
-import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.usecases.GetPairs
+import com.kotlin.core.domain.entities.PairSymbol
+import com.kotlin.core.domain.entities.repository.PairsRepository
+import com.kotlin.core.domain.entities.usecases.GetPairs
 
 class GetPairsImpl(private val pairRepository: PairsRepository) : GetPairs {
 

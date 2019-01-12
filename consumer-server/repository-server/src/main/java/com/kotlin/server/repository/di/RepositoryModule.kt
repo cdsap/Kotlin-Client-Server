@@ -7,11 +7,11 @@ import com.google.gson.GsonBuilder
 import com.googlecode.objectify.Objectify
 import com.googlecode.objectify.ObjectifyFactory
 import com.googlecode.objectify.ObjectifyService
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Trades
 import com.kotlin.core.network.TradesDeserializer
-import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.repository.SyncRepository
-import com.kotlin.core.repository.TradesRepository
+import com.kotlin.core.domain.entities.repository.PairsRepository
+import com.kotlin.core.domain.entities.repository.SyncRepository
+import com.kotlin.core.domain.entities.repository.TradesRepository
 import com.kotlin.server.repository.GetTradesRepositoryImpl
 import com.kotlin.server.repository.PairRepositoryImpl
 import com.kotlin.server.repository.SyncPairsRepositoryImpl
@@ -23,7 +23,6 @@ import com.kotlin.server.repository.database.DbImpl
 import com.kotlin.server.repository.database.DbInterface
 import com.kotlin.server.repository.database.PairStore
 import com.kotlin.server.repository.database.TradeStore
-import com.sun.rowset.internal.SyncResolverImpl
 import dagger.Module
 import dagger.Provides
 import retrofit2.Retrofit

@@ -2,7 +2,7 @@ package com.kotlin.server.repository.database
 
 import com.googlecode.objectify.Key
 import com.googlecode.objectify.Objectify
-import com.kotlin.core.entities.Trade
+import com.kotlin.core.domain.entities.Trade
 import com.kotlin.server.repository.mapper.MapperToTrade
 
 fun Objectify.queryTrades(id: Long): List<Trade> {

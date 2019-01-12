@@ -1,16 +1,12 @@
 package com.kotlin.client.repository
 
 import com.kotlin.client.repository.database.DbInterface
-import com.kotlin.client.repository.database.PairDb
-import com.kotlin.client.repository.database.TradeDb
 import com.kotlin.client.repository.api.BxApi
 import com.kotlin.client.repository.mapper.MapperToPairDb
 import com.kotlin.client.repository.mapper.MapperToPairSymbol
 import com.kotlin.client.repository.mapper.MapperToTradeDb
-import com.kotlin.core.entities.Market
-import com.kotlin.core.entities.PairSymbol
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.repository.PairsRepository
+import com.kotlin.core.domain.entities.PairSymbol
+import com.kotlin.core.domain.entities.repository.PairsRepository
 
 class PairRepositoryImpl(val db: DbInterface,
                          val api: BxApi) : PairsRepository {
@@ -20,8 +16,7 @@ class PairRepositoryImpl(val db: DbInterface,
 
     override fun syncPairs(): List<PairSymbol> {
         api.syncTrades().forEach {
-            // TODO
-            // IS POSSIBLE TO USE INSERT OR UPDATE
+
             if (db.getPairs(it.pairSymbol.id) == null) {
                 db.insertPair(mapperToPairDb.transform(it))
             } else {

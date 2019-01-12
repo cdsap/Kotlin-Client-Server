@@ -8,7 +8,7 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.client.R
-import com.kotlin.core.entities.PairSymbol
+import com.kotlin.core.domain.entities.PairSymbol
 
 
 interface PairListListener {

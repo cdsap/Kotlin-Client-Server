@@ -3,8 +3,8 @@ package com.kotlin.client.repository
 import com.kotlin.client.repository.api.BxApi
 import com.kotlin.client.repository.database.DbInterface
 import com.kotlin.client.repository.database.TradeDb
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.Trades
 import com.nhaarman.mockitokotlin2.argThat
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify

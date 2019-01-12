@@ -28,6 +28,7 @@ dependencies {
     kapt(Dependencies.dagger)
     implementation(Dependencies.gson)
     implementation(project(":core-domain"))
+    implementation(project(":core-network"))
     testImplementation(Dependencies.mockito)
 }
 

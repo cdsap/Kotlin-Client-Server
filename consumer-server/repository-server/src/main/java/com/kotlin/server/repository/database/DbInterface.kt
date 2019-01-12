@@ -1,6 +1,6 @@
 package com.kotlin.server.repository.database
 
-import com.kotlin.core.entities.Trade
+import com.kotlin.core.domain.entities.Trade
 
 interface DbInterface {
 

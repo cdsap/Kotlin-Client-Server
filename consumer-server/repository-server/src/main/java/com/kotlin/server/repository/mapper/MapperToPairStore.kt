@@ -1,6 +1,6 @@
 package com.kotlin.server.repository.mapper
 
-import com.kotlin.core.mapper.Mapper
+import com.kotlin.core.domain.entities.mapper.Mapper
 import com.kotlin.server.repository.api.entities.PairInfo
 import com.kotlin.server.repository.database.PairStore
 

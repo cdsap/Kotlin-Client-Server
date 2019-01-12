@@ -1,7 +1,7 @@
 package com.kotlin.client.repository.api
 
 import com.google.gson.*
-import com.kotlin.core.entities.Market
+import com.kotlin.core.domain.entities.Market
 import java.lang.reflect.Type
 
 class MarketDeserializer : JsonDeserializer<MarketOverall> {

@@ -3,9 +3,9 @@ package com.kotlin.client.repository
 import com.kotlin.client.repository.database.DbInterface
 import com.kotlin.client.repository.database.TradeDb
 import com.kotlin.client.repository.api.BxApi
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.entities.Trades
-import com.kotlin.core.repository.TradesRepository
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.Trades
+import com.kotlin.core.domain.entities.repository.TradesRepository
 
 
 class GetTradesRepositoryImpl(private val db: DbInterface,

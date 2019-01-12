@@ -1,8 +1,8 @@
 package com.kotlin.server.repository
 
-import com.kotlin.core.entities.Market
-import com.kotlin.core.entities.Trades
-import com.kotlin.core.repository.SyncRepository
+import com.kotlin.core.domain.entities.Market
+import com.kotlin.core.domain.entities.Trades
+import com.kotlin.core.domain.entities.repository.SyncRepository
 import com.kotlin.server.repository.api.BxApi
 import com.kotlin.server.repository.database.*
 import com.kotlin.server.repository.mapper.MapperToPairStore

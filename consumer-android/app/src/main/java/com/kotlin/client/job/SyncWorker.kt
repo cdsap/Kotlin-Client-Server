@@ -1,10 +1,9 @@
 package com.kotlin.client.job
 
 import android.content.Context
-import androidx.work.Result
 import androidx.work.Worker
 import androidx.work.WorkerParameters
-import com.kotlin.core.usecases.GetPairs
+import com.kotlin.core.domain.entities.usecases.GetPairs
 
 class SyncWorker(context: Context,
                  workerParams: WorkerParameters,

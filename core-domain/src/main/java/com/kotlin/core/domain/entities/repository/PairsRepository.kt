@@ -1,6 +1,6 @@
-package com.kotlin.core.repository
+package com.kotlin.core.domain.entities.repository
 
-import com.kotlin.core.entities.PairSymbol
+import com.kotlin.core.domain.entities.PairSymbol
 
 interface PairsRepository {
     fun getPairs(): List<PairSymbol>

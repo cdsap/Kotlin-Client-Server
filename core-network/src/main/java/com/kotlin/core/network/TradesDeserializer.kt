@@ -1,8 +1,8 @@
 package com.kotlin.core.network
 
 import com.google.gson.*
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.Trades
 import java.lang.reflect.Type
 
 class TradesDeserializer : JsonDeserializer<Trades> {

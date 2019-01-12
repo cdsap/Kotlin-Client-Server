@@ -1,10 +1,10 @@
 package com.kotlin.server.repository.domain;
 
-import com.kotlin.core.entities.PairSymbol
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.entities.Trades
-import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.repository.TradesRepository
+import com.kotlin.core.domain.entities.PairSymbol
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.Trades
+import com.kotlin.core.domain.entities.repository.PairsRepository
+import com.kotlin.core.domain.entities.repository.TradesRepository
 import com.nhaarman.mockitokotlin2.*
 import io.kotlintest.specs.BehaviorSpec
 

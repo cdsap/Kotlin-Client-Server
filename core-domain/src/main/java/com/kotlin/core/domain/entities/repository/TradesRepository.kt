@@ -1,7 +1,7 @@
-package com.kotlin.core.repository
+package com.kotlin.core.domain.entities.repository
 
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.Trades
 
 interface TradesRepository {
     fun getTradesRemote(id: Long): Trades

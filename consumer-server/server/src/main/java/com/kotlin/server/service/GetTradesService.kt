@@ -1,7 +1,7 @@
 package com.kotlin.server.service
 
-import com.kotlin.core.entities.Trades
-import com.kotlin.core.usecases.GetTrades
+import com.kotlin.core.domain.entities.Trades
+import com.kotlin.core.domain.entities.usecases.GetTrades
 import javax.inject.Inject
 
 

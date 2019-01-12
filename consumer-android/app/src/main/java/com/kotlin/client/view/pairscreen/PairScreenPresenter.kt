@@ -1,7 +1,7 @@
 package com.kotlin.client.view.pairscreen
 
-import com.kotlin.core.entities.PairSymbol
-import com.kotlin.core.usecases.GetPairs
+import com.kotlin.core.domain.entities.PairSymbol
+import com.kotlin.core.domain.entities.usecases.GetPairs
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import javax.inject.Inject

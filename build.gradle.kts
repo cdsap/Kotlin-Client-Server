@@ -13,7 +13,7 @@ buildscript {
         classpath(Dependencies.appengineGradle)
         classpath(Dependencies.kotlinGradle)
         classpath(Dependencies.androidGradle)
-        classpath("de.mannodermaus.gradle.plugins:android-junit5:1.3.1.1")
+        classpath(Dependencies.androidJunit5)
     }
 }
 allprojects {

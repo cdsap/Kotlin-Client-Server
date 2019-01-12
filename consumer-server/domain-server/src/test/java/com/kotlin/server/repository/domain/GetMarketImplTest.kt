@@ -1,6 +1,6 @@
 package com.kotlin.server.repository.domain
 
-import com.kotlin.core.repository.SyncRepository
+import com.kotlin.core.domain.entities.repository.SyncRepository
 import com.nhaarman.mockitokotlin2.*
 import io.kotlintest.specs.BehaviorSpec
 

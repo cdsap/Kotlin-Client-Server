@@ -5,7 +5,7 @@ import androidx.work.ListenableWorker
 import androidx.work.Worker
 import androidx.work.WorkerFactory
 import androidx.work.WorkerParameters
-import com.kotlin.core.usecases.GetPairs
+import com.kotlin.core.domain.entities.usecases.GetPairs
 import java.lang.reflect.Constructor
 
 class DaggerWorkerFactory(private val syncTrades: GetPairs) : WorkerFactory() {

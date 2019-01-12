@@ -1,6 +1,6 @@
 package com.kotlin.server.repository.api
 
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Trades
 import com.kotlin.server.repository.api.entities.PairsInfo
 import retrofit2.Call
 import retrofit2.http.GET

@@ -1,7 +1,7 @@
 package com.kotlin.server.repository.mapper
 
-import com.kotlin.core.entities.PairSymbol
-import com.kotlin.core.mapper.Mapper
+import com.kotlin.core.domain.entities.PairSymbol
+import com.kotlin.core.domain.entities.mapper.Mapper
 import com.kotlin.server.repository.database.PairStore
 
 class MapperToPairSymbol : Mapper<PairStore, PairSymbol> {

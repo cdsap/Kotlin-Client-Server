@@ -1,8 +1,8 @@
 package com.kotlin.client.view.tradescreen
 
 
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.usecases.GetTrades
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.usecases.GetTrades
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import javax.inject.Inject

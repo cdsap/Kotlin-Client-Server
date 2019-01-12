@@ -6,10 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kotlin.client.R
 import com.kotlin.client.view.tradescreen.TradesActivity
-
-import com.kotlin.core.entities.PairSymbol
-import dagger.android.AndroidInjection
 import kotlinx.android.synthetic.main.activity_pairs.*
+import com.kotlin.core.domain.entities.PairSymbol
+import dagger.android.AndroidInjection
 import kotlinx.coroutines.*
 import javax.inject.Inject
 import kotlin.coroutines.CoroutineContext
@@ -40,6 +39,7 @@ class PairScreenActivity : AppCompatActivity(), PairScreenPresenter.ScreenView,
         recycler.adapter = adapter
         recycler.layoutManager = LinearLayoutManager(this)
         presenter.initView(this)
+        swipe.isRefreshing = true
         swipe.setOnRefreshListener {
             swipe.isRefreshing = true
             refresh()

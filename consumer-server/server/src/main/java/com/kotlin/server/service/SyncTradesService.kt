@@ -1,6 +1,6 @@
 package com.kotlin.server.service
 
-import com.kotlin.core.usecases.SyncTrades
+import com.kotlin.core.domain.entities.usecases.SyncTrades
 import javax.inject.Inject
 
 

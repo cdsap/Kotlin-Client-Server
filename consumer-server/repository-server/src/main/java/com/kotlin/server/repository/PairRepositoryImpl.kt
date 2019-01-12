@@ -1,8 +1,8 @@
 package com.kotlin.server.repository
 
 
-import com.kotlin.core.entities.PairSymbol
-import com.kotlin.core.repository.PairsRepository
+import com.kotlin.core.domain.entities.PairSymbol
+import com.kotlin.core.domain.entities.repository.PairsRepository
 import com.kotlin.server.repository.api.BxApi
 import com.kotlin.server.repository.database.DbInterface
 import com.kotlin.server.repository.mapper.MapperToPairStore

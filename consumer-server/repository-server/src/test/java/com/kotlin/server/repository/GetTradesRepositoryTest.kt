@@ -1,11 +1,9 @@
 package com.kotlin.server.repository
 
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.Trades
 import com.kotlin.server.repository.api.BxApi
 import com.kotlin.server.repository.database.DbInterface
-import com.kotlin.server.repository.database.PairStore
-import com.nhaarman.mockitokotlin2.argThat
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.verify
 import com.nhaarman.mockitokotlin2.whenever

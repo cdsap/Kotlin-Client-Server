@@ -1,9 +1,9 @@
-package com.kotlin.core.usecases.impl
+package com.kotlin.core.domain.entities.usecases.impl
 
 
-import com.kotlin.core.entities.Trades
-import com.kotlin.core.repository.TradesRepository
-import com.kotlin.core.usecases.GetTrades
+import com.kotlin.core.domain.entities.Trades
+import com.kotlin.core.domain.entities.repository.TradesRepository
+import com.kotlin.core.domain.entities.usecases.GetTrades
 
 
 class GetTradesImpl(private val tradesRepository: TradesRepository)

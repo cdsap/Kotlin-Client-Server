@@ -1,8 +1,8 @@
 package com.kotlin.client.repository.mapper
 
 import com.kotlin.client.repository.database.PairDb
-import com.kotlin.core.entities.Market
-import com.kotlin.core.mapper.Mapper
+import com.kotlin.core.domain.entities.Market
+import com.kotlin.core.domain.entities.mapper.Mapper
 
 class MapperToPairDb : Mapper<Market, PairDb> {
     override fun transform(origin: Market): PairDb {

@@ -1,11 +1,11 @@
 package com.kotlin.client.di
 
-import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.repository.TradesRepository
-import com.kotlin.core.usecases.GetPairs
-import com.kotlin.core.usecases.GetTrades
-import com.kotlin.core.usecases.impl.GetPairsImpl
-import com.kotlin.core.usecases.impl.GetTradesImpl
+import com.kotlin.core.domain.entities.repository.PairsRepository
+import com.kotlin.core.domain.entities.repository.TradesRepository
+import com.kotlin.core.domain.entities.usecases.GetPairs
+import com.kotlin.core.domain.entities.usecases.GetTrades
+import com.kotlin.core.domain.entities.usecases.impl.GetPairsImpl
+import com.kotlin.core.domain.entities.usecases.impl.GetTradesImpl
 import dagger.Module
 import dagger.Provides
 

@@ -1,9 +1,8 @@
 package com.kotlin.server.repository.domain
 
-import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.repository.TradesRepository
-import com.kotlin.core.usecases.SyncTrades
-import javax.inject.Inject
+import com.kotlin.core.domain.entities.repository.PairsRepository
+import com.kotlin.core.domain.entities.repository.TradesRepository
+import com.kotlin.core.domain.entities.usecases.SyncTrades
 
 
 class SyncTradesImpl(

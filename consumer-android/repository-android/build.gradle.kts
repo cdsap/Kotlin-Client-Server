@@ -24,7 +24,8 @@ collectUnitTest()
 
 
 dependencies {
-    api(project(":core-domain"))
+    implementation(project(":core-domain"))
+    implementation(project(":core-network"))
     implementation(Dependencies.dagger)
     kapt(Dependencies.roomCompiler)
     kapt(Dependencies.daggerCompiler)

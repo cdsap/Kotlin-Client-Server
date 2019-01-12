@@ -1,7 +1,7 @@
 package com.kotlin.client.repository.api
 
-import com.kotlin.core.entities.Market
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Market
+import com.kotlin.core.domain.entities.Trades
 import retrofit2.Retrofit
 
 class BxApiImpl(retrofit: Retrofit) : BxApi {

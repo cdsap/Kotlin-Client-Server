@@ -9,10 +9,10 @@ import com.kotlin.client.repository.PairRepositoryImpl
 import com.kotlin.client.repository.api.BxApi
 import com.kotlin.client.repository.api.BxApiImpl
 import com.kotlin.client.repository.api.MarketOverall
-import com.kotlin.core.entities.Trades
+import com.kotlin.core.domain.entities.Trades
 import com.kotlin.core.network.TradesDeserializer
-import com.kotlin.core.repository.PairsRepository
-import com.kotlin.core.repository.TradesRepository
+import com.kotlin.core.domain.entities.repository.PairsRepository
+import com.kotlin.core.domain.entities.repository.TradesRepository
 import dagger.Module
 import dagger.Provides
 import retrofit2.Converter

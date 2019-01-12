@@ -1,7 +1,7 @@
-package com.kotlin.core.usecases.impl;
+package com.kotlin.core.domain.entities.usecases.impl;
 
-import com.kotlin.core.entities.PairSymbol
-import com.kotlin.core.repository.PairsRepository
+import com.kotlin.core.domain.entities.PairSymbol
+import com.kotlin.core.domain.entities.repository.PairsRepository
 import com.nhaarman.mockitokotlin2.mock
 import com.nhaarman.mockitokotlin2.never
 import com.nhaarman.mockitokotlin2.verify

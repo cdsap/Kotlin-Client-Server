@@ -6,7 +6,7 @@ object Versions {
     val endpoints = "2.0.3"
     val javax_servlet = "2.5"
     val javax_inject = "1"
-    val dagger = "2.20"
+    val dagger = "2.19"
     val retrofit = "2.3.0"
     val gson = "2.7"
     val objectify = "6.0.2"
@@ -17,6 +17,8 @@ object Versions {
     val mockito = "1.5.0"
     val kotlinTest = "3.1.11"
     val mockitoKotlin = "2.0.0-RC1"
+    val jetifier = "1.0.0-beta02"
+    val androidJunit5 = "1.3.1.1"
 }
 
 object Dependencies {
@@ -52,5 +54,7 @@ object Dependencies {
     val mockito = "com.nhaarman:mockito-kotlin:${Versions.mockito}"
     val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
     val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
+    val jetifierProcessor = "com.android.tools.build.jetifier:jetifier-processor:${Versions.jetifier}"
+    val androidJunit5 = "de.mannodermaus.gradle.plugins:android-junit5:${Versions.androidJunit5}"
 
 }

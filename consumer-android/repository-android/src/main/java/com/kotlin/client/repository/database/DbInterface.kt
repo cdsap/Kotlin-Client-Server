@@ -14,7 +14,8 @@ interface  DbInterface {
     @Update
     fun updatePair(pair: PairDb)
 
-    @Insert
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun insertPair(pair: PairDb): Long
 
     @Query("Select * FROM PairDb")

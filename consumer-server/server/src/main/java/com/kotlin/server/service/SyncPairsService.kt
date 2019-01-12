@@ -1,6 +1,6 @@
 package com.kotlin.server.service
 
-import com.kotlin.core.usecases.GetPairs
+import com.kotlin.core.domain.entities.usecases.GetPairs
 import javax.inject.Inject
 
 

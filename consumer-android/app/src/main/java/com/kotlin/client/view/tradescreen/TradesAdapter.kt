@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.kotlin.client.R
-import com.kotlin.core.entities.Trade
+import com.kotlin.core.domain.entities.Trade
 
 class TradesAdapter(private val trades: List<Trade>) :
         RecyclerView.Adapter<TradesAdapter.TradesViewHolder>() {

@@ -1,8 +1,8 @@
 package com.kotlin.server.repository
 
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.entities.Trades
-import com.kotlin.core.repository.TradesRepository
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.Trades
+import com.kotlin.core.domain.entities.repository.TradesRepository
 import com.kotlin.server.repository.api.BxApi
 import com.kotlin.server.repository.database.DbInterface
 import com.kotlin.server.repository.mapper.MapperToTradeStore

@@ -21,7 +21,7 @@ android {
             }
         }
         multiDexEnabled = true
-        buildConfigField("String", "URL", "\"http://10.0.2.2:8080/\"")
+        buildConfigField("String", "URL", "ENDPOINT_GAE")
     }
     buildTypes {
     }
@@ -41,7 +41,8 @@ android {
 }
 
 dependencies {
-    api(project(":consumer-android:repository-android"))
+    implementation(project(":consumer-android:repository-android"))
+    implementation(project(":core-domain"))
     implementation(Dependencies.supportAppcompat)
     implementation(Dependencies.supportRecycler)
     implementation(Dependencies.supportCardView)
@@ -52,6 +53,7 @@ dependencies {
     implementation(Dependencies.javaxInject)
     kapt(Dependencies.daggerProcessor)
     kapt(Dependencies.daggerCompiler)
+    kapt("com.android.tools.build.jetifier:jetifier-core:1.0.0-beta02")
     implementation(Dependencies.daggerAndroid)
     implementation(Dependencies.kotlin)
     androidTestImplementation(Dependencies.mockitoKotlin)

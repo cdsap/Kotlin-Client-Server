@@ -1,6 +1,6 @@
 package com.kotlin.client.di.worker
 
-import com.kotlin.core.usecases.GetPairs
+import com.kotlin.core.domain.entities.usecases.GetPairs
 import dagger.Module
 import dagger.Provides
 

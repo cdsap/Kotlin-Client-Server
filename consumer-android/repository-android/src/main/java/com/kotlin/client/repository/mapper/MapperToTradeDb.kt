@@ -1,8 +1,8 @@
 package com.kotlin.client.repository.mapper
 
 import com.kotlin.client.repository.database.TradeDb
-import com.kotlin.core.entities.Trade
-import com.kotlin.core.mapper.Mapper
+import com.kotlin.core.domain.entities.Trade
+import com.kotlin.core.domain.entities.mapper.Mapper
 
 class MapperToTradeDb : Mapper<Trade, TradeDb> {
     override fun transform(origin: Trade): TradeDb {
