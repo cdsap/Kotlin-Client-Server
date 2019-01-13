@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
-    <application>kotlin-client-server</application>
-    <version>1</version>
+    <application>YOUR_GAE_PROJECT_IDr</application>
+    <version>2</version>
     <threadsafe>true</threadsafe>
     <runtime>java8</runtime>
 </appengine-web-app>

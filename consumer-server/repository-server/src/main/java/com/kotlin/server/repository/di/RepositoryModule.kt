@@ -83,7 +83,7 @@ class RepositoryModule {
         } else {
             val dataStore = DatastoreOptions.newBuilder()
                     .setHost("http://localhost:8081")
-                    .setProjectId("kotlin-client-server")
+                    .setProjectId("YOUR_GAE_PROJECT_ID")
                     .build()
                     .service
             ObjectifyService.init(ObjectifyFactory(dataStore))

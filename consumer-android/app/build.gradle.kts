@@ -21,7 +21,7 @@ android {
             }
         }
         multiDexEnabled = true
-        buildConfigField("String", "URL", "\"ENDPOINT_GAE\"")
+        buildConfigField("String", "URL", "\"YOUR_GAE_ENDPOINT_PROJECT\"")
     }
     buildTypes {
     }
@@ -49,11 +49,10 @@ dependencies {
     implementation(Dependencies.workManager)
     implementation(Dependencies.coroutinesCore)
     implementation(Dependencies.coroutinesAndroid)
-    implementation(Dependencies.supportV4)
     implementation(Dependencies.javaxInject)
     kapt(Dependencies.daggerProcessor)
     kapt(Dependencies.daggerCompiler)
-    kapt("com.android.tools.build.jetifier:jetifier-core:1.0.0-beta02")
+    kapt(Dependencies.jetifierCore)
     implementation(Dependencies.daggerAndroid)
     implementation(Dependencies.kotlin)
     androidTestImplementation(Dependencies.mockitoKotlin)

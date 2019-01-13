@@ -52,7 +52,7 @@ class EndPoint {
     fun getMarket() = getMarketService.getMarket()
 
     companion object {
-        const val BASE_URL = "https://kotlin-client-server.appspot.com/"
+        const val BASE_URL = "YOUR_GAE_ENDPOINT_PROJECT"
         const val VERSION = "v2"
         const val ENDPOINT = "api"
 

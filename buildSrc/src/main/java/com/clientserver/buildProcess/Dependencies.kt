@@ -46,7 +46,6 @@ object Dependencies {
     val supportAppcompat = "androidx.appcompat:appcompat:${Versions.supportLibrary}"
     val supportRecycler = "androidx.recyclerview:recyclerview:${Versions.supportLibrary}"
     val supportCardView = "androidx.cardview:cardview:${Versions.supportLibrary}"
-    val supportV4 = "androidx.legacy:legacy-support-v4:${Versions.supportLibrary}"
     val coroutinesCore = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
     val coroutinesAndroid = "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
     val roomRuntime = "android.arch.persistence.room:runtime:${Versions.archComponents}"
@@ -55,6 +54,7 @@ object Dependencies {
     val kotlinTest = "io.kotlintest:kotlintest-runner-junit5:${Versions.kotlinTest}"
     val mockitoKotlin = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.mockitoKotlin}"
     val jetifierProcessor = "com.android.tools.build.jetifier:jetifier-processor:${Versions.jetifier}"
+    val jetifierCore = "com.android.tools.build.jetifier:jetifier-core:${Versions.jetifier}"
     val androidJunit5 = "de.mannodermaus.gradle.plugins:android-junit5:${Versions.androidJunit5}"
 
 }
