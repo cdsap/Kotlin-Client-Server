@@ -1,10 +1,11 @@
 # Example Kotlin App Engine / Android
-Repository based in this [article](https://medium.com/p/c2db393e576e/edit) and presentations in [Droidcon Vietnam](https://speakerdeck.com/cdsap/kotlin-server-client) and [Droidcon Dubai](https://speakerdeck.com/cdsap/droidcon-dubai-kotlin-server-client)
+[Second Part](https://medium.com/@inyaki_mwc/android-and-app-engine-with-kotlin-2nd-part-96e5472cfd7a)
+[First Part](https://medium.com/p/c2db393e576e)
 
 # What includes?
 - Simple client in Android with Kotin
 - Server side in App Engine with Kotlin
-- Additional module to include uses cases and domain entities
+- Additional module to include uses cases, implementations and domain entities
 
 # Usage
 
